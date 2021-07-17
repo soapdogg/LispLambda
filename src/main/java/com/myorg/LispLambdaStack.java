@@ -48,11 +48,5 @@ public class LispLambdaStack extends Stack {
                 .build())
             .build();
 
-        final Function hello = Function.Builder.create(this, "HelloHandler")
-            .runtime(Runtime.NODEJS_10_X)
-            .functionName("LispLambdaHello")
-            .code(Code.fromAsset("lambda"))
-            .handler("hello.handler")
-            .build();
     }
 }
