@@ -11,6 +11,8 @@ import software.amazon.awscdk.services.codepipeline.Artifact;
 import software.amazon.awscdk.services.codepipeline.actions.GitHubSourceAction;
 import software.amazon.awscdk.services.codepipeline.actions.GitHubTrigger;
 
+import java.util.Collections;
+
 public class LispLambdaStack extends Stack {
     public LispLambdaStack(final Construct scope, final String id) {
         this(scope, id, null);
@@ -33,14 +35,13 @@ public class LispLambdaStack extends Stack {
                 .owner("soapdogg")
                 .repo("LispLambda")
                 .build())
-            .synthAction(SimpleSynthAction.standardNpmSynth(
-                StandardNpmSynthOptions.builder()
-                    .sourceArtifact(sourceArtifact)
-                    .cloudAssemblyArtifact(cloudAssemblyArtifact)
-                    .installCommand("npm install -g aws-cdk")
-                    .buildCommand("mvn package")
-                    .synthCommand("cdk synth")
-                    .build()))
+            .synthAction(SimpleSynthAction.Builder.create()
+                .sourceArtifact(sourceArtifact)
+                .cloudAssemblyArtifact(cloudAssemblyArtifact)
+                .installCommands(Collections.singletonList("npm install -g aws-cdk"))
+                .buildCommands(Collections.singletonList("mvn package"))
+                .synthCommand("cdk synth")
+                .build())
             .build();
     }
 }
