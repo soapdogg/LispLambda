@@ -1,6 +1,7 @@
 package com.myorg;
 
 import software.amazon.awscdk.core.Construct;
+import software.amazon.awscdk.core.Duration;
 import software.amazon.awscdk.core.SecretValue;
 import software.amazon.awscdk.core.Stack;
 import software.amazon.awscdk.core.StackProps;
@@ -47,6 +48,16 @@ public class LispLambdaStack extends Stack {
                 .synthCommand("cdk synth")
                 .build())
             .build();
+
+        FunctionProps lispLambdaFunctionProps = FunctionProps.builder()
+            .functionName("LispInterpreter")
+            .code(Code.fromAsset("target/lisp_lambda-0.1.jar"))
+            .handler("LispRequestHandlerWrapper.handleRequest")
+            .runtime(Runtime.JAVA_11)
+            .memorySize(256)
+            .timeout(Duration.seconds(300))
+            .build();
+        new Function(this, "LispInterpreter", lispLambdaFunctionProps);
 
     }
 }
