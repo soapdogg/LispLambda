@@ -10,6 +10,10 @@ import software.amazon.awscdk.pipelines.StandardNpmSynthOptions;
 import software.amazon.awscdk.services.codepipeline.Artifact;
 import software.amazon.awscdk.services.codepipeline.actions.GitHubSourceAction;
 import software.amazon.awscdk.services.codepipeline.actions.GitHubTrigger;
+import software.amazon.awscdk.services.lambda.Code;
+import software.amazon.awscdk.services.lambda.Function;
+import software.amazon.awscdk.services.lambda.FunctionProps;
+import software.amazon.awscdk.services.lambda.Runtime;
 
 import java.util.Collections;
 
@@ -42,6 +46,13 @@ public class LispLambdaStack extends Stack {
                 .buildCommands(Collections.singletonList("mvn package"))
                 .synthCommand("cdk synth")
                 .build())
+            .build();
+
+        final Function hello = Function.Builder.create(this, "HelloHandler")
+            .runtime(Runtime.NODEJS_10_X)
+            .functionName("LispLambdaHello")
+            .code(Code.fromAsset("lambda"))
+            .handler("hello.handler")
             .build();
     }
 }
