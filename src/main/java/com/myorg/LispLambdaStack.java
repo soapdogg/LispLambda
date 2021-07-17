@@ -52,7 +52,7 @@ public class LispLambdaStack extends Stack {
         FunctionProps lispLambdaFunctionProps = FunctionProps.builder()
             .functionName("LispInterpreter")
             .code(Code.fromAsset("target/lisp_lambda-0.1.jar"))
-            .handler("LispRequestHandlerWrapper.handleRequest")
+            .handler("lambda.requesthandlerwrapper.LispRequestHandlerWrapper")
             .runtime(Runtime.JAVA_11)
             .memorySize(256)
             .timeout(Duration.seconds(300))
