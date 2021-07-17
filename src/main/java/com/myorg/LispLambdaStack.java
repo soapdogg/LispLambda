@@ -30,7 +30,7 @@ public class LispLambdaStack extends Stack {
             .sourceAction(GitHubSourceAction.Builder.create()
                 .actionName("GitHub")
                 .output(sourceArtifact)
-                .oauthToken(SecretValue.secretsManager("GITHUB_TOKEN_NAME"))
+                .oauthToken(SecretValue.secretsManager("LispLambdaStackGithubToken"))
                 .trigger(GitHubTrigger.POLL)
                 .owner("soapdogg")
                 .repo("LispLambda")
