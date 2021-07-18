@@ -3,14 +3,14 @@ package lambda.tokenizer
 import lambda.constants.TokenValueConstants
 import lambda.datamodels.Token
 
-class LineTokenizer (
+class InputTokenizer (
     private val wordTokenizer: WordTokenizer
 ){
 
-    fun tokenizeLine(
-        line: String
+    fun tokenizeInput(
+        input: String
     ): List<Token> {
-        val trimmedLine = line.trim { it <= ' ' }
+        val trimmedLine = input.trim { it <= ' ' }
         val words = trimmedLine.split(TokenValueConstants.WHITE_SPACE_PATTERN.toRegex())
         return words.map {
             word -> wordTokenizer.tokenizeWord(word)

@@ -1,6 +1,6 @@
 package lambda.singleton
 
-import lambda.tokenizer.LineTokenizer
+import lambda.tokenizer.InputTokenizer
 import lambda.tokenizer.Tokenizer
 import lambda.tokenizer.WordTokenizer
 
@@ -12,16 +12,16 @@ enum class TokenizerSingleton {
         DeterminerSingleton.INSTANCE.numericTokenValueEndIndexDeterminer,
         DeterminerSingleton.INSTANCE.literalTokenValueEndIndexDeterminer
     )
-    val lineTokenizer: LineTokenizer
+    val inputTokenizer: InputTokenizer
     val tokenizer: Tokenizer
 
     init {
-        lineTokenizer = LineTokenizer(
+        inputTokenizer = InputTokenizer(
             wordTokenizer
         )
         tokenizer = Tokenizer(
-            AsserterSingleton.INSTANCE.lineFormatAsserter,
-            lineTokenizer
+            AsserterSingleton.INSTANCE.inputFormatAsserter,
+            inputTokenizer
         )
     }
 }

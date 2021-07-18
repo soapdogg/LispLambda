@@ -37,7 +37,7 @@ enum class AsserterSingleton {
     val userDefinedFormalParametersAsserter: UserDefinedFormalParametersAsserter
     val userDefinedFunctionNameAsserter: UserDefinedFunctionNameAsserter
     val atomRootNodeAsserter: AtomRootNodeAsserter
-    val lineFormatAsserter: LineFormatAsserter
+    val inputFormatAsserter: InputFormatAsserter
 
     init {
         userDefinedFormalParametersAsserter = UserDefinedFormalParametersAsserter(
@@ -49,7 +49,7 @@ enum class AsserterSingleton {
         atomRootNodeAsserter = AtomRootNodeAsserter(
             DeterminerSingleton.INSTANCE.numericStringDeterminer
         )
-        lineFormatAsserter = LineFormatAsserter(
+        inputFormatAsserter = InputFormatAsserter(
             TokenValueConstants.ERROR_STATE_PATTERN
         )
     }

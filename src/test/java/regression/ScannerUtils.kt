@@ -11,13 +11,13 @@ object ScannerUtils {
         return Scanner(Paths.get(programFilePath))
     }
 
-    fun transformScannerInputToLines(
+    fun transformScannerInputToLispInput(
         scanner: Scanner
-    ): List<String> {
+    ): String {
         return StreamSupport.stream(
             Spliterators.spliteratorUnknownSize(scanner, Spliterator.ORDERED),
             true
-        ).toList()
+        ).toList().joinToString(separator = " ")
     }
 
     fun scanExpected(expectedFile: String): String {

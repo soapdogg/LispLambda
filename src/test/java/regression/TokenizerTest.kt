@@ -72,8 +72,8 @@ class TokenizerTest {
             val tokenizer = TokenizerSingleton.INSTANCE.tokenizer
             val actual = try {
                 val `in` = getScannerFromFilePath(programFile)
-                val lines = ScannerUtils.transformScannerInputToLines(`in`)
-                val tokens = tokenizer.tokenize(lines)
+                val input = ScannerUtils.transformScannerInputToLispInput(`in`)
+                val tokens = tokenizer.tokenize(input)
                 val processedTokensResult = processTokens(tokens)
                 getTokenizedResults(
                     processedTokensResult

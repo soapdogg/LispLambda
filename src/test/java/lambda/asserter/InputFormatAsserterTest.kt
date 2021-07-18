@@ -5,28 +5,28 @@ import lambda.exceptions.InvalidTokenException
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
-class LineFormatAsserterTest {
-    private val lineFormatAsserter = LineFormatAsserter(
+class InputFormatAsserterTest {
+    private val lineFormatAsserter = InputFormatAsserter(
         TokenValueConstants.ERROR_STATE_PATTERN
     )
 
     @Test
     fun lineAsserterDoesNotThrowTest() {
-        Assertions.assertDoesNotThrow { lineFormatAsserter.assertLineFormat("") }
-        Assertions.assertDoesNotThrow { lineFormatAsserter.assertLineFormat("2132132") }
-        Assertions.assertDoesNotThrow { lineFormatAsserter.assertLineFormat("\tASW 34324 AS() ") }
+        Assertions.assertDoesNotThrow { lineFormatAsserter.assertInputFormat("") }
+        Assertions.assertDoesNotThrow { lineFormatAsserter.assertInputFormat("2132132") }
+        Assertions.assertDoesNotThrow { lineFormatAsserter.assertInputFormat("\tASW 34324 AS() ") }
     }
 
     @Test
     fun lineAsserterDoesThrowTest() {
         Assertions.assertThrows(
             InvalidTokenException::class.java
-        ) { lineFormatAsserter.assertLineFormat("23432DFD") }
+        ) { lineFormatAsserter.assertInputFormat("23432DFD") }
         Assertions.assertThrows(
             InvalidTokenException::class.java
-        ) { lineFormatAsserter.assertLineFormat("2132132 343SDF") }
+        ) { lineFormatAsserter.assertInputFormat("2132132 343SDF") }
         Assertions.assertThrows(
             InvalidTokenException::class.java
-        ) { lineFormatAsserter.assertLineFormat("\tASW 34324P AS() ") }
+        ) { lineFormatAsserter.assertInputFormat("\tASW 34324P AS() ") }
     }
 }

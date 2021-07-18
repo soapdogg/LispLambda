@@ -110,8 +110,8 @@ class UserDefinedTest {
             val interpreter = InterpreterSingleton.INSTANCE.interpreter
             val actual = try {
                 val `in` = getScannerFromFilePath(programFile)
-                val lines = ScannerUtils.transformScannerInputToLines(`in`)
-                interpreter.interpret(lines)
+                val input = ScannerUtils.transformScannerInputToLispInput(`in`)
+                interpreter.interpret(input)
             } catch (e: Exception) {
                 e.message.toString()
             }

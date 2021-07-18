@@ -4,11 +4,11 @@ import lambda.exceptions.InvalidTokenException
 
 import java.util.regex.Pattern
 
-class LineFormatAsserter(
+class InputFormatAsserter(
     private val errorStatePattern: Pattern
 ) {
 
-    fun assertLineFormat(line: String) {
+    fun assertInputFormat(line: String) {
         val matcher = errorStatePattern.matcher(line)
         val hasErrorState = matcher.find()
         if (hasErrorState) {

@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test
 import org.mockito.Mockito
 
 class InterpreterTest {
-    private val lines = listOf<String>()
+    private val input = "input"
     private val tokenizer: Tokenizer = Mockito.mock(Tokenizer::class.java)
     private val rootParser: RootParser = Mockito.mock(RootParser::class.java)
     private val program: ProgramEvaluator = Mockito.mock(ProgramEvaluator::class.java)
@@ -33,7 +33,7 @@ class InterpreterTest {
     @Test
     fun interpretTest() {
         val tokens: List<Token> = listOf()
-        Mockito.`when`(tokenizer.tokenize(lines)).thenReturn(tokens)
+        Mockito.`when`(tokenizer.tokenize(input)).thenReturn(tokens)
 
         val rootNodes= listOf<NodeV2>()
         Mockito.`when`(rootParser.parse(tokens)).thenReturn(rootNodes)
@@ -69,7 +69,7 @@ class InterpreterTest {
         val value = "value"
         Mockito.`when`(listNotationPrinter.printInListNotation(evaluatedNodes)).thenReturn(value)
 
-        val actual = interpreter.interpret(lines)
+        val actual = interpreter.interpret(input)
         Assertions.assertEquals(value, actual)
     }
 }
