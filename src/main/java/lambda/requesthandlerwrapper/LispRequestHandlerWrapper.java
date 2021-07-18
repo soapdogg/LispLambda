@@ -13,10 +13,6 @@ public class LispRequestHandlerWrapper implements RequestHandler<String, Void> {
 
         logger.log("Body: " + s);
 
-        AtomNode a = new AtomNode(s);
-
-        logger.log("AtomNode.value " + a.getValue());
-
         return null;
     }
 }
