@@ -8,12 +8,9 @@ import org.mockito.Mockito
 import java.util.*
 
 class TokenizerTest {
-    private var scanner: Scanner = Scanner(System.`in`)
-    private var scannerToLineTransformer: ScannerToLineTransformer = Mockito.mock(ScannerToLineTransformer::class.java)
-    private var lineFormatAsserter: LineFormatAsserter = Mockito.mock(LineFormatAsserter::class.java)
-    private var lineTokenizer: LineTokenizer = Mockito.mock(LineTokenizer::class.java)
-    private var tokenizer: Tokenizer = Tokenizer(
-        scannerToLineTransformer,
+    private val lineFormatAsserter: LineFormatAsserter = Mockito.mock(LineFormatAsserter::class.java)
+    private val lineTokenizer: LineTokenizer = Mockito.mock(LineTokenizer::class.java)
+    private val tokenizer: Tokenizer = Tokenizer(
         lineFormatAsserter,
         lineTokenizer
     )
@@ -23,9 +20,6 @@ class TokenizerTest {
     fun tokenizerTest() {
         val line = "line"
         val lines = listOf(line)
-        Mockito.`when`(
-            scannerToLineTransformer.transformScannerInputToLines(scanner)
-        ).thenReturn(lines)
 
         val token = Mockito.mock(Token::class.java)
         val tokens = listOf(token)
@@ -33,7 +27,7 @@ class TokenizerTest {
             lineTokenizer.tokenizeLine(line)
         ).thenReturn(tokens)
 
-        val actual = tokenizer.tokenize(scanner)
+        val actual = tokenizer.tokenize(lines)
 
         Assertions.assertEquals(1, actual.size)
         Assertions.assertEquals(token, actual[0])

@@ -19,9 +19,9 @@ class Interpreter(
 ){
 
     fun interpret(
-        scanner: Scanner
+        lines: List<String>
     ): String {
-        val tokens = tokenizer.tokenize(scanner)
+        val tokens = tokenizer.tokenize(lines)
         val rootNodes = rootParser.parse(tokens)
 
         val partitionedRootNodes = rootNodePartitioner.partitionRootNodes(

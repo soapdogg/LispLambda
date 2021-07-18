@@ -76,7 +76,8 @@ class ParserTest {
             val dotNotationPrinter = PrinterSingleton.INSTANCE.dotNotationPrinter
             val actual = try {
                 val `in` = getScannerFromFilePath(programFile)
-                val tokens = tokenizer.tokenize(`in`)
+                val lines = ScannerUtils.transformScannerInputToLines(`in`)
+                val tokens = tokenizer.tokenize(lines)
                 val nodes = rootParser.parse(tokens)
                 dotNotationPrinter.printInDotNotation(nodes)
             } catch (e: Exception) {

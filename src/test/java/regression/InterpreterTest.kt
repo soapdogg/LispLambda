@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import regression.ScannerUtils.getScannerFromFilePath
 import regression.ScannerUtils.scanExpected
+import regression.ScannerUtils.transformScannerInputToLines
 
 class InterpreterTest {
     //ATOM TESTS
@@ -320,7 +321,8 @@ class InterpreterTest {
             val interpreter = InterpreterSingleton.INSTANCE.interpreter
             val actual = try {
                 val `in` = getScannerFromFilePath(programFile)
-                interpreter.interpret(`in`)
+                val lines = transformScannerInputToLines(`in`)
+                interpreter.interpret(lines)
             } catch (e: Exception) {
                 e.message.toString()
             }

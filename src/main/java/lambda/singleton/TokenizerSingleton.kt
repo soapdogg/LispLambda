@@ -1,14 +1,12 @@
 package lambda.singleton
 
 import lambda.tokenizer.LineTokenizer
-import lambda.tokenizer.ScannerToLineTransformer
 import lambda.tokenizer.Tokenizer
 import lambda.tokenizer.WordTokenizer
 
 enum class TokenizerSingleton {
     INSTANCE;
 
-    val scannerToLineTransformer: ScannerToLineTransformer = ScannerToLineTransformer()
     val wordTokenizer: WordTokenizer = WordTokenizer(
         GeneratorSingleton.INSTANCE.tokenGenerator,
         DeterminerSingleton.INSTANCE.numericTokenValueEndIndexDeterminer,
@@ -22,7 +20,6 @@ enum class TokenizerSingleton {
             wordTokenizer
         )
         tokenizer = Tokenizer(
-            scannerToLineTransformer,
             AsserterSingleton.INSTANCE.lineFormatAsserter,
             lineTokenizer
         )
