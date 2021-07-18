@@ -1,0 +1,2 @@
+Expected either an ATOM or OPEN token.
+Actual: CLOSE_TOKEN    Value: )
