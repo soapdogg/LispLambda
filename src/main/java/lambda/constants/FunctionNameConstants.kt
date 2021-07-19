@@ -16,5 +16,5 @@ object FunctionNameConstants {
     const val NULL = "NULL"
     const val PLUS = "+"
     const val QUOTE = "QUOTE"
-    const val TIMES = "TIMES"
+    const val TIMES = "*"
 }

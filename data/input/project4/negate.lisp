@@ -1,5 +1,5 @@
 (DEFUN NEGATE (X)
-    (TIMES X (- 0 1))
+    (* X (- 0 1))
 )
 
 (NEGATE (- 0 13))
