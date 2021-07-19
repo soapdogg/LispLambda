@@ -7,7 +7,7 @@ class LiteralTokenValueEndIndexDeterminer {
     ): Int {
         val wordLength = word.length
         val firstNonAlphaNumericIndex = IntRange(startingPos, wordLength - 1)
-            .firstOrNull { i: Int -> !Character.isAlphabetic(word[i].toInt()) && !Character.isDigit(word[i]) && word[i] != '+'}
+            .firstOrNull { i: Int -> !Character.isAlphabetic(word[i].toInt()) && !Character.isDigit(word[i]) && word[i] != '+' && word[i] != '-'}
         val endIndex = firstNonAlphaNumericIndex ?: Integer.MAX_VALUE
         return wordLength.coerceAtMost(endIndex)
     }

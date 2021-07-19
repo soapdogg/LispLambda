@@ -6,4 +6,4 @@
 (DIFF (+ 1 1) 4)
 (DIFF T NIL)
 (DIFF T T)
-(DIFF (TIMES (+ 1 3) 2) (MINUS 12 4))
+(DIFF (TIMES (+ 1 3) 2) (- 12 4))

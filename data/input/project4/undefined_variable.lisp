@@ -1,7 +1,7 @@
 (DEFUN FACTORIAL (X)
     (COND
         ((LESS X 1) 1)
-        (T (TIMES E (FACTORIAL (MINUS X 1))))
+        (T (TIMES E (FACTORIAL (- X 1))))
     )
 )
 
