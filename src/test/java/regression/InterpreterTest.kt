@@ -146,34 +146,8 @@ class InterpreterTest {
     }
 
     @Test
-    fun project3EqInvalid1Test() {
-        interpreterTest("data/input/project3/eq/invalid1.lisp", "data/expected/project3/eq/invalid1.txt")
-    }
-
-    @Test
-    fun project3EqInvalid2Test() {
-        interpreterTest("data/input/project3/eq/invalid2.lisp", "data/expected/project3/eq/invalid2.txt")
-    }
-
-    @Test
     fun project3EqInvalid3Test() {
         interpreterTest("data/input/project3/eq/invalid3.lisp", "data/expected/project3/eq/invalid3.txt")
-    }
-
-    //GREATER TESTS
-    @Test
-    fun project3GreaterInvalid1Test() {
-        interpreterTest("data/input/project3/greater/invalid1.lisp", "data/expected/project3/greater/invalid1.txt")
-    }
-
-    @Test
-    fun project3GreaterInvalid2Test() {
-        interpreterTest("data/input/project3/greater/invalid2.lisp", "data/expected/project3/greater/invalid2.txt")
-    }
-
-    @Test
-    fun project3GreaterInvalid3Test() {
-        interpreterTest("data/input/project3/greater/invalid3.lisp", "data/expected/project3/greater/invalid3.txt")
     }
 
     //INT TESTS
@@ -198,37 +172,6 @@ class InterpreterTest {
         interpreterTest("data/input/project3/less/valid.lisp", "data/expected/project3/less/valid.txt")
     }
 
-    @Test
-    fun project3LessInvalid1Test() {
-        interpreterTest("data/input/project3/less/invalid1.lisp", "data/expected/project3/less/invalid1.txt")
-    }
-
-    @Test
-    fun project3LessInvalid2Test() {
-        interpreterTest("data/input/project3/less/invalid2.lisp", "data/expected/project3/less/invalid2.txt")
-    }
-
-    @Test
-    fun project3LessInvalid3Test() {
-        interpreterTest("data/input/project3/less/invalid3.lisp", "data/expected/project3/less/invalid3.txt")
-    }
-
-    //MINUS TESTS
-    @Test
-    fun project3MinusInvalid1Test() {
-        interpreterTest("data/input/project3/minus/invalid1.lisp", "data/expected/project3/minus/invalid1.txt")
-    }
-
-    @Test
-    fun project3MinusInvalid2Test() {
-        interpreterTest("data/input/project3/minus/invalid2.lisp", "data/expected/project3/minus/invalid2.txt")
-    }
-
-    @Test
-    fun project3MinusInvalid3Test() {
-        interpreterTest("data/input/project3/minus/invalid3.lisp", "data/expected/project3/minus/invalid3.txt")
-    }
-
     //NULL TESTS
     @Test
     fun project3NullValidTest() {
@@ -251,56 +194,16 @@ class InterpreterTest {
         interpreterTest("data/input/project3/plus/valid.lisp", "data/expected/project3/plus/valid.txt")
     }
 
-    @Test
-    fun project3PlusInvalid1Test() {
-        interpreterTest("data/input/project3/plus/invalid1.lisp", "data/expected/project3/plus/invalid1.txt")
-    }
-
-    @Test
-    fun project3PlusInvalid2Test() {
-        interpreterTest("data/input/project3/plus/invalid2.lisp", "data/expected/project3/plus/invalid2.txt")
-    }
-
-    @Test
-    fun project3PlusInvalid3Test() {
-        interpreterTest("data/input/project3/plus/invalid3.lisp", "data/expected/project3/plus/invalid3.txt")
-    }
-
     //QUOTE TESTS
     @Test
     fun project3QuoteValidTest() {
         interpreterTest("data/input/project3/quote/valid.lisp", "data/expected/project3/quote/valid.txt")
     }
 
-    @Test
-    fun project3QuoteInvalid1Test() {
-        interpreterTest("data/input/project3/quote/invalid1.lisp", "data/expected/project3/quote/invalid1.txt")
-    }
-
-    @Test
-    fun project3QuoteInvalid2Test() {
-        interpreterTest("data/input/project3/quote/invalid2.lisp", "data/expected/project3/quote/invalid2.txt")
-    }
-
     //TIMES TESTS
     @Test
     fun project3TimesValidTest() {
         interpreterTest("data/input/project3/times/valid.lisp", "data/expected/project3/times/valid.txt")
-    }
-
-    @Test
-    fun project3TimesInvalid1Test() {
-        interpreterTest("data/input/project3/times/invalid1.lisp", "data/expected/project3/times/invalid1.txt")
-    }
-
-    @Test
-    fun project3TimesInvalid2Test() {
-        interpreterTest("data/input/project3/times/invalid2.lisp", "data/expected/project3/times/invalid2.txt")
-    }
-
-    @Test
-    fun project3TimesInvalid3Test() {
-        interpreterTest("data/input/project3/times/invalid3.lisp", "data/expected/project3/times/invalid3.txt")
     }
 
     companion object {

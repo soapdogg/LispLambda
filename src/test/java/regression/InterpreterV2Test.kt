@@ -2,7 +2,6 @@ package regression
 
 import lambda.singleton.InterpreterSingleton
 import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.aggregator.ArgumentsAccessor
 import org.junit.jupiter.params.provider.CsvSource
@@ -41,11 +40,53 @@ class InterpreterV2Test {
         "(* 3 34), 102",
         "(* (* 1 2) (* 2 (* 5 6))), 120"
     )
-    fun test(arguments: ArgumentsAccessor) {
+    fun validTest(arguments: ArgumentsAccessor) {
         val input = arguments.get(0).toString()
         val expected = arguments.get(1)
         val actual = interpreter.interpret(input).trim()
 
         Assertions.assertEquals(expected, actual)
+    }
+
+    @ParameterizedTest
+    @CsvSource(
+        //EQ tests
+        "(=), Error! Expected length of = list is 3!    Actual: 1",
+        "(= 23 T (CONS 23 1)), Error! Expected length of = list is 3!    Actual: 4",
+        //GREATER tests
+        "(>), Error! Expected length of > list is 3!    Actual: 1",
+        "(> 23 45 98 34), Error! Expected length of > list is 3!    Actual: 5",
+        "(> NIL 23), Error! Parameter at position: 1 of function > is not numeric!    Actual: NIL",
+        //LESS tests
+        "(<), Error! Expected length of < list is 3!    Actual: 1",
+        "(< 23 45 (CONS T 45) 34), Error! Expected length of < list is 3!    Actual: 5",
+        "(< () 23), Error! Parameter at position: 1 of function < is not numeric!    Actual: NIL",
+        //MINUS tests
+        "(-), Error! Expected length of - list is 3!    Actual: 1",
+        "(- 22 (CONS T 45) 34), Error! Expected length of - list is 3!    Actual: 4",
+        "(- (CONS 34 20) 23), Error! Parameter at position: 1 of function - is not numeric!    Actual: (34 . 20)",
+        //PLUS tests
+        "(+), Error! Expected length of + list is 3!    Actual: 1",
+        "(+ T NIL 34), Error! Expected length of + list is 3!    Actual: 4",
+        "(+ 23 (CONS 34 20)), Error! Parameter at position: 2 of function + is not numeric!    Actual: (34 . 20)",
+        //QUOTE tests
+        "('), Error! Expected length of ' list is 2!    Actual: 1",
+        "(' T NIL), Error! Expected length of ' list is 2!    Actual: 3",
+        //TIMES tests
+        "(*), Error! Expected length of * list is 3!    Actual: 1",
+        "(* 23 4 1), Error! Expected length of * list is 3!    Actual: 4",
+        "(* 2 T), Error! Parameter at position: 2 of function * is not numeric!    Actual: T"
+    )
+    fun invalidTest(arguments: ArgumentsAccessor) {
+        val input = arguments.get(0).toString()
+        val expected = arguments.get(1)
+
+        try {
+            interpreter.interpret(input)
+            Assertions.fail()
+        } catch(e: Exception) {
+            val actual = e.message.toString().trim()
+            Assertions.assertEquals(expected, actual)
+        }
     }
 }
