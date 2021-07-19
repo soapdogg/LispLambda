@@ -11,12 +11,22 @@ class InterpreterV2Test {
 
     @ParameterizedTest
     @CsvSource(
+        //ATOM tests
+        "(atom (cdr (cons 34 54))), T",
+        "(atom (null (int (cons 34 54)))), T",
+        "(atom 4), T",
+        "(atom (atom 45)), T",
+        "(atom (cons 2 9)), NIL",
+        "(atom (atom (atom T))), T",
+        "(atom ('(7 10))), NIL",
+        "(atom (' ZZ)), T",
         //CAR tests
         "(car (cons 2 45)), 2",
         "(car (cons (car (cons 56 43)) T)), 56",
         //CDR tests
         "(cdr (cons 2 45)), 45",
         "(cdr (cons (cdr (cons 56 43)) T)), T",
+        "(cdr ('(4 (cons 45 6)))), ((cons 45 6))",
         //CONS tests
         "(cons (+ 2 3)(cons 8 (null 5))), (5 8)",
         "(cons 2 (cons 3 (cons 4 5))), (2 3 4 . 5)",
@@ -64,6 +74,7 @@ class InterpreterV2Test {
         "(+ (car (cons 2 0)) (car (cons 9 3))), 11",
         //QUOTE tests
         "('(3 4 5)), (3 4 5)",
+        "('(cons 34 92)), (cons 34 92)",
         //TIMES tests
         "(* (- 0 1) 45), -45",
         "(* 3 34), 102",
@@ -79,6 +90,9 @@ class InterpreterV2Test {
 
     @ParameterizedTest
     @CsvSource(
+        //ATOM tests
+        "(atom), Error! Expected length of atom list is 2!    Actual: 1",
+        "(atom 2 3), Error! Expected length of atom list is 2!    Actual: 3",
         //CAR tests
         "(car), Error! Expected length of car list is 2!    Actual: 1",
         "(car 23 T), Error! Expected length of car list is 2!    Actual: 3",

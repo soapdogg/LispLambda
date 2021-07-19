@@ -8,22 +8,6 @@ import regression.ScannerUtils.scanExpected
 import regression.ScannerUtils.transformScannerInputToLispInput
 
 class InterpreterTest {
-    //ATOM TESTS
-    @Test
-    fun project3AtomValidTest() {
-        interpreterTest("data/input/project3/atom/valid.lisp", "data/expected/project3/atom/valid.txt")
-    }
-
-    @Test
-    fun project3AtomInvalid1Test() {
-        interpreterTest("data/input/project3/atom/invalid1.lisp", "data/expected/project3/atom/invalid1.txt")
-    }
-
-    @Test
-    fun project3AtomInvalid2Test() {
-        interpreterTest("data/input/project3/atom/invalid2.lisp", "data/expected/project3/atom/invalid2.txt")
-    }
-
     //ATOMIC TESTS
     @Test
     fun project3AtomicValidTest() {
@@ -76,34 +60,16 @@ class InterpreterTest {
         interpreterTest("data/input/project3/cond/invalid4.lisp", "data/expected/project3/cond/invalid4.txt")
     }
 
-    //CONS TESTS
-    @Test
-    fun project3ConsValidTest() {
-        interpreterTest("data/input/project3/cons/valid.lisp", "data/expected/project3/cons/valid.txt")
-    }
-
     //LESS TESTS
     @Test
     fun project3LessValidTest() {
         interpreterTest("data/input/project3/less/valid.lisp", "data/expected/project3/less/valid.txt")
     }
 
-    //NULL TESTS
-    @Test
-    fun project3NullValidTest() {
-        interpreterTest("data/input/project3/null/valid.lisp", "data/expected/project3/null/valid.txt")
-    }
-
     //PLUS TESTS
     @Test
     fun project3PlusValidTest() {
         interpreterTest("data/input/project3/plus/valid.lisp", "data/expected/project3/plus/valid.txt")
-    }
-
-    //QUOTE TESTS
-    @Test
-    fun project3QuoteValidTest() {
-        interpreterTest("data/input/project3/quote/valid.lisp", "data/expected/project3/quote/valid.txt")
     }
 
     //TIMES TESTS

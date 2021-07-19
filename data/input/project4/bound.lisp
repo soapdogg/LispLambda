@@ -6,7 +6,7 @@
         ((null Y)
             NIL
         )
-        ((ATOM Y)
+        ((atom Y)
             NIL
         )
         ((= X (car (car Y)))

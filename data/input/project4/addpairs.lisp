@@ -3,13 +3,13 @@
         ((null Y)
             Z
         )
-        ((ATOM X)
+        ((atom X)
             Z
         )
-        ((null(ATOM(car X)))
+        ((null(atom(car X)))
                     Z
         )
-        ((ATOM Y)
+        ((atom Y)
             Z
         )
         ((null X)
