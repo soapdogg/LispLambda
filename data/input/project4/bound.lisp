@@ -1,5 +1,5 @@
 (DEFUN BOUND (X Y)
-    (COND
+    (cond
         ((null X)
             NIL
         )

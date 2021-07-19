@@ -34,50 +34,6 @@ class InterpreterTest {
         interpreterTest("data/input/project3/atomic/invalid4.lisp", "data/expected/project3/atomic/invalid4.txt")
     }
 
-    //COND TESTS
-    @Test
-    fun project3CondValidTest() {
-        interpreterTest("data/input/project3/cond/valid.lisp", "data/expected/project3/cond/valid.txt")
-    }
-
-    @Test
-    fun project3CondInvalid1Test() {
-        interpreterTest("data/input/project3/cond/invalid1.lisp", "data/expected/project3/cond/invalid1.txt")
-    }
-
-    @Test
-    fun project3CondInvalid2Test() {
-        interpreterTest("data/input/project3/cond/invalid2.lisp", "data/expected/project3/cond/invalid2.txt")
-    }
-
-    @Test
-    fun project3CondInvalid3Test() {
-        interpreterTest("data/input/project3/cond/invalid3.lisp", "data/expected/project3/cond/invalid3.txt")
-    }
-
-    @Test
-    fun project3CondInvalid4Test() {
-        interpreterTest("data/input/project3/cond/invalid4.lisp", "data/expected/project3/cond/invalid4.txt")
-    }
-
-    //LESS TESTS
-    @Test
-    fun project3LessValidTest() {
-        interpreterTest("data/input/project3/less/valid.lisp", "data/expected/project3/less/valid.txt")
-    }
-
-    //PLUS TESTS
-    @Test
-    fun project3PlusValidTest() {
-        interpreterTest("data/input/project3/plus/valid.lisp", "data/expected/project3/plus/valid.txt")
-    }
-
-    //TIMES TESTS
-    @Test
-    fun project3TimesValidTest() {
-        interpreterTest("data/input/project3/times/valid.lisp", "data/expected/project3/times/valid.txt")
-    }
-
     companion object {
         private fun interpreterTest(
             programFile: String,

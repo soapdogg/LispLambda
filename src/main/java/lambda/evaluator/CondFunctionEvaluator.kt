@@ -25,7 +25,7 @@ class CondFunctionEvaluator(
                 )
             }
             else -> {
-                throw NotAListException("Error! None of the conditions in the COND function evaluated to true.\n")
+                throw NotAListException("Error! None of the conditions in the cond function evaluated to true.\n")
             }
         }
     }

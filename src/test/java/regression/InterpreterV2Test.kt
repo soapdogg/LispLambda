@@ -27,6 +27,12 @@ class InterpreterV2Test {
         "(cdr (cons 2 45)), 45",
         "(cdr (cons (cdr (cons 56 43)) T)), T",
         "(cdr ('(4 (cons 45 6)))), ((cons 45 6))",
+        //COND tests
+        "(cond ((< 45 3) 1) (T 2) (34 45)), 2",
+        "(cond (NIL 54) (NIL 34) (34 78) (645 234)), 78",
+        "(cond (T 23)), 23",
+        "(cond (NIL 3) (T 2)), 2",
+        "(cond (4 34) ((+ T 4) 5)), 34",
         //CONS tests
         "(cons (+ 2 3)(cons 8 (null 5))), (5 8)",
         "(cons 2 (cons 3 (cons 4 5))), (2 3 4 . 5)",
@@ -57,6 +63,7 @@ class InterpreterV2Test {
         //LESS tests
         "(< 1 19), T",
         "(< (- 34 3) 1), NIL",
+        "(< (* 12 32) (cond ((null (int T)) 3))), NIL",
         //MINUS tests
         "(- 1 13), -12",
         "(- 13 (- (- 30 23) 7)), 13",
@@ -72,6 +79,9 @@ class InterpreterV2Test {
         "(+ 1 2), 3",
         "(+ (+ 3 5) (* 4 4)), 24",
         "(+ (car (cons 2 0)) (car (cons 9 3))), 11",
+        "(+ (+ 3 5) (car ('(7 8)))), 15",
+        "(+ (cond ((> 3 45) 1) (T 2)) 2854), 2856",
+        "(+ (cond ((int T) 34) ((null 2) 1) ((int 12) 12) (T 3)) 0), 12",
         //QUOTE tests
         "('(3 4 5)), (3 4 5)",
         "('(cons 34 92)), (cons 34 92)",
@@ -102,6 +112,11 @@ class InterpreterV2Test {
         "(cdr), Error! Expected length of cdr list is 2!    Actual: 1",
         "(cdr 1 NIL T), Error! Expected length of cdr list is 2!    Actual: 4",
         "(cdr (int 2)), Error! Parameter of cdr is not a list.    Actual: T",
+        //COND tests
+        "(cond), Error! None of the conditions in the cond function evaluated to true.",
+        "(cond (23 34) 34), Error! cond parameter: 34 is not a list!",
+        "(cond ((int T) 34) ((null T) 12) ((NIL 1) 4)), Error! None of the conditions in the cond function evaluated to true.",
+        "(cond (2 34) (T 12) (NIL 23 T)), Error! Expected length of cond list is 2!    Actual: 3",
         //CONS tests
         "(cons), Error! Expected length of cons list is 3!    Actual: 1",
         "(cons 23 12 34), Error! Expected length of cons list is 3!    Actual: 4",

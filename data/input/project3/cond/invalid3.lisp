@@ -1,1 +1,0 @@
-(COND ((int T) 34) ((null T) 12) ((NIL 1) 4))

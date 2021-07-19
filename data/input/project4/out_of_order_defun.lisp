@@ -1,7 +1,7 @@
 
 (DIFF 5 6)
 (DEFUN DIFF (X Y)
-    (COND ((= X Y) NIL) (T T)))
+    (cond ((= X Y) NIL) (T T)))
 
 (DIFF (+ 1 1) 4)
 (DIFF T NIL)

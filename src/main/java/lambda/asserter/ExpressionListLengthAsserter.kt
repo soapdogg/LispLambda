@@ -40,7 +40,7 @@ class ExpressionListLengthAsserter(
                         for (i in 1 until node.children.size - 1) {
                             val condParameter = node.children[i]
                             if (condParameter is AtomNode) {
-                                throw NotAListException("Error! COND parameter: ${condParameter.value} is not a list!${'\n'}")
+                                throw NotAListException("Error! cond parameter: ${condParameter.value} is not a list!${'\n'}")
                             } else {
                                 functionLengthAsserter.assertLengthIsAsExpected(
                                     FunctionNameConstants.COND,

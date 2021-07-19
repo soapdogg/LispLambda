@@ -1,5 +1,5 @@
 (DEFUN FACTORIAL (X)
-    (COND
+    (cond
         ((< X 1) 1)
         (T (* E (FACTORIAL (- X 1))))
     )

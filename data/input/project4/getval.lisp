@@ -1,6 +1,6 @@
 
 (DEFUN GETVAL (X Z)
-    (COND
+    (cond
         ((= X (car (car Z)))
             (cdr (car Z))
         )

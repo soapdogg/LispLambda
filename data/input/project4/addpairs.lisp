@@ -1,5 +1,5 @@
 (DEFUN ADDPAIRS (X Y Z)
-    (COND
+    (cond
         ((null Y)
             Z
         )
@@ -28,7 +28,7 @@
 )
 
 (DEFUN GETVAL (X Z)
-    (COND
+    (cond
         ((EQ X (car (car Z)))
             (cdr (car Z))
         )

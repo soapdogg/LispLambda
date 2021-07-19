@@ -4,7 +4,7 @@ object FunctionNameConstants {
     const val ATOM = "atom"
     const val CAR = "car"
     const val CDR = "cdr"
-    const val COND = "COND"
+    const val COND = "cond"
     const val CONDCHILD = "CONDCHILD"
     const val CONS = "cons"
     const val DEFUN = "DEFUN"
