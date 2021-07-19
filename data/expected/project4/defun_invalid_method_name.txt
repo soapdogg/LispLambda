@@ -1,1 +1,1 @@
-Error! Invalid function name: PLUS
+Error! Invalid function name: +

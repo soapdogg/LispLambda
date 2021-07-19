@@ -1,5 +1,5 @@
 (DEFUN INCREMENT (X)
-    (PLUS X 1)
+    (+ X 1)
 )
 
 (INCREMENT 3)

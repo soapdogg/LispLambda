@@ -1,4 +1,4 @@
-(DEFUN F (X) (PLUS X Y))
+(DEFUN F (X) (+ X Y))
 (DEFUN G (Y) (F 10))
 (DEFUN H (Y) (F 20))
 (G 5)

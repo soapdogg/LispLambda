@@ -3,6 +3,6 @@
 (EQ T T)
 (EQ (INT NIL) (NULL T))
 (INT (EQ 34 34))
-(EQ 2 (PLUS 1 1))
+(EQ 2 (+ 1 1))
 (EQ (QUOTE XYZ1) (QUOTE XYZ1))
 (EQ (QUOTE A) (QUOTE B))
