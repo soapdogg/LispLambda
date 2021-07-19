@@ -1,1 +1,1 @@
-(GREATER NIL 23)
+(> NIL 23)

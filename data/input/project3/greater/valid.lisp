@@ -1,3 +1,3 @@
-(GREATER 98 1)
-(GREATER (+ 3 2) 6)
-(EQ (GREATER 34 2) T)
+(> 98 1)
+(> (+ 3 2) 6)
+(EQ (> 34 2) T)

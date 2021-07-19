@@ -9,7 +9,7 @@ object FunctionNameConstants {
     const val CONS = "CONS"
     const val DEFUN = "DEFUN"
     const val EQ = "EQ"
-    const val GREATER = "GREATER"
+    const val GREATER = ">"
     const val INT = "INT"
     const val LESS = "<"
     const val MINUS = "-"
