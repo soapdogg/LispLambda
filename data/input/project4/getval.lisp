@@ -1,7 +1,7 @@
 
 (DEFUN GETVAL (X Z)
     (COND
-        ((EQ X (CAR (CAR Z)))
+        ((= X (CAR (CAR Z)))
             (CDR (CAR Z))
         )
         (T

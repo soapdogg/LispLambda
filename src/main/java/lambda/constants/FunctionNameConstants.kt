@@ -8,7 +8,7 @@ object FunctionNameConstants {
     const val CONDCHILD = "CONDCHILD"
     const val CONS = "CONS"
     const val DEFUN = "DEFUN"
-    const val EQ = "EQ"
+    const val EQ = "="
     const val GREATER = ">"
     const val INT = "INT"
     const val LESS = "<"

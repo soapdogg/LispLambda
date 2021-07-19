@@ -1,6 +1,6 @@
 (DEFUN MEM (X LIST)
     (COND   ((NULL LIST) NIL)
-            (T (COND    ((EQ X (CAR LIST)) T)
+            (T (COND    ((= X (CAR LIST)) T)
                         (T (MEM X (CDR LIST)))
                )
             )

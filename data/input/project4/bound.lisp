@@ -9,7 +9,7 @@
         ((ATOM Y)
             NIL
         )
-        ((EQ X (CAR (CAR Y)))
+        ((= X (CAR (CAR Y)))
             T
         )
         (T

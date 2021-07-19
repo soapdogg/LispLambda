@@ -1,5 +1,5 @@
 (DEFUN DIFF (X Y)
-    (COND ((EQ X Y) NIL) (T T)))
+    (COND ((= X Y) NIL) (T T)))
 
 (DIFF 5 6)
 (DIFF (+ 1 1) 4)
