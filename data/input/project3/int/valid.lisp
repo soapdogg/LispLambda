@@ -3,4 +3,4 @@
 (NULL (INT (INT (+ 23 23))))
 (INT (+ 4 5))
 (INT (CONS 4 5))
-(INT (QUOTE X23))
+(INT (' X23))

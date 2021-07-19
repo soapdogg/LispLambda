@@ -1,1 +1,1 @@
-(QUOTE T NIL)
+(' T NIL)

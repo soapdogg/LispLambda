@@ -1,3 +1,3 @@
-(QUOTE (CONS 34 92))
-(CDR (QUOTE (4 (CONS 45 6))))
-(QUOTE (3 4 5))
+('(CONS 34 92))
+(CDR ('(4 (CONS 45 6))))
+('(3 4 5))

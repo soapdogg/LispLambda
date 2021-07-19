@@ -1,5 +1,5 @@
 (NULL NIL)
 (NULL (NULL NIL))
 (ATOM (NULL (INT (CONS 34 54))))
-(NULL (QUOTE (A)))
+(NULL ('(A)))
 (NULL (EQ 2 (+ 1 1)))
