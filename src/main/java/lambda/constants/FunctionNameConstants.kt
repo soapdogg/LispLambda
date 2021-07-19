@@ -2,7 +2,7 @@ package lambda.constants
 
 object FunctionNameConstants {
     const val ATOM = "ATOM"
-    const val CAR = "CAR"
+    const val CAR = "car"
     const val CDR = "CDR"
     const val COND = "COND"
     const val CONDCHILD = "CONDCHILD"

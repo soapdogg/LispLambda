@@ -1,3 +1,3 @@
-(CAR (CONS 2 45))
-(CAR (CONS (CAR (CONS 56 43)) T))
-(+ (CAR (CONS 2 0)) (CAR (CONS 9 3)))
+(car (CONS 2 45))
+(car (CONS (car (CONS 56 43)) T))
+(+ (car (CONS 2 0)) (car (CONS 9 3)))

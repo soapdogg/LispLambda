@@ -6,7 +6,7 @@
         ((ATOM X)
             Z
         )
-        ((null(ATOM(CAR X)))
+        ((null(ATOM(car X)))
                     Z
         )
         ((ATOM Y)
@@ -18,8 +18,8 @@
         (T
             (CONS
                 (CONS
-                    (CAR X)
-                    (CAR Y)
+                    (car X)
+                    (car Y)
                 )
                 (ADDPAIRS (CDR X) (CDR Y) Z)
             )
@@ -29,8 +29,8 @@
 
 (DEFUN GETVAL (X Z)
     (COND
-        ((EQ X (CAR (CAR Z)))
-            (CDR (CAR Z))
+        ((EQ X (car (car Z)))
+            (CDR (car Z))
         )
         (T
             (GETVAL X (CDR Z))

@@ -3,4 +3,4 @@
 (CONS (CONS 1 2) (CONS 3 4))
 (ATOM (CDR (CONS 34 54)))
 (CONS (= 1 2) (= 3 3))
-(CONS (CAR ('(7 8))) (CDR ('(6 10))))
+(CONS (car ('(7 8))) (CDR ('(6 10))))

@@ -55,6 +55,11 @@ class InterpreterV2Test {
 
     @ParameterizedTest
     @CsvSource(
+        //CAR tests
+        "(car), Error! Expected length of car list is 2!    Actual: 1",
+        "(car 23 T), Error! Expected length of car list is 2!    Actual: 3",
+        "(car 23), Error! Parameter of car is not a list.    Actual: 23",
+        "(car (1 2 3)), Error! Invalid CAR value: 1",
         //EQ tests
         "(=), Error! Expected length of = list is 3!    Actual: 1",
         "(= 23 T (CONS 23 1)), Error! Expected length of = list is 3!    Actual: 4",
