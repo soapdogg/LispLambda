@@ -1,6 +1,6 @@
 (DEFUN FACTORIAL (X)
     (COND
-        ((LESS X 1) 1)
+        ((< X 1) 1)
         (T (* E (FACTORIAL (- X 1))))
     )
 )

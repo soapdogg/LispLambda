@@ -6,7 +6,6 @@ import lambda.generator.UserDefinedFunctionGenerator
 import lambda.parser.RootParser
 import lambda.printer.ListNotationPrinter
 import lambda.tokenizer.Tokenizer
-import java.util.Scanner
 
 class Interpreter(
     private val tokenizer: Tokenizer,
@@ -27,8 +26,9 @@ class Interpreter(
         val partitionedRootNodes = rootNodePartitioner.partitionRootNodes(
             rootNodes
         )
-        val userDefinedFunctions = partitionedRootNodes.defunNodes.map{
-            userDefinedFunctionGenerator.evaluateLispFunction(it) }.toMap()
+        val userDefinedFunctions = partitionedRootNodes.defunNodes.associate {
+            userDefinedFunctionGenerator.evaluateLispFunction(it)
+        }
 
         expressionListLengthAsserter.assertLengthIsAsExpected(
             partitionedRootNodes.evaluatableNodes,

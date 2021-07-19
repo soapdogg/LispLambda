@@ -11,7 +11,7 @@ object FunctionNameConstants {
     const val EQ = "EQ"
     const val GREATER = "GREATER"
     const val INT = "INT"
-    const val LESS = "LESS"
+    const val LESS = "<"
     const val MINUS = "-"
     const val NULL = "NULL"
     const val PLUS = "+"
