@@ -11,6 +11,10 @@ class InterpreterV2Test {
 
     @ParameterizedTest
     @CsvSource(
+        //ATOMIC tests
+        "T, T",
+        "NIL, NIL",
+        "9873, 9873",
         //ATOM tests
         "(atom (cdr (cons 34 54))), T",
         "(atom (null (int (cons 34 54)))), T",
@@ -100,6 +104,11 @@ class InterpreterV2Test {
 
     @ParameterizedTest
     @CsvSource(
+        //ATOMIC tests
+        "ERIC, Error! ERIC is not a valid atomic value!",
+        "(1 2 3), Error! Invalid CAR value: 1",
+        "(BILL 23), Error! Invalid CAR value: BILL",
+        "(GREATER 33 (PLUS (TIM 0) 0)), Error! Invalid CAR value: TIM",
         //ATOM tests
         "(atom), Error! Expected length of atom list is 2!    Actual: 1",
         "(atom 2 3), Error! Expected length of atom list is 2!    Actual: 3",

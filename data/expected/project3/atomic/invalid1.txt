@@ -1,1 +1,0 @@
-Error! ERIC is not a valid atomic value!
