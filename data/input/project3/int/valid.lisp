@@ -1,6 +1,1 @@
-(INT 3)
-(INT (INT 45))
-(null (INT (INT (+ 23 23))))
-(INT (+ 4 5))
-(INT (CONS 4 5))
-(INT (' X23))
+(int (CONS 4 5))

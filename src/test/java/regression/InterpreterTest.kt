@@ -106,11 +106,6 @@ class InterpreterTest {
 
     //EQ TESTS
     @Test
-    fun project3EqValidTest() {
-        interpreterTest("data/input/project3/eq/valid.lisp", "data/expected/project3/eq/valid.txt")
-    }
-
-    @Test
     fun project3EqInvalid3Test() {
         interpreterTest("data/input/project3/eq/invalid3.lisp", "data/expected/project3/eq/invalid3.txt")
     }
@@ -119,16 +114,6 @@ class InterpreterTest {
     @Test
     fun project3IntValidTest() {
         interpreterTest("data/input/project3/int/valid.lisp", "data/expected/project3/int/valid.txt")
-    }
-
-    @Test
-    fun project3IntInvalid1Test() {
-        interpreterTest("data/input/project3/int/invalid1.lisp", "data/expected/project3/int/invalid1.txt")
-    }
-
-    @Test
-    fun project3IntInvalid2Test() {
-        interpreterTest("data/input/project3/int/invalid2.lisp", "data/expected/project3/int/invalid2.txt")
     }
 
     //LESS TESTS

@@ -1,1 +1,1 @@
-(ATOM (null (INT (CONS 34 54))))
+(ATOM (null (int (CONS 34 54))))

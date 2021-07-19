@@ -1,5 +1,5 @@
 (COND (NIL 54) (NIL 34) (34 78) (645 234))
 (COND (T 23))
 (COND (NIL 3) (T 2))
-(+ (COND ((INT T) 34) ((null 2) 1) ((INT 12) 12) (T 3)) 0)
+(+ (COND ((int T) 34) ((null 2) 1) ((int 12) 12) (T 3)) 0)
 (COND (4 34) ((PLUS T 4) 5))

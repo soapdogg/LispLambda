@@ -1,6 +1,1 @@
-T
-NIL
-T
-T
-NIL
 NIL

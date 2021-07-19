@@ -19,9 +19,16 @@ class InterpreterV2Test {
         "(= (' XYZ1) (' XYZ1)), T",
         "(= (' A) (' B)), NIL",
         "(= (> 34 2) T), T",
+        "(= (int NIL) (null T)), T",
         //GREATER tests
         "(> 98 1), T",
         "(> (+ 3 2) 6), NIL",
+        //INT tests
+        "(int 3), T",
+        "(int (int 45)), NIL",
+        "(int (+ 4 5)), T",
+        "(int (' X23)), NIL",
+        "(int (= 34 34)), NIL",
         //LESS tests
         "(< 1 19), T",
         "(< (- 34 3) 1), NIL",
@@ -33,6 +40,7 @@ class InterpreterV2Test {
         "(null (null NIL)), NIL",
         "(null ('(A))), NIL",
         "(null (= 2 (+ 1 1))), NIL",
+        "(null (int (int (+ 23 23)))), T",
         //PLUS tests
         "(+ 8 4), 12",
         "(+ (+ 4 3) (+ (+ 1 2) 4)), 14",
@@ -63,7 +71,7 @@ class InterpreterV2Test {
         //CDR tests
         "(cdr), Error! Expected length of cdr list is 2!    Actual: 1",
         "(cdr 1 NIL T), Error! Expected length of cdr list is 2!    Actual: 4",
-        "(cdr (INT 2)), Error! Parameter of cdr is not a list.    Actual: T",
+        "(cdr (int 2)), Error! Parameter of cdr is not a list.    Actual: T",
         //EQ tests
         "(=), Error! Expected length of = list is 3!    Actual: 1",
         "(= 23 T (CONS 23 1)), Error! Expected length of = list is 3!    Actual: 4",
@@ -71,6 +79,9 @@ class InterpreterV2Test {
         "(>), Error! Expected length of > list is 3!    Actual: 1",
         "(> 23 45 98 34), Error! Expected length of > list is 3!    Actual: 5",
         "(> NIL 23), Error! Parameter at position: 1 of function > is not numeric!    Actual: NIL",
+        //INT tests
+        "(int), Error! Expected length of int list is 2!    Actual: 1",
+        "(int 12 5 94 95), Error! Expected length of int list is 2!    Actual: 5",
         //LESS tests
         "(<), Error! Expected length of < list is 3!    Actual: 1",
         "(< 23 45 (CONS T 45) 34), Error! Expected length of < list is 3!    Actual: 5",
