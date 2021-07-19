@@ -16,8 +16,8 @@
             Z
         )
         (T
-            (CONS
-                (CONS
+            (cons
+                (cons
                     (car X)
                     (car Y)
                 )
@@ -38,9 +38,9 @@
     )
 )
 
-(ADDPAIRS (CONS 3 NIL) (CONS 34 NIL) ())
-(ADDPAIRS (CONS 45 NIL) (CONS 56 NIL) ('()))
+(ADDPAIRS (cons 3 NIL) (cons 34 NIL) ())
+(ADDPAIRS (cons 45 NIL) (cons 56 NIL) ('()))
 (ADDPAIRS
-    (CONS 45 (CONS 89 (CONS 34 NIL)))
-    (CONS ('(23 44 45)) (CONS NIL (CONS ('(56 34)) NIL)))
-    (CONS (CONS 34 34) (CONS (CONS 67 12) NIL)))
+    (cons 45 (cons 89 (cons 34 NIL)))
+    (cons ('(23 44 45)) (cons NIL (cons ('(56 34)) NIL)))
+    (cons (cons 34 34) (cons (cons 67 12) NIL)))

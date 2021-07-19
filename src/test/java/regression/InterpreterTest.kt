@@ -50,18 +50,6 @@ class InterpreterTest {
         interpreterTest("data/input/project3/atomic/invalid4.lisp", "data/expected/project3/atomic/invalid4.txt")
     }
 
-    //CAR TESTS
-    @Test
-    fun project3CarValidTest() {
-        interpreterTest("data/input/project3/car/valid.lisp", "data/expected/project3/car/valid.txt")
-    }
-
-    //CDR TESTS
-    @Test
-    fun project3CdrValidTest() {
-        interpreterTest("data/input/project3/cdr/valid.lisp", "data/expected/project3/cdr/valid.txt")
-    }
-
     //COND TESTS
     @Test
     fun project3CondValidTest() {
@@ -92,28 +80,6 @@ class InterpreterTest {
     @Test
     fun project3ConsValidTest() {
         interpreterTest("data/input/project3/cons/valid.lisp", "data/expected/project3/cons/valid.txt")
-    }
-
-    @Test
-    fun project3ConsInvalid1Test() {
-        interpreterTest("data/input/project3/cons/invalid1.lisp", "data/expected/project3/cons/invalid1.txt")
-    }
-
-    @Test
-    fun project3ConsInvalid2Test() {
-        interpreterTest("data/input/project3/cons/invalid2.lisp", "data/expected/project3/cons/invalid2.txt")
-    }
-
-    //EQ TESTS
-    @Test
-    fun project3EqInvalid3Test() {
-        interpreterTest("data/input/project3/eq/invalid3.lisp", "data/expected/project3/eq/invalid3.txt")
-    }
-
-    //INT TESTS
-    @Test
-    fun project3IntValidTest() {
-        interpreterTest("data/input/project3/int/valid.lisp", "data/expected/project3/int/valid.txt")
     }
 
     //LESS TESTS

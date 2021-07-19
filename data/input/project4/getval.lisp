@@ -10,8 +10,8 @@
     )
 )
 
-(GETVAL 3 (CONS (CONS 3 5) NIL))
-(GETVAL 45 (CONS (CONS 3 34) (CONS (CONS 45 ('(3 4 5))) (CONS (CONS 3 23) NIL))))
-(GETVAL 1 (CONS (CONS 1 23) (CONS (CONS 1 48) NIL)))
-(GETVAL 564 (CONS (CONS 34 4) (CONS (CONS 23 4) (CONS (CONS 564 34) NIL))))
+(GETVAL 3 (cons (cons 3 5) NIL))
+(GETVAL 45 (cons (cons 3 34) (cons (cons 45 ('(3 4 5))) (cons (cons 3 23) NIL))))
+(GETVAL 1 (cons (cons 1 23) (cons (cons 1 48) NIL)))
+(GETVAL 564 (cons (cons 34 4) (cons (cons 23 4) (cons (cons 564 34) NIL))))
 

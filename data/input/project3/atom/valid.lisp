@@ -1,6 +1,6 @@
 (ATOM 4)
 (ATOM (ATOM 45))
-(ATOM (CONS 2 9))
+(ATOM (cons 2 9))
 (ATOM (ATOM (ATOM T)))
 (ATOM ('(7 10)))
 (ATOM (' ZZ))

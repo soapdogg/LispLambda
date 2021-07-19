@@ -1,6 +1,1 @@
-(CONS (+ 2 3)(CONS 8 (null 5)))
-(CONS 2 (CONS 3 (CONS 4 5)))
-(CONS (CONS 1 2) (CONS 3 4))
-(ATOM (cdr (CONS 34 54)))
-(CONS (= 1 2) (= 3 3))
-(CONS (car ('(7 8))) (cdr ('(6 10))))
+(ATOM (cdr (cons 34 54)))

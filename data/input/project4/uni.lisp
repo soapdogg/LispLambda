@@ -5,7 +5,7 @@
                 ((MEM (car S1) S2)
                     (UNI (cdr S1) S2))
                 (T
-                    (CONS (car S1) (UNI (cdr S1) S2))
+                    (cons (car S1) (UNI (cdr S1) S2))
                 )
             ))
     )

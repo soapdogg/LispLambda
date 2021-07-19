@@ -6,7 +6,7 @@ object FunctionNameConstants {
     const val CDR = "cdr"
     const val COND = "COND"
     const val CONDCHILD = "CONDCHILD"
-    const val CONS = "CONS"
+    const val CONS = "cons"
     const val DEFUN = "DEFUN"
     const val EQ = "="
     const val GREATER = ">"
