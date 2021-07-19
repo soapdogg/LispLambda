@@ -13,7 +13,7 @@ object FunctionNameConstants {
     const val INT = "INT"
     const val LESS = "<"
     const val MINUS = "-"
-    const val NULL = "NULL"
+    const val NULL = "null"
     const val PLUS = "+"
     const val QUOTE = "'"
     const val TIMES = "*"

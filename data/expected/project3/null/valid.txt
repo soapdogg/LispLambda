@@ -1,5 +1,1 @@
 T
-NIL
-T
-NIL
-NIL

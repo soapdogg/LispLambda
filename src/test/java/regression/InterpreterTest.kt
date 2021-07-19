@@ -178,16 +178,6 @@ class InterpreterTest {
         interpreterTest("data/input/project3/null/valid.lisp", "data/expected/project3/null/valid.txt")
     }
 
-    @Test
-    fun project3NullInvalid1Test() {
-        interpreterTest("data/input/project3/null/invalid1.lisp", "data/expected/project3/null/invalid1.txt")
-    }
-
-    @Test
-    fun project3NullInvalid2Test() {
-        interpreterTest("data/input/project3/null/invalid2.lisp", "data/expected/project3/null/invalid2.txt")
-    }
-
     //PLUS TESTS
     @Test
     fun project3PlusValidTest() {

@@ -28,6 +28,11 @@ class InterpreterV2Test {
         //MINUS tests
         "(- 1 13), -12",
         "(- 13 (- (- 30 23) 7)), 13",
+        //NULL tests
+        "(null NIL), T",
+        "(null (null NIL)), NIL",
+        "(null ('(A))), NIL",
+        "(null (= 2 (+ 1 1))), NIL",
         //PLUS tests
         "(+ 8 4), 12",
         "(+ (+ 4 3) (+ (+ 1 2) 4)), 14",
@@ -65,6 +70,9 @@ class InterpreterV2Test {
         "(-), Error! Expected length of - list is 3!    Actual: 1",
         "(- 22 (CONS T 45) 34), Error! Expected length of - list is 3!    Actual: 4",
         "(- (CONS 34 20) 23), Error! Parameter at position: 1 of function - is not numeric!    Actual: (34 . 20)",
+        //NULL tests
+        "(null), Error! Expected length of null list is 2!    Actual: 1",
+        "(null 23 23 T), Error! Expected length of null list is 2!    Actual: 4",
         //PLUS tests
         "(+), Error! Expected length of + list is 3!    Actual: 1",
         "(+ T NIL 34), Error! Expected length of + list is 3!    Actual: 4",

@@ -1,9 +1,9 @@
 (DEFUN BOUND (X Y)
     (COND
-        ((NULL X)
+        ((null X)
             NIL
         )
-        ((NULL Y)
+        ((null Y)
             NIL
         )
         ((ATOM Y)

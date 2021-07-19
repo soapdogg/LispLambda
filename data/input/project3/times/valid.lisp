@@ -1,1 +1,1 @@
-(< (* 12 32) (COND ((NULL (INT T)) 3)))
+(< (* 12 32) (COND ((null (INT T)) 3)))

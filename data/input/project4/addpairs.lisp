@@ -1,18 +1,18 @@
 (DEFUN ADDPAIRS (X Y Z)
     (COND
-        ((NULL Y)
+        ((null Y)
             Z
         )
         ((ATOM X)
             Z
         )
-        ((NULL(ATOM(CAR X)))
+        ((null(ATOM(CAR X)))
                     Z
         )
         ((ATOM Y)
             Z
         )
-        ((NULL X)
+        ((null X)
             Z
         )
         (T
