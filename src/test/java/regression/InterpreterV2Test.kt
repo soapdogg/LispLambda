@@ -60,6 +60,10 @@ class InterpreterV2Test {
         "(car 23 T), Error! Expected length of car list is 2!    Actual: 3",
         "(car 23), Error! Parameter of car is not a list.    Actual: 23",
         "(car (1 2 3)), Error! Invalid CAR value: 1",
+        //CDR tests
+        "(cdr), Error! Expected length of cdr list is 2!    Actual: 1",
+        "(cdr 1 NIL T), Error! Expected length of cdr list is 2!    Actual: 4",
+        "(cdr (INT 2)), Error! Parameter of cdr is not a list.    Actual: T",
         //EQ tests
         "(=), Error! Expected length of = list is 3!    Actual: 1",
         "(= 23 T (CONS 23 1)), Error! Expected length of = list is 3!    Actual: 4",

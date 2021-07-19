@@ -3,9 +3,9 @@
             ((null S2) S1)
             (T (COND
                 ((MEM (car S1) S2)
-                    (UNI (CDR S1) S2))
+                    (UNI (cdr S1) S2))
                 (T
-                    (CONS (car S1) (UNI (CDR S1) S2))
+                    (CONS (car S1) (UNI (cdr S1) S2))
                 )
             ))
     )
@@ -14,7 +14,7 @@
 (DEFUN MEM (X LIST)
     (COND   ((null LIST) NIL)
             (T (COND    ((= X (car LIST)) T)
-                        (T (MEM X (CDR LIST)))
+                        (T (MEM X (cdr LIST)))
                )
             )
     )

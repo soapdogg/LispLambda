@@ -13,7 +13,7 @@
             T
         )
         (T
-            (BOUND X (CDR Y))
+            (BOUND X (cdr Y))
         )
     )
 )

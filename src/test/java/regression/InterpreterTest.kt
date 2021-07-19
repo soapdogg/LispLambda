@@ -62,21 +62,6 @@ class InterpreterTest {
         interpreterTest("data/input/project3/cdr/valid.lisp", "data/expected/project3/cdr/valid.txt")
     }
 
-    @Test
-    fun project3CdrInvalid1Test() {
-        interpreterTest("data/input/project3/cdr/invalid1.lisp", "data/expected/project3/cdr/invalid1.txt")
-    }
-
-    @Test
-    fun project3CdrInvalid2Test() {
-        interpreterTest("data/input/project3/cdr/invalid2.lisp", "data/expected/project3/cdr/invalid2.txt")
-    }
-
-    @Test
-    fun project3CdrInvalid3Test() {
-        interpreterTest("data/input/project3/cdr/invalid3.lisp", "data/expected/project3/cdr/invalid3.txt")
-    }
-
     //COND TESTS
     @Test
     fun project3CondValidTest() {

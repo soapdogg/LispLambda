@@ -21,7 +21,7 @@
                     (car X)
                     (car Y)
                 )
-                (ADDPAIRS (CDR X) (CDR Y) Z)
+                (ADDPAIRS (cdr X) (cdr Y) Z)
             )
         )
     )
@@ -30,10 +30,10 @@
 (DEFUN GETVAL (X Z)
     (COND
         ((EQ X (car (car Z)))
-            (CDR (car Z))
+            (cdr (car Z))
         )
         (T
-            (GETVAL X (CDR Z))
+            (GETVAL X (cdr Z))
         )
     )
 )

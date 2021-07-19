@@ -2,10 +2,10 @@
 (DEFUN GETVAL (X Z)
     (COND
         ((= X (car (car Z)))
-            (CDR (car Z))
+            (cdr (car Z))
         )
         (T
-            (GETVAL X (CDR Z))
+            (GETVAL X (cdr Z))
         )
     )
 )
