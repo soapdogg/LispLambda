@@ -162,11 +162,6 @@ class InterpreterTest {
 
     //GREATER TESTS
     @Test
-    fun project3GreaterValidTest() {
-        interpreterTest("data/input/project3/greater/valid.lisp", "data/expected/project3/greater/valid.txt")
-    }
-
-    @Test
     fun project3GreaterInvalid1Test() {
         interpreterTest("data/input/project3/greater/invalid1.lisp", "data/expected/project3/greater/invalid1.txt")
     }
@@ -219,11 +214,6 @@ class InterpreterTest {
     }
 
     //MINUS TESTS
-    @Test
-    fun project3MinusValidTest() {
-        interpreterTest("data/input/project3/minus/valid.lisp", "data/expected/project3/minus/valid.txt")
-    }
-
     @Test
     fun project3MinusInvalid1Test() {
         interpreterTest("data/input/project3/minus/invalid1.lisp", "data/expected/project3/minus/invalid1.txt")
