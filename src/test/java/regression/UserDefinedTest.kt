@@ -7,10 +7,6 @@ import regression.ScannerUtils.getScannerFromFilePath
 import regression.ScannerUtils.scanExpected
 
 class UserDefinedTest {
-    @Test
-    fun project4DiffTest() {
-        interpreterTest("data/input/project4/diff.lisp", "data/expected/project4/diff.txt")
-    }
 
     @Test
     fun project4DynamicTest() {
@@ -25,21 +21,6 @@ class UserDefinedTest {
     @Test
     fun project4UniTest() {
         interpreterTest("data/input/project4/uni.lisp", "data/expected/project4/uni.txt")
-    }
-
-    @Test
-    fun project4FactorialTest() {
-        interpreterTest("data/input/project4/factorial.lisp", "data/expected/project4/factorial.txt")
-    }
-
-    @Test
-    fun project4NegateTest() {
-        interpreterTest("data/input/project4/negate.lisp", "data/expected/project4/negate.txt")
-    }
-
-    @Test
-    fun project4IncrementTest() {
-        interpreterTest("data/input/project4/increment.lisp", "data/expected/project4/increment.txt")
     }
 
     @Test
@@ -68,16 +49,6 @@ class UserDefinedTest {
     }
 
     @Test
-    fun project4OneTest() {
-        interpreterTest("data/input/project4/one.lisp", "data/expected/project4/one.txt")
-    }
-
-    @Test
-    fun project4OutOfOrderDefunTest() {
-        interpreterTest("data/input/project4/out_of_order_defun.lisp", "data/expected/project4/out_of_order_defun.txt")
-    }
-
-    @Test
     fun project4UndefinedVariableTest() {
         interpreterTest("data/input/project4/undefined_variable.lisp", "data/expected/project4/undefined_variable.txt")
     }
@@ -90,11 +61,6 @@ class UserDefinedTest {
     @Test
     fun project4BoundTest() {
         interpreterTest("data/input/project4/bound.lisp", "data/expected/project4/bound.txt")
-    }
-
-    @Test
-    fun project4GetValTest() {
-        interpreterTest("data/input/project4/getval.lisp", "data/expected/project4/getval.txt")
     }
 
     @Test

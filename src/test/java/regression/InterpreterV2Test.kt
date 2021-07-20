@@ -174,4 +174,133 @@ class InterpreterV2Test {
             Assertions.assertEquals(expected, actual)
         }
     }
+
+    private val userDefinedDiffMethod = """
+        (DEFUN diff (X Y)
+            (cond ((= X Y) NIL) (T T)))
+    """
+
+    @ParameterizedTest
+    @CsvSource(
+        "(diff 5 6), T",
+        "(diff (+ 1 1) 4), T",
+        "(diff T NIL), T",
+        "(diff T T), NIL",
+        "(diff (* (+ 1 3) 2) (- 12 4)), NIL"
+    )
+    fun userDefinedDiffTests(arguments: ArgumentsAccessor) {
+        val input = arguments.get(0).toString()
+        val expected = arguments.get(1)
+
+        val actual = interpreter.interpret(userDefinedDiffMethod + input).trim()
+
+        Assertions.assertEquals(expected, actual)
+    }
+
+    private val userDefinedNegateMethod = """
+        (DEFUN negate (X)
+            (* X (- 0 1)))
+    """
+
+    @ParameterizedTest
+    @CsvSource(
+        "(negate (- 0 13)), 13",
+        "(negate 0), 0",
+        "(negate 234), -234"
+    )
+    fun userDefinedNegateTest(arguments: ArgumentsAccessor){
+        val input = arguments.get(0).toString()
+        val expected = arguments.get(1)
+
+        val actual = interpreter.interpret(userDefinedNegateMethod + input).trim()
+
+        Assertions.assertEquals(expected, actual)
+    }
+
+    private val userDefinedOneMethod = """
+        (DEFUN one () 1)
+    """
+    @ParameterizedTest
+    @CsvSource(
+        "(one), 1",
+        "(+ (one) (one)), 2"
+    )
+    fun userDefinedOneTest(arguments: ArgumentsAccessor) {
+        val input = arguments.get(0).toString()
+        val expected = arguments.get(1)
+
+        val actual = interpreter.interpret(userDefinedOneMethod + input).trim()
+
+        Assertions.assertEquals(expected, actual)
+    }
+
+    private val userDefinedIncrementMethod = """
+        (DEFUN increment (X)
+            (+ X 1))
+    """
+    @ParameterizedTest
+    @CsvSource(
+        "(increment 3), 4",
+        "(increment 0), 1 ",
+        "(increment (- 0 1)), 0"
+    )
+    fun userDefinedIncrementTest(arguments: ArgumentsAccessor){
+        val input = arguments.get(0).toString()
+        val expected = arguments.get(1)
+
+        val actual = interpreter.interpret(userDefinedIncrementMethod + input).trim()
+
+        Assertions.assertEquals(expected, actual)
+    }
+
+    private val userDefinedFactorialMethod = """
+        (DEFUN factorial (X)
+        (cond
+            ((< X 1) 1)
+            (T (* X (factorial (- X 1))))))
+    """
+    @ParameterizedTest
+    @CsvSource(
+        "(factorial 6), 720",
+        "(factorial 0), 1",
+        "(factorial 1), 1",
+        "(factorial (- 0 1)), 1",
+        "(factorial 10), 3628800"
+    )
+    fun userDefinedFactorialTest(arguments: ArgumentsAccessor) {
+        val input = arguments.get(0).toString()
+        val expected = arguments.get(1)
+
+        val actual = interpreter.interpret(userDefinedFactorialMethod + input).trim()
+
+        Assertions.assertEquals(expected, actual)
+    }
+
+    private val userDefinedGetValMethod = """
+        (DEFUN getval (X Z)
+            (cond
+            ((= X (car (car Z)))
+                (cdr (car Z))
+            )
+            (T
+                (getval X (cdr Z))
+            )
+        )
+    )
+    """
+    @ParameterizedTest
+    @CsvSource(
+        "(getval 3 (cons (cons 3 5) NIL)), 5",
+        "(getval 45 (cons (cons 3 34) (cons (cons 45 ('(3 4 5))) (cons (cons 3 23) NIL)))), (3 4 5)",
+        "(getval 1 (cons (cons 1 23) (cons (cons 1 48) NIL))), 23",
+        "(getval 564 (cons (cons 34 4) (cons (cons 23 4) (cons (cons 564 34) NIL)))), 34"
+    )
+    fun userDefinedGetValTest(arguments: ArgumentsAccessor) {
+        val input = arguments.get(0).toString()
+        val expected = arguments.get(1)
+
+        val actual = interpreter.interpret(userDefinedGetValMethod + input).trim()
+
+        Assertions.assertEquals(expected, actual)
+    }
 }
