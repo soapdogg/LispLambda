@@ -3,13 +3,13 @@ package lambda.interpreter
 import lambda.asserter.ExpressionListLengthAsserter
 import lambda.evaluator.ProgramEvaluator
 import lambda.generator.UserDefinedFunctionGenerator
-import lambda.parser.RootParser
+import lambda.parser.Parser
 import lambda.printer.ListNotationPrinter
 import lambda.tokenizer.Tokenizer
 
 class Interpreter(
     private val tokenizer: Tokenizer,
-    private val rootParser: RootParser,
+    private val parser: Parser,
     private val rootNodePartitioner: RootNodePartitioner,
     private val userDefinedFunctionGenerator: UserDefinedFunctionGenerator,
     private val expressionListLengthAsserter: ExpressionListLengthAsserter,
@@ -21,7 +21,7 @@ class Interpreter(
         input :String
     ): String {
         val tokens = tokenizer.tokenize(input)
-        val rootNodes = rootParser.parse(tokens)
+        val rootNodes = parser.parse(tokens)
 
         val partitionedRootNodes = rootNodePartitioner.partitionRootNodes(
             rootNodes

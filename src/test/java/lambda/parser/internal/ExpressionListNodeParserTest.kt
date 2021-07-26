@@ -1,11 +1,10 @@
-package lambda.parser
+package lambda.parser.internal
 
 import lambda.constants.ReservedValuesConstants
 import lambda.datamodels.AtomNode
 import lambda.datamodels.ExpressionListNode
 import lambda.datamodels.Token
 import lambda.datamodels.TokenKind
-import lambda.generator.NodeGenerator
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito

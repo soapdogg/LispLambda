@@ -4,13 +4,14 @@ import lambda.datamodels.NodeV2
 import lambda.datamodels.Token
 import lambda.datamodels.TokenKind
 import lambda.exceptions.UnexpectedTokenKindException
+import lambda.parser.internal.NodeParser
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito
 
-class RootParserTest {
+class ParserTest {
     private val nodeParser = Mockito.mock(NodeParser::class.java)
-    private val rootParser = RootParser(nodeParser)
+    private val rootParser = Parser(nodeParser)
 
     @Test
     fun rootParserTest() {

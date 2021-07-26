@@ -1,8 +1,7 @@
-package lambda.parser
+package lambda.parser.internal
 
 import lambda.constants.ReservedValuesConstants
 import lambda.datamodels.*
-import lambda.generator.NodeGenerator
 
 class ExpressionListNodeParser(
     private val nodeGenerator: NodeGenerator

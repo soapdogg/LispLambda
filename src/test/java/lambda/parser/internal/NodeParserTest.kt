@@ -1,4 +1,4 @@
-package lambda.parser
+package lambda.parser.internal
 
 import lambda.datamodels.*
 import org.junit.jupiter.api.Assertions

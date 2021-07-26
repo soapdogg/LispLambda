@@ -9,7 +9,7 @@ enum class InterpreterSingleton {
     val rootNodePartitioner: RootNodePartitioner = RootNodePartitioner()
     val interpreter: Interpreter = Interpreter(
         TokenizerSingleton.INSTANCE.tokenizer,
-        ParserSingleton.INSTANCE.rootParser,
+        ParserSingleton.INSTANCE.parser,
         rootNodePartitioner,
         GeneratorSingleton.INSTANCE.userDefinedFunctionGenerator,
         AsserterSingleton.INSTANCE.expressionListLengthAsserter,

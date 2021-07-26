@@ -4,7 +4,7 @@ import lambda.asserter.ExpressionListLengthAsserter
 import lambda.datamodels.*
 import lambda.evaluator.ProgramEvaluator
 import lambda.generator.UserDefinedFunctionGenerator
-import lambda.parser.RootParser
+import lambda.parser.Parser
 import lambda.printer.ListNotationPrinter
 import lambda.tokenizer.Tokenizer
 import org.junit.jupiter.api.Assertions
@@ -14,7 +14,7 @@ import org.mockito.Mockito
 class InterpreterTest {
     private val input = "input"
     private val tokenizer: Tokenizer = Mockito.mock(Tokenizer::class.java)
-    private val rootParser: RootParser = Mockito.mock(RootParser::class.java)
+    private val parser: Parser = Mockito.mock(Parser::class.java)
     private val program: ProgramEvaluator = Mockito.mock(ProgramEvaluator::class.java)
     private val rootNodePartitioner: RootNodePartitioner = Mockito.mock(RootNodePartitioner::class.java)
     private val defunFunction = Mockito.mock(UserDefinedFunctionGenerator::class.java)
@@ -22,7 +22,7 @@ class InterpreterTest {
     private val listNotationPrinter: ListNotationPrinter = Mockito.mock(ListNotationPrinter::class.java)
     private val interpreter: Interpreter = Interpreter(
         tokenizer,
-        rootParser,
+        parser,
         rootNodePartitioner,
         defunFunction,
         expressionListLengthAsserter,
@@ -36,7 +36,7 @@ class InterpreterTest {
         Mockito.`when`(tokenizer.tokenize(input)).thenReturn(tokens)
 
         val rootNodes= listOf<NodeV2>()
-        Mockito.`when`(rootParser.parse(tokens)).thenReturn(rootNodes)
+        Mockito.`when`(parser.parse(tokens)).thenReturn(rootNodes)
 
         val partitionedRootNodes = Mockito.mock(PartitionedRootNodes::class.java)
         Mockito.`when`(rootNodePartitioner.partitionRootNodes(rootNodes)).thenReturn(partitionedRootNodes)
