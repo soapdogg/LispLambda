@@ -1,4 +1,4 @@
-package lambda.tokenizer
+package lambda.tokenizer.internal
 
 import lambda.constants.TokenValueConstants
 import lambda.datamodels.Token

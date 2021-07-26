@@ -1,7 +1,8 @@
 package lambda.tokenizer
 
-import lambda.asserter.InputFormatAsserter
+import lambda.tokenizer.internal.InputFormatAsserter
 import lambda.datamodels.Token
+import lambda.tokenizer.internal.InputTokenizer
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito

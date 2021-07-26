@@ -1,4 +1,4 @@
-package lambda.asserter
+package lambda.tokenizer.internal
 
 import lambda.exceptions.InvalidTokenException
 

@@ -1,4 +1,4 @@
-package lambda.tokenizer
+package lambda.tokenizer.internal
 
 import lambda.datamodels.Token
 import org.junit.jupiter.api.Assertions

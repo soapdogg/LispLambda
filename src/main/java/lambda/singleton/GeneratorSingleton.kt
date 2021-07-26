@@ -2,6 +2,7 @@ package lambda.singleton
 
 import lambda.generator.UserDefinedFunctionGenerator
 import lambda.generator.*
+import lambda.tokenizer.internal.TokenGenerator
 
 enum class GeneratorSingleton {
     INSTANCE;
@@ -13,6 +14,5 @@ enum class GeneratorSingleton {
         AsserterSingleton.INSTANCE.userDefinedFunctionNameAsserter,
         AsserterSingleton.INSTANCE.userDefinedFormalParametersAsserter
     )
-    val tokenGenerator: TokenGenerator = TokenGenerator()
 
 }

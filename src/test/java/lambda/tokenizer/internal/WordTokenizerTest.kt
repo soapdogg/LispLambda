@@ -1,17 +1,16 @@
-package lambda.tokenizer
+package lambda.tokenizer.internal
 
 import lambda.datamodels.Token
-import lambda.determiner.LiteralTokenValueEndIndexDeterminer
-import lambda.determiner.NumericTokenValueEndIndexDeterminer
-import lambda.generator.TokenGenerator
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito
 
 class WordTokenizerTest {
     private val tokenGenerator: TokenGenerator = Mockito.mock(TokenGenerator::class.java)
-    private val numericTokenValueEndIndexDeterminer: NumericTokenValueEndIndexDeterminer = Mockito.mock(NumericTokenValueEndIndexDeterminer::class.java)
-    private val literalTokenValueEndIndexDeterminer: LiteralTokenValueEndIndexDeterminer = Mockito.mock(LiteralTokenValueEndIndexDeterminer::class.java)
+    private val numericTokenValueEndIndexDeterminer: NumericTokenValueEndIndexDeterminer = Mockito.mock(
+        NumericTokenValueEndIndexDeterminer::class.java)
+    private val literalTokenValueEndIndexDeterminer: LiteralTokenValueEndIndexDeterminer = Mockito.mock(
+        LiteralTokenValueEndIndexDeterminer::class.java)
     private val wordTokenizer: WordTokenizer = WordTokenizer(
         tokenGenerator,
         numericTokenValueEndIndexDeterminer,

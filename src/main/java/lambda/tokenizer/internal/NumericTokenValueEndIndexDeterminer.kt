@@ -1,4 +1,4 @@
-package lambda.determiner
+package lambda.tokenizer.internal
 
 class NumericTokenValueEndIndexDeterminer {
     fun determineEndIndexOfNumericTokenValue(

@@ -1,8 +1,5 @@
-package lambda.tokenizer
+package lambda.tokenizer.internal
 
-import lambda.generator.TokenGenerator
-import lambda.determiner.NumericTokenValueEndIndexDeterminer
-import lambda.determiner.LiteralTokenValueEndIndexDeterminer
 import java.util.LinkedList
 import lambda.constants.TokenValueConstants
 import lambda.datamodels.Token

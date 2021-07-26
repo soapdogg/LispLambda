@@ -4,7 +4,6 @@ import lambda.asserter.*
 import lambda.constants.FunctionLengthConstants
 import lambda.constants.FunctionNameConstants
 import lambda.constants.InvalidUserDefinedNameConstants
-import lambda.constants.TokenValueConstants
 
 enum class AsserterSingleton {
     INSTANCE;
@@ -37,7 +36,6 @@ enum class AsserterSingleton {
     val userDefinedFormalParametersAsserter: UserDefinedFormalParametersAsserter
     val userDefinedFunctionNameAsserter: UserDefinedFunctionNameAsserter
     val atomRootNodeAsserter: AtomRootNodeAsserter
-    val inputFormatAsserter: InputFormatAsserter
 
     init {
         userDefinedFormalParametersAsserter = UserDefinedFormalParametersAsserter(
@@ -48,9 +46,6 @@ enum class AsserterSingleton {
         )
         atomRootNodeAsserter = AtomRootNodeAsserter(
             DeterminerSingleton.INSTANCE.numericStringDeterminer
-        )
-        inputFormatAsserter = InputFormatAsserter(
-            TokenValueConstants.ERROR_STATE_PATTERN
         )
     }
 }
