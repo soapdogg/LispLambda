@@ -3,6 +3,7 @@ package lambda.evaluator
 import lambda.evaluator.internal.AtomRootNodeAsserter
 import lambda.core.datamodels.*
 import lambda.evaluator.internal.StackGenerator
+import lambda.evaluator.rootnode.RootNodeEvaluator
 
 class ProgramEvaluator(
     private val atomRootNodeAsserter: AtomRootNodeAsserter,

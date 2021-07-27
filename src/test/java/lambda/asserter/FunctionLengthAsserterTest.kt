@@ -1,7 +1,6 @@
 package lambda.asserter
 
 import lambda.core.datamodels.NodeV2
-import lambda.determiner.FunctionLengthDeterminer
 import lambda.core.exceptions.WrongFunctionLengthException
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test

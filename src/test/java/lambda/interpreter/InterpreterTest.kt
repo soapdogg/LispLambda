@@ -3,7 +3,7 @@ package lambda.interpreter
 import lambda.asserter.ExpressionListLengthAsserter
 import lambda.core.datamodels.*
 import lambda.evaluator.ProgramEvaluator
-import lambda.generator.UserDefinedFunctionGenerator
+import lambda.userdefined.UserDefinedFunctionGenerator
 import lambda.parser.Parser
 import lambda.printer.ListNotationPrinter
 import lambda.tokenizer.Tokenizer
@@ -48,7 +48,7 @@ class InterpreterTest {
         val userDefinedFunction = Mockito.mock(UserDefinedFunction::class.java)
         val functionName = "functionName"
         val pair = Pair(functionName, userDefinedFunction)
-        Mockito.`when`(defunFunction.evaluateLispFunction(defunNode)).thenReturn(pair)
+        Mockito.`when`(defunFunction.generateUserDefinedFunction(defunNode)).thenReturn(pair)
 
         val node = Mockito.mock(NodeV2::class.java)
         val evaluatableNodes: List<NodeV2> = listOf(node)

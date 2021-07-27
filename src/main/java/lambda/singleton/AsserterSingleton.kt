@@ -3,14 +3,15 @@ package lambda.singleton
 import lambda.asserter.*
 import lambda.core.constants.FunctionLengthConstants
 import lambda.core.constants.FunctionNameConstants
-import lambda.core.constants.InvalidUserDefinedNameConstants
-import lambda.evaluator.internal.AtomRootNodeAsserter
+import lambda.asserter.FunctionLengthDeterminer
 
 enum class AsserterSingleton {
     INSTANCE;
 
+    private val functionLengthDeterminer: FunctionLengthDeterminer = FunctionLengthDeterminer()
+
     val functionLengthAsserter: FunctionLengthAsserter = FunctionLengthAsserter(
-        DeterminerSingleton.INSTANCE.functionLengthDeterminer
+        functionLengthDeterminer
     )
 
     val functionLengthMap: Map<String, Int> = mapOf(
@@ -33,20 +34,4 @@ enum class AsserterSingleton {
         functionLengthAsserter,
         functionLengthMap
     )
-
-    val userDefinedFormalParametersAsserter: UserDefinedFormalParametersAsserter
-    val userDefinedFunctionNameAsserter: UserDefinedFunctionNameAsserter
-    val atomRootNodeAsserter: AtomRootNodeAsserter
-
-    init {
-        userDefinedFormalParametersAsserter = UserDefinedFormalParametersAsserter(
-            InvalidUserDefinedNameConstants.InvalidNames
-        )
-        userDefinedFunctionNameAsserter = UserDefinedFunctionNameAsserter(
-            DeterminerSingleton.INSTANCE.invalidNameDeterminer
-        )
-        atomRootNodeAsserter = AtomRootNodeAsserter(
-            DeterminerSingleton.INSTANCE.numericStringDeterminer
-        )
-    }
 }

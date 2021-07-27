@@ -2,7 +2,7 @@ package lambda.interpreter
 
 import lambda.asserter.ExpressionListLengthAsserter
 import lambda.evaluator.ProgramEvaluator
-import lambda.generator.UserDefinedFunctionGenerator
+import lambda.userdefined.UserDefinedFunctionGenerator
 import lambda.parser.Parser
 import lambda.printer.ListNotationPrinter
 import lambda.tokenizer.Tokenizer
@@ -27,7 +27,7 @@ class Interpreter(
             rootNodes
         )
         val userDefinedFunctions = partitionedRootNodes.defunNodes.associate {
-            userDefinedFunctionGenerator.evaluateLispFunction(it)
+            userDefinedFunctionGenerator.generateUserDefinedFunction(it)
         }
 
         expressionListLengthAsserter.assertLengthIsAsExpected(

@@ -3,6 +3,7 @@ package lambda.evaluator
 import lambda.evaluator.internal.AtomRootNodeAsserter
 import lambda.core.datamodels.*
 import lambda.evaluator.internal.StackGenerator
+import lambda.evaluator.rootnode.RootNodeEvaluator
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito

@@ -11,7 +11,7 @@ enum class InterpreterSingleton {
         TokenizerSingleton.INSTANCE.tokenizer,
         ParserSingleton.INSTANCE.parser,
         rootNodePartitioner,
-        GeneratorSingleton.INSTANCE.userDefinedFunctionGenerator,
+        UserDefinedSingleton.INSTANCE.userDefinedFunctionGenerator,
         AsserterSingleton.INSTANCE.expressionListLengthAsserter,
         EvaluatorSingleton.INSTANCE.programEvaluator,
         PrinterSingleton.INSTANCE.listNotationPrinter
