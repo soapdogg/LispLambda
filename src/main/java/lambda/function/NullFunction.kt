@@ -4,7 +4,7 @@ import lambda.core.constants.ReservedValuesConstants
 import lambda.core.datamodels.AtomNode
 import lambda.core.datamodels.Stack
 import lambda.core.datamodels.NodeV2
-import lambda.generator.NodeGenerator
+import lambda.function.internal.NodeGenerator
 
 class NullFunction(
     private val nodeGenerator: NodeGenerator

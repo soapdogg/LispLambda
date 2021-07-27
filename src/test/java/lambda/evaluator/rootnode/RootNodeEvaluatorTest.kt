@@ -3,6 +3,8 @@ package lambda.evaluator.rootnode
 import lambda.core.constants.FunctionNameConstants
 import lambda.core.datamodels.*
 import lambda.core.datamodels.Stack
+import lambda.evaluator.rootnode.internal.FinishedProgramStackItemEvaluator
+import lambda.evaluator.rootnode.internal.*
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito

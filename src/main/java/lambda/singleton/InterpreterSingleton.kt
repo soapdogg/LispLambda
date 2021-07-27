@@ -6,7 +6,7 @@ import lambda.interpreter.RootNodePartitioner
 enum class InterpreterSingleton {
     INSTANCE;
 
-    val rootNodePartitioner: RootNodePartitioner = RootNodePartitioner()
+    private val rootNodePartitioner: RootNodePartitioner = RootNodePartitioner()
     val interpreter: Interpreter = Interpreter(
         TokenizerSingleton.INSTANCE.tokenizer,
         ParserSingleton.INSTANCE.parser,

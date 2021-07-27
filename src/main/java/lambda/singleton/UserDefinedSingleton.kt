@@ -34,8 +34,7 @@ enum class UserDefinedSingleton {
         invalidNames
     )
     private val invalidNameDeterminer = InvalidNameDeterminer(
-        invalidNames,
-        DeterminerSingleton.INSTANCE.numericStringDeterminer
+        invalidNames
     )
     private val userDefinedFunctionNameAsserter = UserDefinedFunctionNameAsserter(
         invalidNameDeterminer

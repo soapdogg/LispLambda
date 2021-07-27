@@ -4,7 +4,7 @@ import lambda.core.constants.FunctionNameConstants
 import lambda.core.datamodels.ExpressionListNode
 import lambda.core.datamodels.Stack
 import lambda.core.datamodels.NodeV2
-import lambda.generator.NodeGenerator
+import lambda.function.internal.NodeGenerator
 import lambda.function.internal.ListValueRetriever
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test

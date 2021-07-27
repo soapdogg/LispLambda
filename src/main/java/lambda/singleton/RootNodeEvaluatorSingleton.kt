@@ -1,6 +1,9 @@
 package lambda.singleton
 
 import lambda.evaluator.rootnode.*
+import lambda.evaluator.rootnode.internal.BuiltInFunctionEvaluator
+import lambda.evaluator.rootnode.internal.FinishedProgramStackItemEvaluator
+import lambda.evaluator.rootnode.internal.*
 
 enum class RootNodeEvaluatorSingleton {
     INSTANCE;
@@ -23,8 +26,10 @@ enum class RootNodeEvaluatorSingleton {
         postEvaluationStackUpdater
     )
 
+    private val nodeGenerator = NodeGenerator()
+
     private val condChildStackItemBuilder = CondChildStackItemBuilder(
-        GeneratorSingleton.INSTANCE.nodeGenerator,
+        nodeGenerator,
         topProgramStackItemCreator
     )
 

@@ -1,14 +1,13 @@
 package lambda.userdefined.internal
 
-import lambda.determiner.NumericStringDeterminer
+import lambda.core.constants.ReservedValuesConstants
 
 class InvalidNameDeterminer(
-    private val invalidNames: Set<String>,
-    private val numericStringDeterminer: NumericStringDeterminer
+    private val invalidNames: Set<String>
 ) {
     fun isInvalidName(
         value: String
     ): Boolean {
-        return invalidNames.contains(value) || numericStringDeterminer.isStringNumeric(value)
+        return invalidNames.contains(value) || value.matches(Regex(ReservedValuesConstants.NUMERIC_PATTERN))
     }
 }

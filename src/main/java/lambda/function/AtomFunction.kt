@@ -3,7 +3,7 @@ package lambda.function
 import lambda.core.datamodels.AtomNode
 import lambda.core.datamodels.Stack
 import lambda.core.datamodels.NodeV2
-import lambda.generator.NodeGenerator
+import lambda.function.internal.NodeGenerator
 
 class AtomFunction(
     private val nodeGenerator: NodeGenerator

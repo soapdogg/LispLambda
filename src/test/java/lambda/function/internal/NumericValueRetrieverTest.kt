@@ -2,7 +2,6 @@ package lambda.function.internal
 
 import lambda.core.constants.FunctionNameConstants
 import lambda.core.datamodels.AtomNode
-import lambda.determiner.NumericStringDeterminer
 import lambda.core.exceptions.NotNumericException
 import lambda.printer.ListNotationPrinter
 import org.junit.jupiter.api.Assertions
@@ -12,10 +11,8 @@ import org.mockito.Mockito
 class NumericValueRetrieverTest {
     private val functionName = FunctionNameConstants.QUOTE
     private val index = 1
-    private val numericStringDeterminer = Mockito.mock(NumericStringDeterminer::class.java)
     private val listNotationPrinter = Mockito.mock(ListNotationPrinter::class.java)
     private val numericValueRetriever = NumericValueRetriever(
-        numericStringDeterminer,
         listNotationPrinter
     )
 
@@ -24,7 +21,6 @@ class NumericValueRetrieverTest {
         val node = Mockito.mock(AtomNode::class.java)
         val value = "value"
         Mockito.`when`(node.value).thenReturn(value)
-        Mockito.`when`(numericStringDeterminer.isStringNumeric(value)).thenReturn(false)
         Assertions.assertThrows(
             NotNumericException::class.java
         ) {
@@ -41,7 +37,6 @@ class NumericValueRetrieverTest {
         val value = 34
         val node = Mockito.mock(AtomNode::class.java)
         Mockito.`when`(node.value).thenReturn(value.toString())
-        Mockito.`when`(numericStringDeterminer.isStringNumeric(value.toString())).thenReturn(true)
         val actual = numericValueRetriever.retrieveNumericValue(
             node,
             functionName,

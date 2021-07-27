@@ -1,13 +1,12 @@
 package lambda.function.internal
 
+import lambda.core.constants.ReservedValuesConstants
 import lambda.core.datamodels.AtomNode
 import lambda.core.datamodels.NodeV2
-import lambda.determiner.NumericStringDeterminer
 import lambda.core.exceptions.NotNumericException
 import lambda.printer.ListNotationPrinter
 
 class NumericValueRetriever(
-    private val numericStringDeterminer: NumericStringDeterminer,
     private val listNotationPrinter: ListNotationPrinter
 ) {
 
@@ -17,7 +16,7 @@ class NumericValueRetriever(
         index: Int
     ): Int {
         if (node is AtomNode) {
-            val isNumeric = numericStringDeterminer.isStringNumeric(node.value)
+            val isNumeric = node.value.matches(Regex(ReservedValuesConstants.NUMERIC_PATTERN))
             if (isNumeric) {
                 return node.value.toInt()
             }

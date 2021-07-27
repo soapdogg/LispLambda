@@ -2,17 +2,14 @@ package lambda.evaluator.internal
 
 import lambda.core.constants.ReservedValuesConstants
 import lambda.core.datamodels.AtomNode
-import lambda.determiner.NumericStringDeterminer
 import lambda.core.exceptions.NotAtomicException
 
-class AtomRootNodeAsserter(
-    private val numericStringDeterminer: NumericStringDeterminer
-) {
+class AtomRootNodeAsserter {
 
     fun assertAtomRootNode(
         atomNode: AtomNode
     ) {
-        val isNotNumeric = !numericStringDeterminer.isStringNumeric(atomNode.value)
+        val isNotNumeric = !atomNode.value.matches(Regex(ReservedValuesConstants.NUMERIC_PATTERN))
         val isNotT = atomNode.value != ReservedValuesConstants.T
         val isNotNil = atomNode.value != ReservedValuesConstants.NIL
         if (isNotNumeric && isNotT && isNotNil) {
