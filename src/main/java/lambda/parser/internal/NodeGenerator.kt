@@ -1,8 +1,8 @@
 package lambda.parser.internal
 
-import lambda.datamodels.AtomNode
-import lambda.datamodels.ExpressionListNode
-import lambda.datamodels.NodeV2
+import lambda.core.datamodels.AtomNode
+import lambda.core.datamodels.ExpressionListNode
+import lambda.core.datamodels.NodeV2
 
 class NodeGenerator {
     fun generateAtomNode(

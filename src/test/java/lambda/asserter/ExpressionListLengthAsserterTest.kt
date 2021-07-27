@@ -1,12 +1,12 @@
 package lambda.asserter
 
-import lambda.constants.FunctionLengthConstants
-import lambda.constants.FunctionNameConstants
-import lambda.datamodels.AtomNode
-import lambda.datamodels.ExpressionListNode
-import lambda.datamodels.NodeV2
-import lambda.datamodels.UserDefinedFunction
-import lambda.exceptions.NotAListException
+import lambda.core.constants.FunctionLengthConstants
+import lambda.core.constants.FunctionNameConstants
+import lambda.core.datamodels.AtomNode
+import lambda.core.datamodels.ExpressionListNode
+import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.UserDefinedFunction
+import lambda.core.exceptions.NotAListException
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito

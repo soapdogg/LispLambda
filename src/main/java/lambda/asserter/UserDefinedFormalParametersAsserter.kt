@@ -1,6 +1,6 @@
 package lambda.asserter
 
-import lambda.exceptions.InvalidUserDefinedNameException
+import lambda.core.exceptions.InvalidUserDefinedNameException
 import java.util.*
 
 class UserDefinedFormalParametersAsserter(

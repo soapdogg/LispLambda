@@ -1,7 +1,7 @@
 package lambda.generator
 
-import lambda.constants.ReservedValuesConstants
-import lambda.datamodels.*
+import lambda.core.constants.ReservedValuesConstants
+import lambda.core.datamodels.*
 
 class NodeGenerator {
     fun generateAtomNode(

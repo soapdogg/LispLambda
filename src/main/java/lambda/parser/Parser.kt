@@ -1,9 +1,9 @@
 package lambda.parser
 
-import lambda.datamodels.NodeV2
-import lambda.datamodels.Token
-import lambda.datamodels.TokenKind
-import lambda.exceptions.UnexpectedTokenKindException
+import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Token
+import lambda.core.datamodels.TokenKind
+import lambda.core.exceptions.UnexpectedTokenKindException
 import lambda.parser.internal.NodeParser
 import kotlin.collections.ArrayList
 

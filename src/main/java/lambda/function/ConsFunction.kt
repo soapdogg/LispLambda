@@ -1,8 +1,8 @@
 package lambda.function
 
-import lambda.datamodels.ExpressionListNode
-import lambda.datamodels.Stack
-import lambda.datamodels.NodeV2
+import lambda.core.datamodels.ExpressionListNode
+import lambda.core.datamodels.Stack
+import lambda.core.datamodels.NodeV2
 import lambda.generator.NodeGenerator
 
 class ConsFunction(

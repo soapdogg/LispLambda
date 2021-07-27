@@ -1,8 +1,8 @@
 package lambda.tokenizer.internal
 
-import lambda.constants.TokenValueConstants
-import lambda.datamodels.Token
-import lambda.datamodels.TokenKind
+import lambda.core.constants.TokenValueConstants
+import lambda.core.datamodels.Token
+import lambda.core.datamodels.TokenKind
 
 class TokenGenerator {
     fun generateCloseToken(): Token {

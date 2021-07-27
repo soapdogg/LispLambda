@@ -1,8 +1,7 @@
 package lambda.parser.internal
 
-import lambda.datamodels.NodeV2
-import lambda.datamodels.Token
-import lambda.parser.internal.ExpressionListNodeParser
+import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Token
 
 class NodeParser (
   private val expressionListNodeParser: ExpressionListNodeParser

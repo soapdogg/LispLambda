@@ -1,9 +1,9 @@
 package lambda.evaluator
 
-import lambda.datamodels.ExpressionListNode
-import lambda.datamodels.Stack
-import lambda.datamodels.NodeV2
-import lambda.datamodels.ProgramStackItem
+import lambda.core.datamodels.ExpressionListNode
+import lambda.core.datamodels.Stack
+import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.ProgramStackItem
 
 class StackUpdateDeterminer (
     private val topProgramStackItemCreator: TopProgramStackItemCreator,

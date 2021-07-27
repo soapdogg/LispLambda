@@ -1,8 +1,8 @@
 package lambda.evaluator
 
-import lambda.asserter.AtomRootNodeAsserter
-import lambda.datamodels.*
-import lambda.generator.StackGenerator
+import lambda.evaluator.internal.AtomRootNodeAsserter
+import lambda.core.datamodels.*
+import lambda.evaluator.internal.StackGenerator
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito
@@ -25,7 +25,7 @@ class ProgramEvaluatorTest {
         val atomNode = Mockito.mock(AtomNode::class.java)
         val rootNodes = listOf(atomNode)
 
-        val actual = programEvaluator.evaluatePostOrder(
+        val actual = programEvaluator.evaluate(
             rootNodes,
             userDefinedFunctions
         )
@@ -51,7 +51,7 @@ class ProgramEvaluatorTest {
                 evaluationStack
             )
         ).thenReturn(evaluatedNode)
-        val actual = programEvaluator.evaluatePostOrder(
+        val actual = programEvaluator.evaluate(
             rootNodes,
             userDefinedFunctions
         )

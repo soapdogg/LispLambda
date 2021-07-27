@@ -4,7 +4,7 @@ import lambda.determiner.InvalidNameDeterminer
 import org.mockito.Mockito
 
 import org.junit.jupiter.api.Test
-import lambda.exceptions.InvalidUserDefinedNameException
+import lambda.core.exceptions.InvalidUserDefinedNameException
 import org.junit.jupiter.api.Assertions
 
 class UserDefinedNameAsserterTest {

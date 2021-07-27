@@ -1,9 +1,7 @@
 package lambda.singleton
 
-import lambda.constants.InvalidUserDefinedNameConstants
+import lambda.core.constants.InvalidUserDefinedNameConstants
 import lambda.determiner.*
-import lambda.tokenizer.internal.LiteralTokenValueEndIndexDeterminer
-import lambda.tokenizer.internal.NumericTokenValueEndIndexDeterminer
 
 enum class DeterminerSingleton {
     INSTANCE;

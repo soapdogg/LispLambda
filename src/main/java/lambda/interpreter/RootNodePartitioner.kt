@@ -1,8 +1,8 @@
 package lambda.interpreter
 
-import lambda.constants.FunctionNameConstants
+import lambda.core.constants.FunctionNameConstants
 
-import lambda.datamodels.*
+import lambda.core.datamodels.*
 
 class RootNodePartitioner {
     fun partitionRootNodes(

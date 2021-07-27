@@ -1,7 +1,7 @@
 package lambda.evaluator
 
-import lambda.datamodels.Stack
-import lambda.datamodels.ProgramStackItem
+import lambda.core.datamodels.Stack
+import lambda.core.datamodels.ProgramStackItem
 import lambda.generator.ProgramStackItemGenerator
 
 class TopProgramStackItemUpdater (

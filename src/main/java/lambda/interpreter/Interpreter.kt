@@ -35,7 +35,7 @@ class Interpreter(
             userDefinedFunctions
         )
 
-        val evaluatedNodes = programEvaluator.evaluatePostOrder(
+        val evaluatedNodes = programEvaluator.evaluate(
             partitionedRootNodes.evaluatableNodes,
             userDefinedFunctions
         )

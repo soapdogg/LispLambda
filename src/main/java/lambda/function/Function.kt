@@ -1,7 +1,7 @@
 package lambda.function
 
-import lambda.datamodels.NodeV2
-import lambda.datamodels.Stack
+import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Stack
 
 interface Function {
 

@@ -1,6 +1,6 @@
 package lambda.asserter
 
-import lambda.exceptions.InvalidUserDefinedNameException
+import lambda.core.exceptions.InvalidUserDefinedNameException
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 

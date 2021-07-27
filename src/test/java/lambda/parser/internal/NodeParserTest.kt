@@ -1,6 +1,6 @@
 package lambda.parser.internal
 
-import lambda.datamodels.*
+import lambda.core.datamodels.*
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito

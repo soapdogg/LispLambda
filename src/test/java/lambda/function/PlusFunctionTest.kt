@@ -1,11 +1,11 @@
 package lambda.function
 
-import lambda.constants.FunctionNameConstants
-import lambda.datamodels.AtomNode
-import lambda.datamodels.Stack
-import lambda.datamodels.NodeV2
+import lambda.core.constants.FunctionNameConstants
+import lambda.core.datamodels.AtomNode
+import lambda.core.datamodels.Stack
+import lambda.core.datamodels.NodeV2
 import lambda.generator.NodeGenerator
-import lambda.valueretriver.NumericValueRetriever
+import lambda.function.internal.NumericValueRetriever
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito

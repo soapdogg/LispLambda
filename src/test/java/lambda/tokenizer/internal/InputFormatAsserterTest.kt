@@ -1,7 +1,7 @@
 package lambda.tokenizer.internal
 
-import lambda.constants.TokenValueConstants
-import lambda.exceptions.InvalidTokenException
+import lambda.core.constants.TokenValueConstants
+import lambda.core.exceptions.InvalidTokenException
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 

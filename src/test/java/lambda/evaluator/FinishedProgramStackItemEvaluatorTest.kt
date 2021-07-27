@@ -1,9 +1,9 @@
 package lambda.evaluator
 
-import lambda.constants.FunctionNameConstants
-import lambda.constants.ReservedValuesConstants
-import lambda.datamodels.*
-import lambda.datamodels.Stack
+import lambda.core.constants.FunctionNameConstants
+import lambda.core.constants.ReservedValuesConstants
+import lambda.core.datamodels.*
+import lambda.core.datamodels.Stack
 import lambda.function.Function
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test

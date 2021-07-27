@@ -1,15 +1,13 @@
 package lambda.printer
 
-import lambda.constants.ReservedValuesConstants
-import lambda.constants.TokenValueConstants
-import lambda.datamodels.AtomNode
-import lambda.datamodels.ExpressionListNode
-import lambda.datamodels.NodeV2
+import lambda.core.constants.ReservedValuesConstants
+import lambda.core.constants.TokenValueConstants
+import lambda.core.datamodels.AtomNode
+import lambda.core.datamodels.ExpressionListNode
+import lambda.core.datamodels.NodeV2
 import java.lang.StringBuilder
 
-class ListNotationPrinter (
-    private val atomNodePrinter: AtomNodePrinter
-){
+class ListNotationPrinter {
 
     fun printInListNotation(
         nodes: List<NodeV2>
@@ -44,6 +42,6 @@ class ListNotationPrinter (
             }
             return result
         }
-        return atomNodePrinter.printAtomNode(node as AtomNode)
+        return (node as AtomNode).value
     }
 }

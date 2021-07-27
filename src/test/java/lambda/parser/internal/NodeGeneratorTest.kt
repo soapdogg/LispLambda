@@ -1,6 +1,6 @@
 package lambda.parser.internal
 
-import lambda.datamodels.NodeV2
+import lambda.core.datamodels.NodeV2
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 

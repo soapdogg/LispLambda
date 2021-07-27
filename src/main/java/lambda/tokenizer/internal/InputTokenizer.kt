@@ -1,7 +1,7 @@
 package lambda.tokenizer.internal
 
-import lambda.constants.TokenValueConstants
-import lambda.datamodels.Token
+import lambda.core.constants.TokenValueConstants
+import lambda.core.datamodels.Token
 
 class InputTokenizer (
     private val wordTokenizer: WordTokenizer

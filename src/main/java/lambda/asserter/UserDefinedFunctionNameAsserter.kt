@@ -1,7 +1,7 @@
 package lambda.asserter
 
 import lambda.determiner.InvalidNameDeterminer
-import lambda.exceptions.InvalidUserDefinedNameException
+import lambda.core.exceptions.InvalidUserDefinedNameException
 
 class UserDefinedFunctionNameAsserter(
     private val invalidNameDeterminer: InvalidNameDeterminer

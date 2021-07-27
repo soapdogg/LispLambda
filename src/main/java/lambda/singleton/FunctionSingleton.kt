@@ -1,19 +1,27 @@
 package lambda.singleton
 
-import lambda.constants.FunctionNameConstants
+import lambda.core.constants.FunctionNameConstants
 import lambda.function.*
+import lambda.function.internal.ListValueRetriever
+import lambda.function.internal.NumericValueRetriever
 
 enum class FunctionSingleton {
     INSTANCE;
+
+    private val listValueRetriever: ListValueRetriever = ListValueRetriever()
+    private val numericValueRetriever: NumericValueRetriever = NumericValueRetriever(
+        DeterminerSingleton.INSTANCE.numericStringDeterminer,
+        PrinterSingleton.INSTANCE.listNotationPrinter
+    )
 
     val atomFunction: AtomFunction = AtomFunction(
         GeneratorSingleton.INSTANCE.nodeGenerator
     )
     val carFunction: CarFunction = CarFunction(
-        ValueRetrieverSingleton.INSTANCE.listValueRetriever
+        listValueRetriever
     )
     val cdrFunction: CdrFunction = CdrFunction(
-        ValueRetrieverSingleton.INSTANCE.listValueRetriever,
+        listValueRetriever,
         GeneratorSingleton.INSTANCE.nodeGenerator
     )
     val consFunction: ConsFunction = ConsFunction(
@@ -23,7 +31,7 @@ enum class FunctionSingleton {
         GeneratorSingleton.INSTANCE.nodeGenerator
     )
     val greaterFunction: GreaterFunction = GreaterFunction(
-        ValueRetrieverSingleton.INSTANCE.numericValueRetriever,
+        numericValueRetriever,
         GeneratorSingleton.INSTANCE.nodeGenerator
     )
     val intFunction: IntFunction = IntFunction(
@@ -31,22 +39,22 @@ enum class FunctionSingleton {
         GeneratorSingleton.INSTANCE.nodeGenerator
     )
     val lessFunction: LessFunction = LessFunction(
-        ValueRetrieverSingleton.INSTANCE.numericValueRetriever,
+        numericValueRetriever,
         GeneratorSingleton.INSTANCE.nodeGenerator
     )
     val minusFunction: MinusFunction = MinusFunction(
-        ValueRetrieverSingleton.INSTANCE.numericValueRetriever,
+        numericValueRetriever,
         GeneratorSingleton.INSTANCE.nodeGenerator
     )
     val nullFunction: NullFunction = NullFunction(
         GeneratorSingleton.INSTANCE.nodeGenerator
     )
     val plusFunction: PlusFunction = PlusFunction(
-        ValueRetrieverSingleton.INSTANCE.numericValueRetriever,
+        numericValueRetriever,
         GeneratorSingleton.INSTANCE.nodeGenerator
     )
     val timesFunction: TimesFunction = TimesFunction(
-        ValueRetrieverSingleton.INSTANCE.numericValueRetriever,
+        numericValueRetriever,
         GeneratorSingleton.INSTANCE.nodeGenerator
     )
 

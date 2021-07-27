@@ -3,11 +3,11 @@ package lambda.generator
 import lambda.asserter.FunctionLengthAsserter
 import lambda.asserter.UserDefinedFormalParametersAsserter
 import lambda.asserter.UserDefinedFunctionNameAsserter
-import lambda.constants.FunctionLengthConstants
-import lambda.constants.FunctionNameConstants
-import lambda.datamodels.AtomNode
-import lambda.datamodels.ExpressionListNode
-import lambda.datamodels.UserDefinedFunction
+import lambda.core.constants.FunctionLengthConstants
+import lambda.core.constants.FunctionNameConstants
+import lambda.core.datamodels.AtomNode
+import lambda.core.datamodels.ExpressionListNode
+import lambda.core.datamodels.UserDefinedFunction
 
 class UserDefinedFunctionGenerator(
     private val functionLengthAsserter: FunctionLengthAsserter,

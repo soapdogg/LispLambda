@@ -1,7 +1,7 @@
 package lambda.generator
 
-import lambda.constants.ReservedValuesConstants
-import lambda.datamodels.NodeV2
+import lambda.core.constants.ReservedValuesConstants
+import lambda.core.datamodels.NodeV2
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 

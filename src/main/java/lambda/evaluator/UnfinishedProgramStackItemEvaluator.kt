@@ -1,8 +1,8 @@
 package lambda.evaluator
 
-import lambda.datamodels.Stack
-import lambda.datamodels.NodeV2
-import lambda.datamodels.ProgramStackItem
+import lambda.core.datamodels.Stack
+import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.ProgramStackItem
 
 class UnfinishedProgramStackItemEvaluator(
     private val stackUpdateDeterminer: StackUpdateDeterminer

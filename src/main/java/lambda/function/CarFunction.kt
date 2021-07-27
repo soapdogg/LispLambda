@@ -1,9 +1,9 @@
 package lambda.function
 
-import lambda.constants.FunctionNameConstants
-import lambda.datamodels.Stack
-import lambda.datamodels.NodeV2
-import lambda.valueretriver.ListValueRetriever
+import lambda.core.constants.FunctionNameConstants
+import lambda.core.datamodels.Stack
+import lambda.core.datamodels.NodeV2
+import lambda.function.internal.ListValueRetriever
 
 class CarFunction(
     private val listValueRetriever: ListValueRetriever

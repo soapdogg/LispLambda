@@ -1,8 +1,8 @@
 package lambda.tokenizer.internal
 
 import java.util.LinkedList
-import lambda.constants.TokenValueConstants
-import lambda.datamodels.Token
+import lambda.core.constants.TokenValueConstants
+import lambda.core.datamodels.Token
 
 class WordTokenizer (
     private val tokenGenerator: TokenGenerator,

@@ -1,9 +1,9 @@
 package lambda.generator
 
-import lambda.datamodels.AtomNode
-import lambda.datamodels.ExpressionListNode
-import lambda.datamodels.NodeV2
-import lambda.datamodels.ProgramStackItem
+import lambda.core.datamodels.AtomNode
+import lambda.core.datamodels.ExpressionListNode
+import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.ProgramStackItem
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito

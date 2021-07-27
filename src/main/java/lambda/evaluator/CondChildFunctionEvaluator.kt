@@ -1,11 +1,11 @@
 package lambda.evaluator
 
-import lambda.constants.FunctionNameConstants
-import lambda.constants.ReservedValuesConstants
-import lambda.datamodels.AtomNode
-import lambda.datamodels.Stack
-import lambda.datamodels.NodeV2
-import lambda.datamodels.ProgramStackItem
+import lambda.core.constants.FunctionNameConstants
+import lambda.core.constants.ReservedValuesConstants
+import lambda.core.datamodels.AtomNode
+import lambda.core.datamodels.Stack
+import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.ProgramStackItem
 
 class CondChildFunctionEvaluator(
     private val stackUpdateDeterminer: StackUpdateDeterminer

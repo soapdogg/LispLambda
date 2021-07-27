@@ -1,6 +1,6 @@
 package lambda.singleton
 
-import lambda.constants.TokenValueConstants
+import lambda.core.constants.TokenValueConstants
 import lambda.tokenizer.Tokenizer
 import lambda.tokenizer.internal.*
 

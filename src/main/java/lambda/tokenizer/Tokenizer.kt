@@ -1,7 +1,7 @@
 package lambda.tokenizer
 
 import lambda.tokenizer.internal.InputFormatAsserter
-import lambda.datamodels.Token
+import lambda.core.datamodels.Token
 import lambda.tokenizer.internal.InputTokenizer
 
 class Tokenizer(

@@ -1,7 +1,7 @@
 package lambda.evaluator
 
-import lambda.datamodels.*
-import lambda.datamodels.Stack
+import lambda.core.datamodels.*
+import lambda.core.datamodels.Stack
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito
 

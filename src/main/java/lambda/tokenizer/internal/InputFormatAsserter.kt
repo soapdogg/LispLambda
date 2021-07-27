@@ -1,6 +1,6 @@
 package lambda.tokenizer.internal
 
-import lambda.exceptions.InvalidTokenException
+import lambda.core.exceptions.InvalidTokenException
 
 import java.util.regex.Pattern
 

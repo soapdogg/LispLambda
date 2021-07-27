@@ -1,15 +1,15 @@
 package lambda.evaluator
 
-import lambda.asserter.AtomRootNodeAsserter
-import lambda.datamodels.*
-import lambda.generator.StackGenerator
+import lambda.evaluator.internal.AtomRootNodeAsserter
+import lambda.core.datamodels.*
+import lambda.evaluator.internal.StackGenerator
 
 class ProgramEvaluator(
     private val atomRootNodeAsserter: AtomRootNodeAsserter,
     private val rootNodeEvaluator: RootNodeEvaluator,
     private val stackGenerator: StackGenerator
 ) {
-    fun evaluatePostOrder(
+    fun evaluate(
         rootNodes: List<NodeV2>,
         userDefinedFunctions: Map<String, UserDefinedFunction>
     ): List<NodeV2> {

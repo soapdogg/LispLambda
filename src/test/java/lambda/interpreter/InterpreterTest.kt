@@ -1,7 +1,7 @@
 package lambda.interpreter
 
 import lambda.asserter.ExpressionListLengthAsserter
-import lambda.datamodels.*
+import lambda.core.datamodels.*
 import lambda.evaluator.ProgramEvaluator
 import lambda.generator.UserDefinedFunctionGenerator
 import lambda.parser.Parser
@@ -59,7 +59,7 @@ class InterpreterTest {
         val userDefinedFunctions: Map<String, UserDefinedFunction> = mapOf(pair)
 
         Mockito.`when`(
-            program.evaluatePostOrder(
+            program.evaluate(
                 evaluatableNodes,
                 userDefinedFunctions
             )

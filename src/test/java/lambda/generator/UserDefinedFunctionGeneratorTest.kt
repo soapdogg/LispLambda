@@ -3,10 +3,10 @@ package lambda.generator
 import lambda.asserter.FunctionLengthAsserter
 import lambda.asserter.UserDefinedFormalParametersAsserter
 import lambda.asserter.UserDefinedFunctionNameAsserter
-import lambda.constants.FunctionLengthConstants
-import lambda.constants.FunctionNameConstants
-import lambda.constants.ReservedValuesConstants
-import lambda.datamodels.*
+import lambda.core.constants.FunctionLengthConstants
+import lambda.core.constants.FunctionNameConstants
+import lambda.core.constants.ReservedValuesConstants
+import lambda.core.datamodels.*
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito

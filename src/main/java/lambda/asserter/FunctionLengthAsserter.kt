@@ -1,8 +1,8 @@
 package lambda.asserter
 
-import lambda.datamodels.NodeV2
+import lambda.core.datamodels.NodeV2
 import lambda.determiner.FunctionLengthDeterminer
-import lambda.exceptions.WrongFunctionLengthException
+import lambda.core.exceptions.WrongFunctionLengthException
 
 class FunctionLengthAsserter (
     private val functionLengthDeterminer: FunctionLengthDeterminer

@@ -1,7 +1,7 @@
 package lambda.evaluator
 
-import lambda.constants.FunctionNameConstants
-import lambda.datamodels.*
+import lambda.core.constants.FunctionNameConstants
+import lambda.core.datamodels.*
 
 class RootNodeEvaluator(
     private val topProgramStackItemCreator: TopProgramStackItemCreator,

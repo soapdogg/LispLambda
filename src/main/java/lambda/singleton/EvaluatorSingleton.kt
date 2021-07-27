@@ -1,7 +1,7 @@
 package lambda.singleton
 
 import lambda.evaluator.*
-import lambda.generator.StackGenerator
+import lambda.evaluator.internal.StackGenerator
 
 enum class EvaluatorSingleton {
     INSTANCE;
@@ -70,7 +70,7 @@ enum class EvaluatorSingleton {
         finishedProgramStackItemEvaluator
     )
 
-    val stackGenerator = StackGenerator()
+    private val stackGenerator = StackGenerator()
 
     val programEvaluator: ProgramEvaluator = ProgramEvaluator(
         AsserterSingleton.INSTANCE.atomRootNodeAsserter,

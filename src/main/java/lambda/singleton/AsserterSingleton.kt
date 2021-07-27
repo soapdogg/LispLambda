@@ -1,9 +1,10 @@
 package lambda.singleton
 
 import lambda.asserter.*
-import lambda.constants.FunctionLengthConstants
-import lambda.constants.FunctionNameConstants
-import lambda.constants.InvalidUserDefinedNameConstants
+import lambda.core.constants.FunctionLengthConstants
+import lambda.core.constants.FunctionNameConstants
+import lambda.core.constants.InvalidUserDefinedNameConstants
+import lambda.evaluator.internal.AtomRootNodeAsserter
 
 enum class AsserterSingleton {
     INSTANCE;

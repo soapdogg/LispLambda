@@ -1,7 +1,7 @@
 package lambda.determiner
 
-import lambda.constants.ReservedValuesConstants
-import lambda.datamodels.*
+import lambda.core.constants.ReservedValuesConstants
+import lambda.core.datamodels.*
 
 class FunctionLengthDeterminer {
 

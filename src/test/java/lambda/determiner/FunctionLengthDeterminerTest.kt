@@ -1,7 +1,7 @@
 package lambda.determiner
 
-import lambda.constants.ReservedValuesConstants
-import lambda.datamodels.*
+import lambda.core.constants.ReservedValuesConstants
+import lambda.core.datamodels.*
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito

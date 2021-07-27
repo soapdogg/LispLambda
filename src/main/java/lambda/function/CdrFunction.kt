@@ -1,14 +1,14 @@
 package lambda.function
 
-import lambda.constants.FunctionNameConstants
-import lambda.datamodels.Stack
-import lambda.datamodels.NodeV2
+import lambda.core.constants.FunctionNameConstants
+import lambda.core.datamodels.Stack
+import lambda.core.datamodels.NodeV2
 import lambda.generator.NodeGenerator
-import lambda.valueretriver.ListValueRetriever
+import lambda.function.internal.ListValueRetriever
 
 class CdrFunction(
-   private val listValueRetriever: ListValueRetriever,
-   private val nodeGenerator: NodeGenerator
+    private val listValueRetriever: ListValueRetriever,
+    private val nodeGenerator: NodeGenerator
 ): Function {
     override fun evaluate(
         params: Stack<NodeV2>

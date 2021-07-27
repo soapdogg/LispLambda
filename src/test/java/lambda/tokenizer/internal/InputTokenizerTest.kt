@@ -1,6 +1,6 @@
 package lambda.tokenizer.internal
 
-import lambda.datamodels.Token
+import lambda.core.datamodels.Token
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito

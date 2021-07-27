@@ -1,8 +1,8 @@
 package lambda.evaluator
 
-import lambda.constants.FunctionNameConstants
-import lambda.datamodels.*
-import lambda.datamodels.Stack
+import lambda.core.constants.FunctionNameConstants
+import lambda.core.datamodels.*
+import lambda.core.datamodels.Stack
 import lambda.generator.NodeGenerator
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito

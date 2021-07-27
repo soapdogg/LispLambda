@@ -1,10 +1,10 @@
 package lambda.parser.internal
 
-import lambda.constants.ReservedValuesConstants
-import lambda.datamodels.AtomNode
-import lambda.datamodels.ExpressionListNode
-import lambda.datamodels.Token
-import lambda.datamodels.TokenKind
+import lambda.core.constants.ReservedValuesConstants
+import lambda.core.datamodels.AtomNode
+import lambda.core.datamodels.ExpressionListNode
+import lambda.core.datamodels.Token
+import lambda.core.datamodels.TokenKind
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito
