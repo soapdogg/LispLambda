@@ -1,10 +1,10 @@
 package lambda.function
 
 import lambda.core.constants.FunctionNameConstants
+import lambda.core.constants.ReservedValuesConstants
 import lambda.core.datamodels.AtomNode
 import lambda.core.datamodels.Stack
 import lambda.core.datamodels.NodeV2
-import lambda.function.internal.NodeGenerator
 import lambda.function.internal.NumericValueRetriever
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
@@ -13,17 +13,15 @@ import org.mockito.Mockito
 class LessFunctionTest {
 
     private val numericValueRetriever = Mockito.mock(NumericValueRetriever::class.java)
-    private val nodeGenerator = Mockito.mock(NodeGenerator::class.java)
 
     private val params = Stack<NodeV2>()
 
     private val lessFunction = LessFunction(
-        numericValueRetriever,
-        nodeGenerator
+        numericValueRetriever
     )
 
     @Test
-    fun evaluateGreaterFunctionTest() {
+    fun evaluateLessFunctionTest() {
         val first = Mockito.mock(NodeV2::class.java)
         val second = Mockito.mock(NodeV2::class.java)
 
@@ -48,15 +46,11 @@ class LessFunctionTest {
             )
         ).thenReturn(secondNumeric)
 
-        val resultingNode = Mockito.mock(AtomNode::class.java)
-        Mockito.`when`(
-            nodeGenerator.generateAtomNode(false)
-        ).thenReturn(resultingNode)
 
         val actual = lessFunction.evaluate(
             params
         )
 
-        Assertions.assertEquals(resultingNode, actual)
+        Assertions.assertEquals(ReservedValuesConstants.NIL, (actual as AtomNode).value)
     }
 }

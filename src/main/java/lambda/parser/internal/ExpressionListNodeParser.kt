@@ -3,9 +3,7 @@ package lambda.parser.internal
 import lambda.core.constants.ReservedValuesConstants
 import lambda.core.datamodels.*
 
-class ExpressionListNodeParser(
-    private val nodeGenerator: NodeGenerator
-) {
+class ExpressionListNodeParser {
 
     fun parseExpressionListNode(
         tokens: List<Token>,
@@ -22,19 +20,19 @@ class ExpressionListNodeParser(
                     i = nodeV2.nextIndex
                 }
                 TokenKind.CLOSE_TOKEN -> {
-                    val nodeV2 = nodeGenerator.generateAtomNode(ReservedValuesConstants.NIL)
+                    val nodeV2 = AtomNode(ReservedValuesConstants.NIL)
                     result += nodeV2
                     ++i
                     break@loop
                 }
                 else -> {
-                    val nodeV2 = nodeGenerator.generateAtomNode(token.value)
+                    val nodeV2 = AtomNode(token.value)
                     result += nodeV2
                     ++i
                 }
             }
         }
-        val expressionListNode = nodeGenerator.generateExpressionListNode(result)
+        val expressionListNode = ExpressionListNode(result)
         return ParserResult(
             expressionListNode,
             i

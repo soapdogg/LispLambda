@@ -4,11 +4,8 @@ import lambda.core.constants.ReservedValuesConstants
 import lambda.core.datamodels.AtomNode
 import lambda.core.datamodels.Stack
 import lambda.core.datamodels.NodeV2
-import lambda.function.internal.NodeGenerator
 
-class NullFunction(
-    private val nodeGenerator: NodeGenerator
-): Function {
+class NullFunction : Function {
 
     override fun evaluate(
         params: Stack<NodeV2>
@@ -17,9 +14,9 @@ class NullFunction(
         return if (first is AtomNode) {
             val value = first.value
             val isNil = value == ReservedValuesConstants.NIL
-            nodeGenerator.generateAtomNode(isNil)
+            AtomNode(isNil)
         } else {
-            nodeGenerator.generateAtomNode(false)
+            AtomNode(ReservedValuesConstants.NIL)
         }
     }
 }

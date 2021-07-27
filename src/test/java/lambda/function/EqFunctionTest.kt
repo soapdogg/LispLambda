@@ -1,23 +1,19 @@
 package lambda.function
 
+import lambda.core.constants.ReservedValuesConstants
 import lambda.core.datamodels.AtomNode
 import lambda.core.datamodels.ExpressionListNode
 import lambda.core.datamodels.Stack
 import lambda.core.datamodels.NodeV2
-import lambda.function.internal.NodeGenerator
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito
 
 class EqFunctionTest {
 
-    private val nodeGenerator = Mockito.mock(NodeGenerator::class.java)
-
     private val params = Stack<NodeV2>()
 
-    private val eqFunction = EqFunction(
-        nodeGenerator
-    )
+    private val eqFunction = EqFunction()
 
     @Test
     fun atomNodeTest() {
@@ -27,16 +23,11 @@ class EqFunctionTest {
         params.push(second)
         params.push(first)
 
-        val resultingNode = Mockito.mock(AtomNode::class.java)
-        Mockito.`when`(
-            nodeGenerator.generateAtomNode(false)
-        ).thenReturn(resultingNode)
-
         val actual = eqFunction.evaluate(
             params
         )
 
-        Assertions.assertEquals(resultingNode, actual)
+        Assertions.assertEquals(ReservedValuesConstants.NIL, (actual as AtomNode).value)
     }
 
     @Test
@@ -47,15 +38,11 @@ class EqFunctionTest {
         params.push(second)
         params.push(first)
 
-        val resultingNode = Mockito.mock(AtomNode::class.java)
-        Mockito.`when`(
-            nodeGenerator.generateAtomNode(false)
-        ).thenReturn(resultingNode)
 
         val actual = eqFunction.evaluate(
             params
         )
 
-        Assertions.assertEquals(resultingNode, actual)
+        Assertions.assertEquals(ReservedValuesConstants.NIL, (actual as AtomNode).value)
     }
 }

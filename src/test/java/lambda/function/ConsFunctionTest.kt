@@ -4,20 +4,15 @@ import lambda.core.datamodels.AtomNode
 import lambda.core.datamodels.ExpressionListNode
 import lambda.core.datamodels.Stack
 import lambda.core.datamodels.NodeV2
-import lambda.function.internal.NodeGenerator
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito
 
 class ConsFunctionTest {
 
-    private val nodeGenerator = Mockito.mock(NodeGenerator::class.java)
-
     private val params = Stack<NodeV2>()
 
-    private val consFunction = ConsFunction(
-        nodeGenerator
-    )
+    private val consFunction = ConsFunction()
 
     @Test
     fun atomNodeTest() {
@@ -27,18 +22,14 @@ class ConsFunctionTest {
         params.push(second)
         params.push(first)
 
-        val resultingNode = Mockito.mock(ExpressionListNode::class.java)
-        Mockito.`when`(
-            nodeGenerator.generateExpressionListNode(
-                listOf(first, second)
-            )
-        ).thenReturn(resultingNode)
-
         val actual = consFunction.evaluate(
             params
         )
 
-        Assertions.assertEquals(resultingNode, actual)
+        val actualExpressionListNode = actual as ExpressionListNode
+        Assertions.assertEquals(2, actualExpressionListNode.children.size)
+        Assertions.assertEquals(first, actualExpressionListNode.children[0])
+        Assertions.assertEquals(second, actualExpressionListNode.children[1])
     }
 
     @Test
@@ -55,17 +46,15 @@ class ConsFunctionTest {
             second.children
         ).thenReturn(listOf(dataChild0, dataChild1))
 
-        val resultingNode = Mockito.mock(ExpressionListNode::class.java)
-        Mockito.`when`(
-            nodeGenerator.generateExpressionListNode(
-                listOf(first, dataChild0, dataChild1)
-            )
-        ).thenReturn(resultingNode)
 
         val actual = consFunction.evaluate(
             params
         )
 
-        Assertions.assertEquals(resultingNode, actual)
+        val actualExpressionListNode = actual as ExpressionListNode
+        Assertions.assertEquals(3, actualExpressionListNode.children.size)
+        Assertions.assertEquals(first, actualExpressionListNode.children[0])
+        Assertions.assertEquals(dataChild0, actualExpressionListNode.children[1])
+        Assertions.assertEquals(dataChild1, actualExpressionListNode.children[2])
     }
 }

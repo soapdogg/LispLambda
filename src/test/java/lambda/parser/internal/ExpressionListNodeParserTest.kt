@@ -11,8 +11,7 @@ import org.mockito.Mockito
 
 class ExpressionListNodeParserTest {
 
-    private val nodeGenerator = Mockito.mock(NodeGenerator::class.java)
-    private val expressionListNodeParser = ExpressionListNodeParser(nodeGenerator)
+    private val expressionListNodeParser = ExpressionListNodeParser()
 
     @Test
     fun parseExpressionListNodeTest() {
@@ -36,37 +35,17 @@ class ExpressionListNodeParserTest {
             closeToken
         )
 
-        val valueNode = Mockito.mock(AtomNode::class.java)
-        Mockito.`when`(nodeGenerator.generateAtomNode(value)).thenReturn(valueNode)
-
-        val nilNode = Mockito.mock(AtomNode::class.java)
-        Mockito.`when`(nodeGenerator.generateAtomNode(ReservedValuesConstants.NIL)).thenReturn(nilNode)
-
-        val expressionListNode = Mockito.mock(ExpressionListNode::class.java)
-        Mockito.`when`(
-            nodeGenerator.generateExpressionListNode(
-                listOf(
-                    valueNode,
-                    nilNode
-                )
-            )
-        ).thenReturn(expressionListNode)
-
-        val rootNode = Mockito.mock(ExpressionListNode::class.java)
-        Mockito.`when`(
-            nodeGenerator.generateExpressionListNode(
-                listOf(
-                    expressionListNode
-                )
-            )
-        ).thenReturn(rootNode)
-
         val actual = expressionListNodeParser.parseExpressionListNode(
             tokens,
             startingPoint
         )
 
-        Assertions.assertEquals(rootNode, actual.resultingNode)
+        val resultingNodeExpressionListNode = actual.resultingNode
+        Assertions.assertEquals(1, resultingNodeExpressionListNode.children.size)
+        val child = resultingNodeExpressionListNode.children[0] as ExpressionListNode
+        Assertions.assertEquals(2, child.children.size)
+        Assertions.assertEquals(value, (child.children[0] as AtomNode).value)
+        Assertions.assertEquals(ReservedValuesConstants.NIL, (child.children[1] as AtomNode).value)
         Assertions.assertEquals(3, actual.nextIndex)
     }
 }

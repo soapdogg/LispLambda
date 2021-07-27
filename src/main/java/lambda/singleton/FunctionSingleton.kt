@@ -3,7 +3,6 @@ package lambda.singleton
 import lambda.core.constants.FunctionNameConstants
 import lambda.function.*
 import lambda.function.internal.ListValueRetriever
-import lambda.function.internal.NodeGenerator
 import lambda.function.internal.NumericValueRetriever
 
 enum class FunctionSingleton {
@@ -14,49 +13,31 @@ enum class FunctionSingleton {
         PrinterSingleton.INSTANCE.listNotationPrinter
     )
 
-    private val nodeGenerator = NodeGenerator()
-
-    private val atomFunction: AtomFunction = AtomFunction(
-        nodeGenerator
-    )
+    private val atomFunction: AtomFunction = AtomFunction()
     private val carFunction: CarFunction = CarFunction(
         listValueRetriever
     )
     private val cdrFunction: CdrFunction = CdrFunction(
-        listValueRetriever,
-        nodeGenerator
+        listValueRetriever
     )
-    private val consFunction: ConsFunction = ConsFunction(
-        nodeGenerator
-    )
-    private val eqFunction: EqFunction = EqFunction(
-        nodeGenerator
-    )
+    private val consFunction: ConsFunction = ConsFunction()
+    private val eqFunction: EqFunction = EqFunction()
     private val greaterFunction: GreaterFunction = GreaterFunction(
-        numericValueRetriever,
-        nodeGenerator
+        numericValueRetriever
     )
-    private val intFunction: IntFunction = IntFunction(
-        nodeGenerator
-    )
+    private val intFunction: IntFunction = IntFunction()
     private val lessFunction: LessFunction = LessFunction(
-        numericValueRetriever,
-        nodeGenerator
+        numericValueRetriever
     )
     private val minusFunction: MinusFunction = MinusFunction(
-        numericValueRetriever,
-        nodeGenerator
+        numericValueRetriever
     )
-    private val nullFunction: NullFunction = NullFunction(
-        nodeGenerator
-    )
+    private val nullFunction: NullFunction = NullFunction()
     private val plusFunction: PlusFunction = PlusFunction(
-        numericValueRetriever,
-        nodeGenerator
+        numericValueRetriever
     )
     private val timesFunction: TimesFunction = TimesFunction(
-        numericValueRetriever,
-        nodeGenerator
+        numericValueRetriever
     )
 
     val functionMap = mapOf(

@@ -4,7 +4,6 @@ import lambda.core.constants.FunctionNameConstants
 import lambda.core.datamodels.ExpressionListNode
 import lambda.core.datamodels.Stack
 import lambda.core.datamodels.NodeV2
-import lambda.function.internal.NodeGenerator
 import lambda.function.internal.ListValueRetriever
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
@@ -13,13 +12,11 @@ import org.mockito.Mockito
 class CdrFunctionTest {
 
     private val listValueRetriever = Mockito.mock(ListValueRetriever::class.java)
-    private val nodeGenerator = Mockito.mock(NodeGenerator::class.java)
 
     private val params = Stack<NodeV2>()
 
     private val cdrFunction = CdrFunction(
-        listValueRetriever,
-        nodeGenerator
+        listValueRetriever
     )
 
     @Test
@@ -44,7 +41,6 @@ class CdrFunctionTest {
         )
 
         Assertions.assertEquals(child0, actual)
-        Mockito.verifyNoInteractions(nodeGenerator)
     }
 
     @Test
@@ -70,7 +66,6 @@ class CdrFunctionTest {
         )
 
         Assertions.assertEquals(child1, actual)
-        Mockito.verifyNoInteractions(nodeGenerator)
     }
 
     @Test
@@ -92,18 +87,14 @@ class CdrFunctionTest {
         val children = listOf(child0, child1, child2)
         Mockito.`when`(firstExpressionListNode.children).thenReturn(children)
 
-        val expected = Mockito.mock(ExpressionListNode::class.java)
-        Mockito.`when`(
-            nodeGenerator.generateExpressionListNode(
-                listOf(child1, child2)
-            )
-        ).thenReturn(expected)
-
 
         val actual = cdrFunction.evaluate(
             params
         )
 
-        Assertions.assertEquals(expected, actual)
+        val actualExpressionListNode = actual as ExpressionListNode
+        Assertions.assertEquals(children.size - 1, actualExpressionListNode.children.size)
+        Assertions.assertEquals(child1, actualExpressionListNode.children[0])
+        Assertions.assertEquals(child2, actualExpressionListNode.children[1])
     }
 }

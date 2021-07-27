@@ -4,11 +4,8 @@ import lambda.core.constants.ReservedValuesConstants
 import lambda.core.datamodels.AtomNode
 import lambda.core.datamodels.Stack
 import lambda.core.datamodels.NodeV2
-import lambda.function.internal.NodeGenerator
 
-class IntFunction(
-    private val nodeGenerator: NodeGenerator
-): Function {
+class IntFunction : Function {
 
     override fun evaluate(
         params: Stack<NodeV2>
@@ -17,9 +14,9 @@ class IntFunction(
         return if (first is AtomNode) {
             val value = first.value
             val isNumeric = value.matches(Regex(ReservedValuesConstants.NUMERIC_PATTERN))
-            nodeGenerator.generateAtomNode(isNumeric)
+            AtomNode(isNumeric)
         } else {
-            nodeGenerator.generateAtomNode(false)
+            AtomNode(false)
         }
     }
 }

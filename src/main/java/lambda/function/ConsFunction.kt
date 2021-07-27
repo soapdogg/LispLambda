@@ -3,11 +3,8 @@ package lambda.function
 import lambda.core.datamodels.ExpressionListNode
 import lambda.core.datamodels.Stack
 import lambda.core.datamodels.NodeV2
-import lambda.function.internal.NodeGenerator
 
-class ConsFunction(
-    private val nodeGenerator: NodeGenerator
-): Function {
+class ConsFunction : Function {
     override fun evaluate(
         params: Stack<NodeV2>
     ): NodeV2 {
@@ -15,11 +12,11 @@ class ConsFunction(
         val second = params.pop()
 
         return if (second is ExpressionListNode) {
-            nodeGenerator.generateExpressionListNode(
+            ExpressionListNode(
                 listOf(first) + second.children
             )
         } else {
-            nodeGenerator.generateExpressionListNode(
+            ExpressionListNode(
                 listOf(first, second)
             )
         }

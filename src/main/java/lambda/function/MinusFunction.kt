@@ -1,14 +1,13 @@
 package lambda.function
 
 import lambda.core.constants.FunctionNameConstants
+import lambda.core.datamodels.AtomNode
 import lambda.core.datamodels.Stack
 import lambda.core.datamodels.NodeV2
-import lambda.function.internal.NodeGenerator
 import lambda.function.internal.NumericValueRetriever
 
 class MinusFunction(
-    private val numericValueRetriever: NumericValueRetriever,
-    private val nodeGenerator: NodeGenerator
+    private val numericValueRetriever: NumericValueRetriever
 ): Function {
 
     override fun evaluate(
@@ -28,6 +27,6 @@ class MinusFunction(
         )
 
         val result = firstNumeric - secondNumeric
-        return nodeGenerator.generateAtomNode(result)
+        return AtomNode(result)
     }
 }
