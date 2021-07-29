@@ -9,8 +9,16 @@ class EqFunction : Function {
         params: Stack<NodeV2>
     ): NodeV2 {
         val first = params.pop()
-        val second = params.pop()
-        val isEqual = first == second
-        return AtomNode(isEqual)
+        if (params.isEmpty()) {
+            return AtomNode(true)
+        }
+
+        while(params.isNotEmpty()) {
+            val node = params.pop()
+            if (node != first) {
+                return AtomNode(false)
+            }
+        }
+        return AtomNode(true)
     }
 }

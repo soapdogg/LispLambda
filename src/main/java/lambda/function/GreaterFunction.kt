@@ -14,20 +14,30 @@ class GreaterFunction(
         params: Stack<NodeV2>
     ): NodeV2 {
         val first = params.pop()
-        val second = params.pop()
         val firstNumeric = numericValueRetriever.retrieveNumericValue(
             first,
             FunctionNameConstants.GREATER,
             1
         )
-        val secondNumeric = numericValueRetriever.retrieveNumericValue(
-            second,
-            FunctionNameConstants.GREATER,
-            2
-        )
+        if (params.isEmpty()) {
+            return AtomNode(true)
+        }
 
-        val result = firstNumeric > secondNumeric
+        var result = firstNumeric
+        var current = 2
+        while (params.isNotEmpty()){
+            val numeric = numericValueRetriever.retrieveNumericValue(
+                params.pop(),
+                FunctionNameConstants.GREATER,
+                current
+            )
+            if (result <= numeric) {
+                return AtomNode(false)
+            }
+            result = numeric
+            ++current
+        }
 
-        return AtomNode(result)
+        return AtomNode(true)
     }
 }

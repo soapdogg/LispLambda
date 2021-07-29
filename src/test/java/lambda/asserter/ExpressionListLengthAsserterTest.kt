@@ -23,6 +23,7 @@ class ExpressionListLengthAsserterTest {
 
     private val expressionListLengthAsserter = ExpressionListLengthAsserter(
         functionLengthAsserter,
+        functionLengthMap,
         functionLengthMap
     )
 

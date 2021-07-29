@@ -17,4 +17,16 @@ class FunctionLengthAsserter (
             throw WrongFunctionLengthException(sb)
         }
     }
+
+    fun assertLengthIsAtLeastMinimum(
+        functionName: String,
+        expected: Int,
+        node: NodeV2
+    ) {
+        val actual = functionLengthDeterminer.determineFunctionLength(node)
+        if (actual < expected) {
+            val sb = """Error! Expected length of $functionName list to be at least $expected!    Actual: ${actual}${'\n'}"""
+            throw WrongFunctionLengthException(sb)
+        }
+    }
 }

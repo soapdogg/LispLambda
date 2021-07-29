@@ -10,7 +10,8 @@ import lambda.core.exceptions.NotAListException
 
 class ExpressionListLengthAsserter(
     private val functionLengthAsserter: FunctionLengthAsserter,
-    private val functionLengthMap: Map<String, Int>
+    private val functionLengthMap: Map<String, Int>,
+    private val minimumFunctionLengthMap: Map<String, Int>
 ) {
 
     fun assertLengthIsAsExpected(
@@ -24,6 +25,13 @@ class ExpressionListLengthAsserter(
                     val addressValue = address.value
                     functionLengthMap[addressValue]?.let {
                         functionLengthAsserter.assertLengthIsAsExpected(
+                            addressValue,
+                            it,
+                            node
+                        )
+                    }
+                    minimumFunctionLengthMap[addressValue]?.let{
+                        functionLengthAsserter.assertLengthIsAtLeastMinimum(
                             addressValue,
                             it,
                             node

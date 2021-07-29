@@ -13,20 +13,17 @@ class TimesFunction(
     override fun evaluate(
         params: Stack<NodeV2>
     ): NodeV2 {
-        val first = params.pop()
-        val second = params.pop()
-        val firstNumeric = numericValueRetriever.retrieveNumericValue(
-            first,
-            FunctionNameConstants.TIMES,
-            1
-        )
-        val secondNumeric = numericValueRetriever.retrieveNumericValue(
-            second,
-            FunctionNameConstants.TIMES,
-            2
-        )
-
-        val result = firstNumeric * secondNumeric
+        var result = 1
+        var current = 1
+        while(params.isNotEmpty()) {
+            val numeric = numericValueRetriever.retrieveNumericValue(
+                params.pop(),
+                FunctionNameConstants.TIMES,
+                current
+            )
+            result *= numeric
+            ++current
+        }
 
         return AtomNode(result)
     }

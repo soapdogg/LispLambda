@@ -54,10 +54,15 @@ class InterpreterV2Test {
         "(= (> 34 2) T), T",
         "(= (int NIL) (null T)), T",
         "(= (cons 23 ()) 9), NIL",
+        "(= 23 T (cons 23 1)), NIL",
+        "(= 1), T",
         //GREATER tests
         "(> 98 1), T",
         "(> (+ 3 2) 6), NIL",
         "(> (cdr (cons (+ 12 12) 6)) (- 13 19)), T",
+        "(> 23 45 98 34), NIL",
+        "(> 45 32 21 5), T",
+        "(> 69), T",
         //INT tests
         "(int 3), T",
         "(int (int 45)), NIL",
@@ -67,11 +72,14 @@ class InterpreterV2Test {
         "(int (cons 4 5)), NIL",
         //LESS tests
         "(< 1 19), T",
+        "(< 34), T",
         "(< (- 34 3) 1), NIL",
         "(< (* 12 32) (cond ((null (int T)) 3))), NIL",
         //MINUS tests
         "(- 1 13), -12",
         "(- 13 (- (- 30 23) 7)), 13",
+        "(- 45), -45",
+        "(- 3 4 5), -6",
         //NULL tests
         "(null NIL), T",
         "(null (null NIL)), NIL",
@@ -79,7 +87,9 @@ class InterpreterV2Test {
         "(null (= 2 (+ 1 1))), NIL",
         "(null (int (int (+ 23 23)))), T",
         //PLUS tests
+        "(+), 0",
         "(+ 8 4), 12",
+        "(+ 4 5 3), 12",
         "(+ (+ 4 3) (+ (+ 1 2) 4)), 14",
         "(+ 1 2), 3",
         "(+ (+ 3 5) (* 4 4)), 24",
@@ -93,7 +103,9 @@ class InterpreterV2Test {
         //TIMES tests
         "(* (- 0 1) 45), -45",
         "(* 3 34), 102",
-        "(* (* 1 2) (* 2 (* 5 6))), 120"
+        "(* (* 1 2) (* 2 (* 5 6))), 120",
+        "(* 23 4 2), 184",
+        "(*), 1"
     )
     fun validTest(arguments: ArgumentsAccessor) {
         val input = arguments.get(0).toString()
@@ -131,36 +143,31 @@ class InterpreterV2Test {
         "(cons), Error! Expected length of cons list is 3!    Actual: 1",
         "(cons 23 12 34), Error! Expected length of cons list is 3!    Actual: 4",
         //EQ tests
-        "(=), Error! Expected length of = list is 3!    Actual: 1",
-        "(= 23 T (CONS 23 1)), Error! Expected length of = list is 3!    Actual: 4",
+        "(=), Error! Expected length of = list to be at least 2!    Actual: 1",
         //GREATER tests
-        "(>), Error! Expected length of > list is 3!    Actual: 1",
-        "(> 23 45 98 34), Error! Expected length of > list is 3!    Actual: 5",
+        "(>), Error! Expected length of > list to be at least 2!    Actual: 1",
         "(> NIL 23), Error! Parameter at position: 1 of function > is not numeric!    Actual: NIL",
         //INT tests
         "(int), Error! Expected length of int list is 2!    Actual: 1",
         "(int 12 5 94 95), Error! Expected length of int list is 2!    Actual: 5",
         //LESS tests
-        "(<), Error! Expected length of < list is 3!    Actual: 1",
-        "(< 23 45 (cons T 45) 34), Error! Expected length of < list is 3!    Actual: 5",
+        "(<), Error! Expected length of < list to be at least 2!    Actual: 1",
+        "(< 23 45 (cons T 45) 34), Error! Parameter at position: 3 of function < is not numeric!    Actual: (T . 45)",
         "(< () 23), Error! Parameter at position: 1 of function < is not numeric!    Actual: NIL",
         //MINUS tests
-        "(-), Error! Expected length of - list is 3!    Actual: 1",
-        "(- 22 (cons T 45) 34), Error! Expected length of - list is 3!    Actual: 4",
+        "(-), Error! Expected length of - list to be at least 2!    Actual: 1",
+        "(- 22 (cons T 45) 34), Error! Parameter at position: 2 of function - is not numeric!    Actual: (T . 45)",
         "(- (cons 34 20) 23), Error! Parameter at position: 1 of function - is not numeric!    Actual: (34 . 20)",
         //NULL tests
         "(null), Error! Expected length of null list is 2!    Actual: 1",
         "(null 23 23 T), Error! Expected length of null list is 2!    Actual: 4",
         //PLUS tests
-        "(+), Error! Expected length of + list is 3!    Actual: 1",
-        "(+ T NIL 34), Error! Expected length of + list is 3!    Actual: 4",
+        "(+ T NIL 34), Error! Parameter at position: 1 of function + is not numeric!    Actual: T",
         "(+ 23 (cons 34 20)), Error! Parameter at position: 2 of function + is not numeric!    Actual: (34 . 20)",
         //QUOTE tests
         "('), Error! Expected length of ' list is 2!    Actual: 1",
         "(' T NIL), Error! Expected length of ' list is 2!    Actual: 3",
         //TIMES tests
-        "(*), Error! Expected length of * list is 3!    Actual: 1",
-        "(* 23 4 1), Error! Expected length of * list is 3!    Actual: 4",
         "(* 2 T), Error! Parameter at position: 2 of function * is not numeric!    Actual: T"
     )
     fun invalidTest(arguments: ArgumentsAccessor) {

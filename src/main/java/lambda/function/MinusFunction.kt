@@ -14,19 +14,27 @@ class MinusFunction(
         params: Stack<NodeV2>
     ): NodeV2 {
         val first = params.pop()
-        val second = params.pop()
         val firstNumeric = numericValueRetriever.retrieveNumericValue(
             first,
             FunctionNameConstants.MINUS,
             1
         )
-        val secondNumeric = numericValueRetriever.retrieveNumericValue(
-            second,
-            FunctionNameConstants.MINUS,
-            2
-        )
+        if (params.isEmpty()) {
+            return AtomNode(-firstNumeric)
+        }
 
-        val result = firstNumeric - secondNumeric
+        var result = firstNumeric
+        var current = 2
+        while (params.isNotEmpty()){
+            val numeric = numericValueRetriever.retrieveNumericValue(
+                params.pop(),
+                FunctionNameConstants.MINUS,
+                current
+            )
+            result -= numeric
+            ++current
+        }
+
         return AtomNode(result)
     }
 }
