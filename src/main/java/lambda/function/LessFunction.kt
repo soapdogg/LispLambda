@@ -19,9 +19,6 @@ class LessFunction(
             FunctionNameConstants.LESS,
             1
         )
-        if (params.isEmpty()) {
-            return AtomNode(true)
-        }
 
         var result = firstNumeric
         var current = 2

@@ -52,4 +52,26 @@ class MinusFunctionTest {
 
         Assertions.assertEquals(result.toString(), (actual as AtomNode).value)
     }
+
+    @Test
+    fun onlyOneElementTest() {
+        val first = Mockito.mock(NodeV2::class.java)
+
+        params.push(first)
+
+        val firstNumeric = 10
+        Mockito.`when`(
+            numericValueRetriever.retrieveNumericValue(
+                first,
+                FunctionNameConstants.MINUS,
+                1
+            )
+        ).thenReturn(firstNumeric)
+
+        val actual = minusFunction.evaluate(
+            params
+        )
+
+        Assertions.assertEquals(-firstNumeric, (actual as AtomNode).value.toInt())
+    }
 }

@@ -1,89 +1,83 @@
 package lambda.function
 
 import lambda.core.constants.FunctionNameConstants
-import lambda.core.constants.ReservedValuesConstants
 import lambda.core.datamodels.AtomNode
-import lambda.core.datamodels.Stack
 import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Stack
 import lambda.function.internal.NumericValueRetriever
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito
 
-class GreaterFunctionTest {
+class GcdFunctionTest {
+
     private val numericValueRetriever = Mockito.mock(NumericValueRetriever::class.java)
 
     private val params = Stack<NodeV2>()
 
-    private val greaterFunction = GreaterFunction(
+    private val gcdFunction = GcdFunction(
         numericValueRetriever
     )
 
     @Test
-    fun evaluateGreaterFunctionTest() {
-        val first = Mockito.mock(NodeV2::class.java)
-        val second = Mockito.mock(NodeV2::class.java)
+    fun evaluateEmptyTest() {
 
-        params.push(second)
-        params.push(first)
+        val actual = gcdFunction.evaluate(params)
 
-        val firstNumeric = 10
-        Mockito.`when`(
-            numericValueRetriever.retrieveNumericValue(
-                first,
-                FunctionNameConstants.GREATER,
-                1
-            )
-        ).thenReturn(firstNumeric)
-
-        val secondNumeric = 1
-        Mockito.`when`(
-            numericValueRetriever.retrieveNumericValue(
-                second,
-                FunctionNameConstants.GREATER,
-                2
-            )
-        ).thenReturn(secondNumeric)
-
-
-        val actual = greaterFunction.evaluate(
-            params
-        )
-
-        Assertions.assertEquals(ReservedValuesConstants.T, (actual as AtomNode).value)
+        Assertions.assertEquals(0, (actual as AtomNode).value.toInt())
     }
 
     @Test
-    fun notGreaterThanTest() {
+    fun evaluateOneElementTest() {
+        val first = Mockito.mock(NodeV2::class.java)
+
+        params.push(first)
+
+        val firstNumeric = -10
+        Mockito.`when`(
+            numericValueRetriever.retrieveNumericValue(
+                first,
+                FunctionNameConstants.GCD,
+                1
+            )
+        ).thenReturn(firstNumeric)
+
+        val actual = gcdFunction.evaluate(params)
+
+        Assertions.assertEquals(kotlin.math.abs(firstNumeric), (actual as AtomNode).value.toInt())
+    }
+
+    @Test
+    fun evaluateMoreThanOneElementTest() {
+
         val first = Mockito.mock(NodeV2::class.java)
         val second = Mockito.mock(NodeV2::class.java)
 
         params.push(second)
         params.push(first)
 
-        val firstNumeric = 1
+        val firstNumeric = 81
         Mockito.`when`(
             numericValueRetriever.retrieveNumericValue(
                 first,
-                FunctionNameConstants.GREATER,
+                FunctionNameConstants.GCD,
                 1
             )
         ).thenReturn(firstNumeric)
 
-        val secondNumeric = 10
+        val secondNumeric = 153
         Mockito.`when`(
             numericValueRetriever.retrieveNumericValue(
                 second,
-                FunctionNameConstants.GREATER,
+                FunctionNameConstants.GCD,
                 2
             )
         ).thenReturn(secondNumeric)
 
-
-        val actual = greaterFunction.evaluate(
+        val actual = gcdFunction.evaluate(
             params
         )
 
-        Assertions.assertEquals(ReservedValuesConstants.NIL, (actual as AtomNode).value)
+        Assertions.assertEquals(9, (actual as AtomNode).value.toInt())
     }
 }

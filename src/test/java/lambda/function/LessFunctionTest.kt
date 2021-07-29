@@ -53,4 +53,70 @@ class LessFunctionTest {
 
         Assertions.assertEquals(ReservedValuesConstants.NIL, (actual as AtomNode).value)
     }
+
+    @Test
+    fun evaluateMultipleValuesTest() {
+        val first = Mockito.mock(NodeV2::class.java)
+        val second = Mockito.mock(NodeV2::class.java)
+        val third = Mockito.mock(NodeV2::class.java)
+
+        params.push(third)
+        params.push(second)
+        params.push(first)
+
+        val firstNumeric = 1
+        Mockito.`when`(
+            numericValueRetriever.retrieveNumericValue(
+                first,
+                FunctionNameConstants.LESS,
+                1
+            )
+        ).thenReturn(firstNumeric)
+
+        val secondNumeric = 2
+        Mockito.`when`(
+            numericValueRetriever.retrieveNumericValue(
+                second,
+                FunctionNameConstants.LESS,
+                2
+            )
+        ).thenReturn(secondNumeric)
+
+        val thirdNumeric = 3
+        Mockito.`when`(
+            numericValueRetriever.retrieveNumericValue(
+                third,
+                FunctionNameConstants.LESS,
+                3
+            )
+        ).thenReturn(thirdNumeric)
+
+        val actual = lessFunction.evaluate(
+            params
+        )
+
+        Assertions.assertEquals(ReservedValuesConstants.T, (actual as AtomNode).value)
+    }
+
+    @Test
+    fun evaluateOneValueTest() {
+        val first = Mockito.mock(NodeV2::class.java)
+
+        params.push(first)
+
+        val firstNumeric = 1
+        Mockito.`when`(
+            numericValueRetriever.retrieveNumericValue(
+                first,
+                FunctionNameConstants.LESS,
+                1
+            )
+        ).thenReturn(firstNumeric)
+
+        val actual = lessFunction.evaluate(
+            params
+        )
+
+        Assertions.assertEquals(ReservedValuesConstants.T, (actual as AtomNode).value)
+    }
 }

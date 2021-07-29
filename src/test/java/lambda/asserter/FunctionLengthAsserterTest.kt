@@ -17,7 +17,7 @@ class FunctionLengthAsserterTest {
     )
 
     @Test
-    fun equalsV2Test() {
+    fun equalsTest() {
         Mockito.`when`(functionLengthDeterminer.determineFunctionLength(nodeV2)).thenReturn(actual)
         Assertions.assertDoesNotThrow {
             functionLengthAsserter.assertLengthIsAsExpected(
@@ -29,12 +29,38 @@ class FunctionLengthAsserterTest {
     }
 
     @Test
-    fun doesNotEqualV2Test() {
+    fun doesNotEqualTest() {
         Mockito.`when`(functionLengthDeterminer.determineFunctionLength(nodeV2)).thenReturn(actual)
         Assertions.assertThrows(
             WrongFunctionLengthException::class.java
         ) {
             functionLengthAsserter.assertLengthIsAsExpected(
+                functionName,
+                expected,
+                nodeV2
+            )
+        }
+    }
+
+    @Test
+    fun atLeastMinimumTest() {
+        Mockito.`when`(functionLengthDeterminer.determineFunctionLength(nodeV2)).thenReturn(expected)
+        Assertions.assertDoesNotThrow{
+            functionLengthAsserter.assertLengthIsAtLeastMinimum(
+                functionName,
+                expected,
+                nodeV2
+            )
+        }
+    }
+
+    @Test
+    fun notAtLeastMinimumTest() {
+        Mockito.`when`(functionLengthDeterminer.determineFunctionLength(nodeV2)).thenReturn(actual)
+        Assertions.assertThrows(
+            WrongFunctionLengthException::class.java
+        ) {
+            functionLengthAsserter.assertLengthIsAtLeastMinimum(
                 functionName,
                 expected,
                 nodeV2

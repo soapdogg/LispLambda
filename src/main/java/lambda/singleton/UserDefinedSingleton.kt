@@ -18,6 +18,7 @@ enum class UserDefinedSingleton {
         FunctionNameConstants.CONS,
         FunctionNameConstants.DEFUN,
         FunctionNameConstants.EQ,
+        FunctionNameConstants.GCD,
         FunctionNameConstants.GREATER,
         FunctionNameConstants.INT,
         FunctionNameConstants.LESS,

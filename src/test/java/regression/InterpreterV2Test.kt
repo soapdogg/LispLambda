@@ -56,6 +56,12 @@ class InterpreterV2Test {
         "(= (cons 23 ()) 9), NIL",
         "(= 23 T (cons 23 1)), NIL",
         "(= 1), T",
+        //GCD tests
+        "(gcd), 0",
+        "(gcd 4), 4",
+        "(gcd 91 49), 7",
+        "(gcd 63 42 35), 7",
+        "(gcd 81 153), 9",
         //GREATER tests
         "(> 98 1), T",
         "(> (+ 3 2) 6), NIL",

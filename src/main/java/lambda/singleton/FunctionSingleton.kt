@@ -22,7 +22,10 @@ enum class FunctionSingleton {
     )
     private val consFunction: ConsFunction = ConsFunction()
     private val eqFunction: EqFunction = EqFunction()
-    private val greaterFunction: GreaterFunction = GreaterFunction(
+    private val gcdFunction = GcdFunction(
+        numericValueRetriever
+    )
+    private val greaterFunction = GreaterFunction(
         numericValueRetriever
     )
     private val intFunction: IntFunction = IntFunction()
@@ -46,6 +49,7 @@ enum class FunctionSingleton {
         Pair(FunctionNameConstants.CDR, cdrFunction),
         Pair(FunctionNameConstants.CONS, consFunction),
         Pair(FunctionNameConstants.EQ, eqFunction),
+        Pair(FunctionNameConstants.GCD, gcdFunction),
         Pair(FunctionNameConstants.GREATER, greaterFunction),
         Pair(FunctionNameConstants.INT, intFunction),
         Pair(FunctionNameConstants.LESS, lessFunction),

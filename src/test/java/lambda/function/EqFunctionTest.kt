@@ -45,4 +45,18 @@ class EqFunctionTest {
 
         Assertions.assertEquals(ReservedValuesConstants.NIL, (actual as AtomNode).value)
     }
+
+    @Test
+    fun oneValueTest() {
+        val first = Mockito.mock(ExpressionListNode::class.java)
+
+        params.push(first)
+
+
+        val actual = eqFunction.evaluate(
+            params
+        )
+
+        Assertions.assertEquals(ReservedValuesConstants.T, (actual as AtomNode).value)
+    }
 }
