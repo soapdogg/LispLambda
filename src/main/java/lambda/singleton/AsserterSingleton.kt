@@ -28,9 +28,12 @@ enum class AsserterSingleton {
     private val minimumFunctionLengthMap: Map<String, Int> = mapOf(
         Pair(FunctionNameConstants.EQ, FunctionLengthConstants.TWO),
         Pair(FunctionNameConstants.GREATER, FunctionLengthConstants.TWO),
+        Pair(FunctionNameConstants.GREATER_EQ, FunctionLengthConstants.TWO),
         Pair(FunctionNameConstants.LCM, FunctionLengthConstants.TWO),
         Pair(FunctionNameConstants.LESS, FunctionLengthConstants.TWO),
-        Pair(FunctionNameConstants.MINUS, FunctionLengthConstants.TWO)
+        Pair(FunctionNameConstants.LESS_EQ, FunctionLengthConstants.TWO),
+        Pair(FunctionNameConstants.MINUS, FunctionLengthConstants.TWO),
+        Pair(FunctionNameConstants.NOT_EQ, FunctionLengthConstants.TWO)
     )
 
     val expressionListLengthAsserter: ExpressionListLengthAsserter = ExpressionListLengthAsserter(

@@ -69,6 +69,11 @@ class InterpreterV2Test {
         "(> 23 45 98 34), NIL",
         "(> 45 32 21 5), T",
         "(> 69), T",
+        //GREATER_EQ tests
+        "(>= 3), T",
+        "(>= 5 5 4), T",
+        "(>= 4 4 5), NIL",
+        "(>= 1 1 1 1 1 1), T",
         //INT tests
         "(int 3), T",
         "(int (int 45)), NIL",
@@ -86,11 +91,21 @@ class InterpreterV2Test {
         "(< 34), T",
         "(< (- 34 3) 1), NIL",
         "(< (* 12 32) (cond ((null (int T)) 3))), NIL",
+        //LESS_EQ tests
+        "(<= 3), T",
+        "(<= 5 5 4), NIL",
+        "(<= 4 4 5), T",
+        "(<= 1 1 1 1 1 1), T",
         //MINUS tests
         "(- 1 13), -12",
         "(- 13 (- (- 30 23) 7)), 13",
         "(- 45), -45",
         "(- 3 4 5), -6",
+        //NOT_EQ tests
+        "(/= T T), NIL",
+        "(/= 2 (+ 2 1)), T",
+        "(/= 45), T",
+        "(/= 45 34 12 1), T",
         //NULL tests
         "(null NIL), T",
         "(null (null NIL)), NIL",
@@ -158,6 +173,9 @@ class InterpreterV2Test {
         //GREATER tests
         "(>), Error! Expected length of > list to be at least 2!    Actual: 1",
         "(> NIL 23), Error! Parameter at position: 1 of function > is not numeric!    Actual: NIL",
+        //GREATER_EQ tests
+        "(>=), Error! Expected length of >= list to be at least 2!    Actual: 1",
+        "(>= NIL 23), Error! Parameter at position: 1 of function >= is not numeric!    Actual: NIL",
         //INT tests
         "(int), Error! Expected length of int list is 2!    Actual: 1",
         "(int 12 5 94 95), Error! Expected length of int list is 2!    Actual: 5",
@@ -167,10 +185,15 @@ class InterpreterV2Test {
         "(<), Error! Expected length of < list to be at least 2!    Actual: 1",
         "(< 23 45 (cons T 45) 34), Error! Parameter at position: 3 of function < is not numeric!    Actual: (T . 45)",
         "(< () 23), Error! Parameter at position: 1 of function < is not numeric!    Actual: NIL",
+        //LESS_EQ tests
+        "(<=), Error! Expected length of <= list to be at least 2!    Actual: 1",
+        "(<= NIL 23), Error! Parameter at position: 1 of function <= is not numeric!    Actual: NIL",
         //MINUS tests
         "(-), Error! Expected length of - list to be at least 2!    Actual: 1",
         "(- 22 (cons T 45) 34), Error! Parameter at position: 2 of function - is not numeric!    Actual: (T . 45)",
         "(- (cons 34 20) 23), Error! Parameter at position: 1 of function - is not numeric!    Actual: (34 . 20)",
+        //NOT_EQ tests
+        "(/=), Error! Expected length of /= list to be at least 2!    Actual: 1",
         //NULL tests
         "(null), Error! Expected length of null list is 2!    Actual: 1",
         "(null 23 23 T), Error! Expected length of null list is 2!    Actual: 4",

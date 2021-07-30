@@ -9,21 +9,21 @@ import lambda.function.internal.NumericValueRetriever
 enum class FunctionSingleton {
     INSTANCE;
 
-    private val listValueRetriever: ListValueRetriever = ListValueRetriever()
-    private val numericValueRetriever: NumericValueRetriever = NumericValueRetriever(
+    private val listValueRetriever = ListValueRetriever()
+    private val numericValueRetriever = NumericValueRetriever(
         PrinterSingleton.INSTANCE.listNotationPrinter
     )
     private val gcdCalculator = GcdCalculator()
 
-    private val atomFunction: AtomFunction = AtomFunction()
-    private val carFunction: CarFunction = CarFunction(
+    private val atomFunction = AtomFunction()
+    private val carFunction = CarFunction(
         listValueRetriever
     )
-    private val cdrFunction: CdrFunction = CdrFunction(
+    private val cdrFunction = CdrFunction(
         listValueRetriever
     )
-    private val consFunction: ConsFunction = ConsFunction()
-    private val eqFunction: EqFunction = EqFunction()
+    private val consFunction = ConsFunction()
+    private val eqFunction = EqFunction()
     private val gcdFunction = GcdFunction(
         numericValueRetriever,
         gcdCalculator
@@ -31,22 +31,29 @@ enum class FunctionSingleton {
     private val greaterFunction = GreaterFunction(
         numericValueRetriever
     )
-    private val intFunction: IntFunction = IntFunction()
+    private val greaterEqFunction = GreaterEqFunction(
+        numericValueRetriever
+    )
+    private val intFunction = IntFunction()
     private val lcmFunction = LcmFunction(
         numericValueRetriever,
         gcdCalculator
     )
-    private val lessFunction: LessFunction = LessFunction(
+    private val lessFunction = LessFunction(
         numericValueRetriever
     )
-    private val minusFunction: MinusFunction = MinusFunction(
+    private val lessEqFunction = LessEqFunction(
         numericValueRetriever
     )
-    private val nullFunction: NullFunction = NullFunction()
-    private val plusFunction: PlusFunction = PlusFunction(
+    private val minusFunction = MinusFunction(
         numericValueRetriever
     )
-    private val timesFunction: TimesFunction = TimesFunction(
+    private val notEqFunction = NotEqFunction()
+    private val nullFunction = NullFunction()
+    private val plusFunction = PlusFunction(
+        numericValueRetriever
+    )
+    private val timesFunction = TimesFunction(
         numericValueRetriever
     )
 
@@ -58,10 +65,13 @@ enum class FunctionSingleton {
         Pair(FunctionNameConstants.EQ, eqFunction),
         Pair(FunctionNameConstants.GCD, gcdFunction),
         Pair(FunctionNameConstants.GREATER, greaterFunction),
+        Pair(FunctionNameConstants.GREATER_EQ, greaterEqFunction),
         Pair(FunctionNameConstants.INT, intFunction),
         Pair(FunctionNameConstants.LCM, lcmFunction),
         Pair(FunctionNameConstants.LESS, lessFunction),
+        Pair(FunctionNameConstants.LESS_EQ, lessEqFunction),
         Pair(FunctionNameConstants.MINUS, minusFunction),
+        Pair(FunctionNameConstants.NOT_EQ, notEqFunction),
         Pair(FunctionNameConstants.NULL, nullFunction),
         Pair(FunctionNameConstants.PLUS, plusFunction),
         Pair(FunctionNameConstants.TIMES, timesFunction)

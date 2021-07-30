@@ -4,13 +4,11 @@ import lambda.core.constants.FunctionNameConstants
 import lambda.core.datamodels.AtomNode
 import lambda.core.datamodels.NodeV2
 import lambda.core.datamodels.Stack
-import lambda.function.internal.GcdCalculator
 import lambda.function.internal.NumericValueRetriever
 
-class LcmFunction(
-    private val numericValueRetriever: NumericValueRetriever,
-    private val gcdCalculator: GcdCalculator
-): Function  {
+class GreaterEqFunction (
+    private val numericValueRetriever: NumericValueRetriever
+) : Function {
 
     override fun evaluate(
         params: Stack<NodeV2>
@@ -18,26 +16,25 @@ class LcmFunction(
         val first = params.pop()
         val firstNumeric = numericValueRetriever.retrieveNumericValue(
             first,
-            FunctionNameConstants.LCM,
+            FunctionNameConstants.GREATER_EQ,
             1
         )
-        var result = kotlin.math.abs(firstNumeric)
-        var current = 2
 
-        while(params.isNotEmpty()) {
+        var result = firstNumeric
+        var current = 2
+        while (params.isNotEmpty()){
             val numeric = numericValueRetriever.retrieveNumericValue(
                 params.pop(),
-                FunctionNameConstants.LCM,
+                FunctionNameConstants.GREATER_EQ,
                 current
             )
-            val numericAbs = kotlin.math.abs(numeric)
-
-            val gcd = gcdCalculator.calculateGCD(result, numericAbs)
-            result = (result * numericAbs) / gcd
+            if (result < numeric) {
+                return AtomNode(false)
+            }
+            result = numeric
             ++current
         }
 
-        return AtomNode(result)
+        return AtomNode(true)
     }
-
 }
