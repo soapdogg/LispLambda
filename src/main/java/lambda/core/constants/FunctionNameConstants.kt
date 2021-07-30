@@ -12,6 +12,7 @@ object FunctionNameConstants {
     const val GCD = "gcd"
     const val GREATER = ">"
     const val INT = "int"
+    const val LCM = "lcm"
     const val LESS = "<"
     const val MINUS = "-"
     const val NULL = "null"

@@ -4,6 +4,7 @@ import lambda.core.constants.FunctionNameConstants
 import lambda.core.datamodels.AtomNode
 import lambda.core.datamodels.NodeV2
 import lambda.core.datamodels.Stack
+import lambda.function.internal.GcdCalculator
 import lambda.function.internal.NumericValueRetriever
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
@@ -12,11 +13,13 @@ import org.mockito.Mockito
 class GcdFunctionTest {
 
     private val numericValueRetriever = Mockito.mock(NumericValueRetriever::class.java)
+    private val gcdCalculator = Mockito.mock(GcdCalculator::class.java)
 
     private val params = Stack<NodeV2>()
 
     private val gcdFunction = GcdFunction(
-        numericValueRetriever
+        numericValueRetriever,
+        gcdCalculator
     )
 
     @Test
@@ -74,10 +77,15 @@ class GcdFunctionTest {
             )
         ).thenReturn(secondNumeric)
 
+        val gcd = 9
+        Mockito.`when`(
+            gcdCalculator.calculateGCD(firstNumeric, secondNumeric)
+        ).thenReturn(gcd)
+
         val actual = gcdFunction.evaluate(
             params
         )
 
-        Assertions.assertEquals(9, (actual as AtomNode).value.toInt())
+        Assertions.assertEquals(gcd, (actual as AtomNode).value.toInt())
     }
 }

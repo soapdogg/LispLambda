@@ -76,6 +76,11 @@ class InterpreterV2Test {
         "(int (' X23)), NIL",
         "(int (= 34 34)), NIL",
         "(int (cons 4 5)), NIL",
+        //LCM tests
+        "(lcm 14 35), 70",
+        "(lcm 1 2 3 4 5 6), 60",
+        "(lcm 0 5), 0",
+        "(lcm 34), 34",
         //LESS tests
         "(< 1 19), T",
         "(< 34), T",
@@ -156,6 +161,8 @@ class InterpreterV2Test {
         //INT tests
         "(int), Error! Expected length of int list is 2!    Actual: 1",
         "(int 12 5 94 95), Error! Expected length of int list is 2!    Actual: 5",
+        //LCM tests
+        "(lcm), Error! Expected length of lcm list to be at least 2!    Actual: 1",
         //LESS tests
         "(<), Error! Expected length of < list to be at least 2!    Actual: 1",
         "(< 23 45 (cons T 45) 34), Error! Parameter at position: 3 of function < is not numeric!    Actual: (T . 45)",

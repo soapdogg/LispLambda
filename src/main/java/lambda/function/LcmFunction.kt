@@ -7,35 +7,37 @@ import lambda.core.datamodels.Stack
 import lambda.function.internal.GcdCalculator
 import lambda.function.internal.NumericValueRetriever
 
-class GcdFunction(
+class LcmFunction(
     private val numericValueRetriever: NumericValueRetriever,
     private val gcdCalculator: GcdCalculator
-): Function {
+): Function  {
+
     override fun evaluate(
         params: Stack<NodeV2>
     ): NodeV2 {
-        if (params.isEmpty()) {
-            return AtomNode(0)
-        }
         val first = params.pop()
         val firstNumeric = numericValueRetriever.retrieveNumericValue(
             first,
-            FunctionNameConstants.GCD,
+            FunctionNameConstants.LCM,
             1
         )
         var result = kotlin.math.abs(firstNumeric)
         var current = 2
+
         while(params.isNotEmpty()) {
             val numeric = numericValueRetriever.retrieveNumericValue(
                 params.pop(),
-                FunctionNameConstants.GCD,
+                FunctionNameConstants.LCM,
                 current
             )
             var numericAbs = kotlin.math.abs(numeric)
 
-            result = gcdCalculator.calculateGCD(result, numericAbs)
+            val gcd = gcdCalculator.calculateGCD(result, numericAbs)
+            result = (result * numericAbs) / gcd
             ++current
         }
+
         return AtomNode(result)
     }
+
 }

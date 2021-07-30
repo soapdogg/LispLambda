@@ -2,6 +2,7 @@ package lambda.singleton
 
 import lambda.core.constants.FunctionNameConstants
 import lambda.function.*
+import lambda.function.internal.GcdCalculator
 import lambda.function.internal.ListValueRetriever
 import lambda.function.internal.NumericValueRetriever
 
@@ -12,6 +13,7 @@ enum class FunctionSingleton {
     private val numericValueRetriever: NumericValueRetriever = NumericValueRetriever(
         PrinterSingleton.INSTANCE.listNotationPrinter
     )
+    private val gcdCalculator = GcdCalculator()
 
     private val atomFunction: AtomFunction = AtomFunction()
     private val carFunction: CarFunction = CarFunction(
@@ -23,12 +25,17 @@ enum class FunctionSingleton {
     private val consFunction: ConsFunction = ConsFunction()
     private val eqFunction: EqFunction = EqFunction()
     private val gcdFunction = GcdFunction(
-        numericValueRetriever
+        numericValueRetriever,
+        gcdCalculator
     )
     private val greaterFunction = GreaterFunction(
         numericValueRetriever
     )
     private val intFunction: IntFunction = IntFunction()
+    private val lcmFunction = LcmFunction(
+        numericValueRetriever,
+        gcdCalculator
+    )
     private val lessFunction: LessFunction = LessFunction(
         numericValueRetriever
     )
@@ -52,6 +59,7 @@ enum class FunctionSingleton {
         Pair(FunctionNameConstants.GCD, gcdFunction),
         Pair(FunctionNameConstants.GREATER, greaterFunction),
         Pair(FunctionNameConstants.INT, intFunction),
+        Pair(FunctionNameConstants.LCM, lcmFunction),
         Pair(FunctionNameConstants.LESS, lessFunction),
         Pair(FunctionNameConstants.MINUS, minusFunction),
         Pair(FunctionNameConstants.NULL, nullFunction),
