@@ -19,15 +19,6 @@ class TokenGenerator {
         )
     }
 
-    fun generateNumericToken(
-        value: String
-    ): Token {
-        return Token(
-            TokenKind.NUMERIC_TOKEN,
-            value
-        )
-    }
-
     fun generateLiteralToken(
         value: String
     ): Token {

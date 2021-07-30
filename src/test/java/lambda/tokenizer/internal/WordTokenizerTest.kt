@@ -55,7 +55,7 @@ class WordTokenizerTest {
         ).thenReturn(pos)
         val numericToken = Mockito.mock(Token::class.java)
         Mockito.`when`(numericToken.value).thenReturn(word)
-        Mockito.`when`(tokenGenerator.generateNumericToken(word)).thenReturn(numericToken)
+        Mockito.`when`(tokenGenerator.generateLiteralToken(word)).thenReturn(numericToken)
         val actual = wordTokenizer.tokenizeWord(word)
         Assertions.assertEquals(1, actual.size)
         Assertions.assertEquals(numericToken, actual[0])

@@ -28,7 +28,7 @@ class WordTokenizer (
                         startingPos
                     )
                     val fragment = word.substring(startingPos, pos)
-                    tokenGenerator.generateNumericToken(
+                    tokenGenerator.generateLiteralToken(
                         fragment
                     )
                 }

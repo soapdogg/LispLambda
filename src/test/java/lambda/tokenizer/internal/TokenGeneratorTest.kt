@@ -24,13 +24,6 @@ class TokenGeneratorTest {
     }
 
     @Test
-    fun generateNumericTokenTest() {
-        val (tokenKind, value1) = tokenGenerator.generateNumericToken(value)
-        Assertions.assertEquals(TokenKind.NUMERIC_TOKEN, tokenKind)
-        Assertions.assertEquals(value, value1)
-    }
-
-    @Test
     fun generateLiteralTokenTest() {
         val (tokenKind, value1) = tokenGenerator.generateLiteralToken(value)
         Assertions.assertEquals(TokenKind.LITERAL_TOKEN, tokenKind)
