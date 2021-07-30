@@ -73,7 +73,7 @@ class CondChildFunctionEvaluatorTest {
         evalStack.push(evaluatedCondChild)
 
         val programStackItem1 = Mockito.mock(ProgramStackItem::class.java)
-        Mockito.`when`(programStackItem1.functionName).thenReturn(FunctionNameConstants.CONDCHILD)
+        Mockito.`when`(programStackItem1.functionName).thenReturn(FunctionNameConstants.COND_CHILD)
 
         val programStackItem0 = Mockito.mock(ProgramStackItem::class.java)
         Mockito.`when`(programStackItem0.functionName).thenReturn(FunctionNameConstants.COND)

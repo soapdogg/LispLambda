@@ -39,7 +39,7 @@ class CondChildStackItemBuilderTest {
         Mockito.`when`(functionExpressionListNode.children).thenReturn(condChildren)
 
         val condChildAtomNode = Mockito.mock(AtomNode::class.java)
-        Mockito.`when`(nodeGenerator.generateAtomNode(FunctionNameConstants.CONDCHILD)).thenReturn(condChildAtomNode)
+        Mockito.`when`(nodeGenerator.generateAtomNode(FunctionNameConstants.COND_CHILD)).thenReturn(condChildAtomNode)
 
         val grandchild = Mockito.mock(NodeV2::class.java)
         val child1Children = listOf(grandchild)

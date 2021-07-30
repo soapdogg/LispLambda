@@ -16,7 +16,7 @@ class CondChildStackItemBuilder(
     ) {
         val variableMap = condProgramStackItem.variableMap
         val condChildren = condProgramStackItem.functionExpressionNode.children
-        val condChildAtomNode = nodeGenerator.generateAtomNode(FunctionNameConstants.CONDCHILD)
+        val condChildAtomNode = nodeGenerator.generateAtomNode(FunctionNameConstants.COND_CHILD)
         for (i in condChildren.size - 2 downTo 1) {
             val condChildsChildren = listOf(condChildAtomNode) +  (condChildren[i] as ExpressionListNode).children
             val condChildExpressionListNode = nodeGenerator.generateExpressionListNode(condChildsChildren)

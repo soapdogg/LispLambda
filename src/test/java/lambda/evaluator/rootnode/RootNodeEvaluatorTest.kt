@@ -91,7 +91,7 @@ class RootNodeEvaluatorTest {
             programStack.push(rootProgramStackItem)
         }
 
-        val functionName = FunctionNameConstants.CONDCHILD
+        val functionName = FunctionNameConstants.COND_CHILD
         Mockito.`when`(rootProgramStackItem.functionName).thenReturn(functionName)
 
         val result = Mockito.mock(NodeV2::class.java)

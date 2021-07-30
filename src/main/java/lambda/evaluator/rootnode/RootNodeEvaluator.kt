@@ -39,7 +39,7 @@ class RootNodeEvaluator(
                         programStack
                     )
                 }
-                top.functionName == FunctionNameConstants.CONDCHILD -> {
+                top.functionName == FunctionNameConstants.COND_CHILD -> {
                     condChildFunctionEvaluator.evaluateCondChildFunction(
                         top,
                         evalStack,
