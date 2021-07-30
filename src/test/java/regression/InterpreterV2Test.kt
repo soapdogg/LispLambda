@@ -19,7 +19,7 @@ class InterpreterV2Test {
         //ATOM tests
         "(atom (cdr (cons 34 54))), T",
         "(atom (null (int (cons 34 54)))), T",
-        "(atom 4), T",
+        "(atom -4), T",
         "(atom (atom 45)), T",
         "(atom (cons 2 9)), NIL",
         "(atom (atom (atom T))), T",
@@ -56,10 +56,12 @@ class InterpreterV2Test {
         "(= (cons 23 ()) 9), NIL",
         "(= 23 T (cons 23 1)), NIL",
         "(= 1), T",
+        "(= -133), T",
         //GCD tests
         "(gcd), 0",
         "(gcd 4), 4",
         "(gcd 91 49), 7",
+        "(gcd 91 -49), 7",
         "(gcd 63 42 35), 7",
         "(gcd 81 153), 9",
         //GREATER tests
@@ -74,6 +76,7 @@ class InterpreterV2Test {
         "(>= 5 5 4), T",
         "(>= 4 4 5), NIL",
         "(>= 1 1 1 1 1 1), T",
+        "(>= 1 1 1 1 1 -134), T",
         //INT tests
         "(int 3), T",
         "(int (int 45)), NIL",
@@ -85,7 +88,7 @@ class InterpreterV2Test {
         "(lcm 14 35), 70",
         "(lcm 1 2 3 4 5 6), 60",
         "(lcm 0 5), 0",
-        "(lcm 34), 34",
+        "(lcm -34), 34",
         //LESS tests
         "(< 1 19), T",
         "(< 34), T",
@@ -104,8 +107,9 @@ class InterpreterV2Test {
         "(min 6 12), 6",
         "(min 3), 3",
         "(min 2 3 0 7), 0",
+        "(min 2 3 0 -7), -7",
         //MINUS tests
-        "(- 1 13), -12",
+        "(- 1 -13), 14",
         "(- 13 (- (- 30 23) 7)), 13",
         "(- 45), -45",
         "(- 3 4 5), -6",
@@ -113,7 +117,7 @@ class InterpreterV2Test {
         "(/= T T), NIL",
         "(/= 2 (+ 2 1)), T",
         "(/= 45), T",
-        "(/= 45 34 12 1), T",
+        "(/= 45 -34 12 1), T",
         //NULL tests
         "(null NIL), T",
         "(null (null NIL)), NIL",
@@ -123,7 +127,7 @@ class InterpreterV2Test {
         //PLUS tests
         "(+), 0",
         "(+ 8 4), 12",
-        "(+ 4 5 3), 12",
+        "(+ 4 5 -3), 6",
         "(+ (+ 4 3) (+ (+ 1 2) 4)), 14",
         "(+ 1 2), 3",
         "(+ (+ 3 5) (* 4 4)), 24",
@@ -136,7 +140,7 @@ class InterpreterV2Test {
         "('(cons 34 92)), (cons 34 92)",
         //TIMES tests
         "(* (- 0 1) 45), -45",
-        "(* 3 34), 102",
+        "(* 3 -34), -102",
         "(* (* 1 2) (* 2 (* 5 6))), 120",
         "(* 23 4 2), 184",
         "(*), 1"
