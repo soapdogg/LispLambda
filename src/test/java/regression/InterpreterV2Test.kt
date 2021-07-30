@@ -96,6 +96,14 @@ class InterpreterV2Test {
         "(<= 5 5 4), NIL",
         "(<= 4 4 5), T",
         "(<= 1 1 1 1 1 1), T",
+        //MAX tests
+        "(max 6 12), 12",
+        "(max 3), 3",
+        "(max 2 3 0 7), 7",
+        //MIN tests
+        "(min 6 12), 6",
+        "(min 3), 3",
+        "(min 2 3 0 7), 0",
         //MINUS tests
         "(- 1 13), -12",
         "(- 13 (- (- 30 23) 7)), 13",
@@ -188,6 +196,10 @@ class InterpreterV2Test {
         //LESS_EQ tests
         "(<=), Error! Expected length of <= list to be at least 2!    Actual: 1",
         "(<= NIL 23), Error! Parameter at position: 1 of function <= is not numeric!    Actual: NIL",
+        //MAX tests
+        "(max), Error! Expected length of max list to be at least 2!    Actual: 1",
+        //MIN tests
+        "(min), Error! Expected length of min list to be at least 2!    Actual: 1",
         //MINUS tests
         "(-), Error! Expected length of - list to be at least 2!    Actual: 1",
         "(- 22 (cons T 45) 34), Error! Parameter at position: 2 of function - is not numeric!    Actual: (T . 45)",

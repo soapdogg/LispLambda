@@ -16,6 +16,8 @@ object FunctionNameConstants {
     const val LCM = "lcm"
     const val LESS = "<"
     const val LESS_EQ = "<="
+    const val MAX = "max"
+    const val MIN = "min"
     const val MINUS = "-"
     const val NOT_EQ = "/="
     const val NULL = "null"

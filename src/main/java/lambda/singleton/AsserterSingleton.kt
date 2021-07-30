@@ -32,6 +32,8 @@ enum class AsserterSingleton {
         Pair(FunctionNameConstants.LCM, FunctionLengthConstants.TWO),
         Pair(FunctionNameConstants.LESS, FunctionLengthConstants.TWO),
         Pair(FunctionNameConstants.LESS_EQ, FunctionLengthConstants.TWO),
+        Pair(FunctionNameConstants.MAX, FunctionLengthConstants.TWO),
+        Pair(FunctionNameConstants.MIN, FunctionLengthConstants.TWO),
         Pair(FunctionNameConstants.MINUS, FunctionLengthConstants.TWO),
         Pair(FunctionNameConstants.NOT_EQ, FunctionLengthConstants.TWO)
     )

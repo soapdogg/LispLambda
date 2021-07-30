@@ -24,6 +24,8 @@ enum class UserDefinedSingleton {
         FunctionNameConstants.INT,
         FunctionNameConstants.LESS,
         FunctionNameConstants.LESS_EQ,
+        FunctionNameConstants.MAX,
+        FunctionNameConstants.MIN,
         FunctionNameConstants.MINUS,
         FunctionNameConstants.NOT_EQ,
         FunctionNameConstants.NULL,

@@ -45,6 +45,12 @@ enum class FunctionSingleton {
     private val lessEqFunction = LessEqFunction(
         numericValueRetriever
     )
+    private val maxFunction = MaxFunction(
+        numericValueRetriever
+    )
+    private val minFunction = MinFunction(
+        numericValueRetriever
+    )
     private val minusFunction = MinusFunction(
         numericValueRetriever
     )
@@ -70,6 +76,8 @@ enum class FunctionSingleton {
         Pair(FunctionNameConstants.LCM, lcmFunction),
         Pair(FunctionNameConstants.LESS, lessFunction),
         Pair(FunctionNameConstants.LESS_EQ, lessEqFunction),
+        Pair(FunctionNameConstants.MAX, maxFunction),
+        Pair(FunctionNameConstants.MIN, minFunction),
         Pair(FunctionNameConstants.MINUS, minusFunction),
         Pair(FunctionNameConstants.NOT_EQ, notEqFunction),
         Pair(FunctionNameConstants.NULL, nullFunction),
