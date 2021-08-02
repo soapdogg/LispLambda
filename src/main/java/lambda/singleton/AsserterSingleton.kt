@@ -20,9 +20,14 @@ enum class AsserterSingleton {
         Pair(FunctionNameConstants.CAR, FunctionLengthConstants.TWO),
         Pair(FunctionNameConstants.CDR, FunctionLengthConstants.TWO),
         Pair(FunctionNameConstants.CONS, FunctionLengthConstants.THREE),
+        Pair(FunctionNameConstants.EVEN_P, FunctionLengthConstants.TWO),
         Pair(FunctionNameConstants.INT, FunctionLengthConstants.TWO),
+        Pair(FunctionNameConstants.MINUS_P, FunctionLengthConstants.TWO),
         Pair(FunctionNameConstants.NULL, FunctionLengthConstants.TWO),
+        Pair(FunctionNameConstants.ODD_P, FunctionLengthConstants.TWO),
+        Pair(FunctionNameConstants.PLUS_P, FunctionLengthConstants.TWO),
         Pair(FunctionNameConstants.QUOTE, FunctionLengthConstants.TWO),
+        Pair(FunctionNameConstants.ZERO_P, FunctionLengthConstants.TWO)
     )
 
     private val minimumFunctionLengthMap: Map<String, Int> = mapOf(

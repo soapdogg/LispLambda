@@ -24,6 +24,9 @@ enum class FunctionSingleton {
     )
     private val consFunction = ConsFunction()
     private val eqFunction = EqFunction()
+    private val evenPFunction = EvenPFunction(
+        numericValueRetriever
+    )
     private val gcdFunction = GcdFunction(
         numericValueRetriever,
         gcdCalculator
@@ -54,12 +57,24 @@ enum class FunctionSingleton {
     private val minusFunction = MinusFunction(
         numericValueRetriever
     )
+    private val minusPFunction = MinusPFunction(
+        numericValueRetriever
+    )
     private val notEqFunction = NotEqFunction()
     private val nullFunction = NullFunction()
+    private val oddPFunction = OddPFunction(
+        numericValueRetriever
+    )
     private val plusFunction = PlusFunction(
         numericValueRetriever
     )
+    private val plusPFunction = PlusPFunction(
+        numericValueRetriever
+    )
     private val timesFunction = TimesFunction(
+        numericValueRetriever
+    )
+    private val zeroPFunction = ZeroPFunction(
         numericValueRetriever
     )
 
@@ -69,6 +84,7 @@ enum class FunctionSingleton {
         Pair(FunctionNameConstants.CDR, cdrFunction),
         Pair(FunctionNameConstants.CONS, consFunction),
         Pair(FunctionNameConstants.EQ, eqFunction),
+        Pair(FunctionNameConstants.EVEN_P, evenPFunction),
         Pair(FunctionNameConstants.GCD, gcdFunction),
         Pair(FunctionNameConstants.GREATER, greaterFunction),
         Pair(FunctionNameConstants.GREATER_EQ, greaterEqFunction),
@@ -79,9 +95,13 @@ enum class FunctionSingleton {
         Pair(FunctionNameConstants.MAX, maxFunction),
         Pair(FunctionNameConstants.MIN, minFunction),
         Pair(FunctionNameConstants.MINUS, minusFunction),
+        Pair(FunctionNameConstants.MINUS_P, minusPFunction),
         Pair(FunctionNameConstants.NOT_EQ, notEqFunction),
         Pair(FunctionNameConstants.NULL, nullFunction),
+        Pair(FunctionNameConstants.ODD_P, oddPFunction),
         Pair(FunctionNameConstants.PLUS, plusFunction),
-        Pair(FunctionNameConstants.TIMES, timesFunction)
+        Pair(FunctionNameConstants.PLUS_P, plusPFunction),
+        Pair(FunctionNameConstants.TIMES, timesFunction),
+        Pair(FunctionNameConstants.ZERO_P, zeroPFunction)
     )
 }

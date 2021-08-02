@@ -18,6 +18,7 @@ enum class UserDefinedSingleton {
         FunctionNameConstants.CONS,
         FunctionNameConstants.DEFUN,
         FunctionNameConstants.EQ,
+        FunctionNameConstants.EVEN_P,
         FunctionNameConstants.GCD,
         FunctionNameConstants.GREATER,
         FunctionNameConstants.GREATER_EQ,
@@ -27,11 +28,15 @@ enum class UserDefinedSingleton {
         FunctionNameConstants.MAX,
         FunctionNameConstants.MIN,
         FunctionNameConstants.MINUS,
+        FunctionNameConstants.MINUS_P,
         FunctionNameConstants.NOT_EQ,
         FunctionNameConstants.NULL,
+        FunctionNameConstants.ODD_P,
         FunctionNameConstants.PLUS,
+        FunctionNameConstants.PLUS_P,
         FunctionNameConstants.QUOTE,
         FunctionNameConstants.TIMES,
+        FunctionNameConstants.ZERO_P,
         ReservedValuesConstants.T,
         ReservedValuesConstants.NIL
     )

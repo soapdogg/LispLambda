@@ -57,6 +57,11 @@ class InterpreterV2Test {
         "(= 23 T (cons 23 1)), NIL",
         "(= 1), T",
         "(= -133), T",
+        //EVEN_P tests
+        "(evenp 0), T",
+        "(evenp -34), T",
+        "(evenp 23), NIL",
+        "(evenp 55556), T",
         //GCD tests
         "(gcd), 0",
         "(gcd 4), 4",
@@ -113,6 +118,10 @@ class InterpreterV2Test {
         "(- 13 (- (- 30 23) 7)), 13",
         "(- 45), -45",
         "(- 3 4 5), -6",
+        //MINUS_P tests
+        "(minusp 0), NIL",
+        "(minusp -34), T",
+        "(minusp 23), NIL",
         //NOT_EQ tests
         "(/= T T), NIL",
         "(/= 2 (+ 2 1)), T",
@@ -124,6 +133,11 @@ class InterpreterV2Test {
         "(null ('(A))), NIL",
         "(null (= 2 (+ 1 1))), NIL",
         "(null (int (int (+ 23 23)))), T",
+        //ODD_P tests
+        "(oddp 0), NIL",
+        "(oddp -35), T",
+        "(oddp 23), T",
+        "(oddp 98), NIL",
         //PLUS tests
         "(+), 0",
         "(+ 8 4), 12",
@@ -135,6 +149,10 @@ class InterpreterV2Test {
         "(+ (+ 3 5) (car ('(7 8)))), 15",
         "(+ (cond ((> 3 45) 1) (T 2)) 2854), 2856",
         "(+ (cond ((int T) 34) ((null 2) 1) ((int 12) 12) (T 3)) 0), 12",
+        //PLUS_P tests
+        "(plusp 0), NIL",
+        "(plusp -34), NIL",
+        "(plusp 23), T",
         //QUOTE tests
         "('(3 4 5)), (3 4 5)",
         "('(cons 34 92)), (cons 34 92)",
@@ -143,7 +161,11 @@ class InterpreterV2Test {
         "(* 3 -34), -102",
         "(* (* 1 2) (* 2 (* 5 6))), 120",
         "(* 23 4 2), 184",
-        "(*), 1"
+        "(*), 1",
+        //ZERO_P tests
+        "(zerop 0), T",
+        "(zerop -0), T",
+        "(zerop 23), NIL"
     )
     fun validTest(arguments: ArgumentsAccessor) {
         val input = arguments.get(0).toString()
@@ -182,6 +204,10 @@ class InterpreterV2Test {
         "(cons 23 12 34), Error! Expected length of cons list is 3!    Actual: 4",
         //EQ tests
         "(=), Error! Expected length of = list to be at least 2!    Actual: 1",
+        //EVEN_P tests
+        "(evenp), Error! Expected length of evenp list is 2!    Actual: 1",
+        "(evenp 23 23), Error! Expected length of evenp list is 2!    Actual: 3",
+        "(evenp T), Error! Parameter at position: 1 of function evenp is not numeric!    Actual: T",
         //GREATER tests
         "(>), Error! Expected length of > list to be at least 2!    Actual: 1",
         "(> NIL 23), Error! Parameter at position: 1 of function > is not numeric!    Actual: NIL",
@@ -208,19 +234,35 @@ class InterpreterV2Test {
         "(-), Error! Expected length of - list to be at least 2!    Actual: 1",
         "(- 22 (cons T 45) 34), Error! Parameter at position: 2 of function - is not numeric!    Actual: (T . 45)",
         "(- (cons 34 20) 23), Error! Parameter at position: 1 of function - is not numeric!    Actual: (34 . 20)",
+        //MINUS_P tests
+        "(minusp), Error! Expected length of minusp list is 2!    Actual: 1",
+        "(minusp 23 23), Error! Expected length of minusp list is 2!    Actual: 3",
+        "(minusp T), Error! Parameter at position: 1 of function minusp is not numeric!    Actual: T",
         //NOT_EQ tests
         "(/=), Error! Expected length of /= list to be at least 2!    Actual: 1",
         //NULL tests
         "(null), Error! Expected length of null list is 2!    Actual: 1",
         "(null 23 23 T), Error! Expected length of null list is 2!    Actual: 4",
+        //ODD_P tests
+        "(oddp), Error! Expected length of oddp list is 2!    Actual: 1",
+        "(oddp 23 23), Error! Expected length of oddp list is 2!    Actual: 3",
+        "(oddp T), Error! Parameter at position: 1 of function oddp is not numeric!    Actual: T",
         //PLUS tests
         "(+ T NIL 34), Error! Parameter at position: 1 of function + is not numeric!    Actual: T",
         "(+ 23 (cons 34 20)), Error! Parameter at position: 2 of function + is not numeric!    Actual: (34 . 20)",
+        //PLUS_P tests
+        "(plusp), Error! Expected length of plusp list is 2!    Actual: 1",
+        "(plusp 23 23), Error! Expected length of plusp list is 2!    Actual: 3",
+        "(plusp T), Error! Parameter at position: 1 of function plusp is not numeric!    Actual: T",
         //QUOTE tests
         "('), Error! Expected length of ' list is 2!    Actual: 1",
         "(' T NIL), Error! Expected length of ' list is 2!    Actual: 3",
         //TIMES tests
-        "(* 2 T), Error! Parameter at position: 2 of function * is not numeric!    Actual: T"
+        "(* 2 T), Error! Parameter at position: 2 of function * is not numeric!    Actual: T",
+        //ZERO_P tests
+        "(zerop), Error! Expected length of zerop list is 2!    Actual: 1",
+        "(zerop 23 23), Error! Expected length of zerop list is 2!    Actual: 3",
+        "(zerop T), Error! Parameter at position: 1 of function zerop is not numeric!    Actual: T"
     )
     fun invalidTest(arguments: ArgumentsAccessor) {
         val input = arguments.get(0).toString()
