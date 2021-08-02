@@ -15,8 +15,6 @@ class ExpressionListNodeParserTest {
 
     @Test
     fun parseExpressionListNodeTest() {
-        val startingPoint = 0
-
         val openToken = Mockito.mock(Token::class.java)
         Mockito.`when`(openToken.tokenKind).thenReturn(TokenKind.OPEN_TOKEN)
 
@@ -37,15 +35,11 @@ class ExpressionListNodeParserTest {
 
         val actual = expressionListNodeParser.parseExpressionListNode(
             tokens,
-            startingPoint
         )
 
-        val resultingNodeExpressionListNode = actual.resultingNode
-        Assertions.assertEquals(1, resultingNodeExpressionListNode.children.size)
-        val child = resultingNodeExpressionListNode.children[0] as ExpressionListNode
-        Assertions.assertEquals(2, child.children.size)
-        Assertions.assertEquals(value, (child.children[0] as AtomNode).value)
-        Assertions.assertEquals(ReservedValuesConstants.NIL, (child.children[1] as AtomNode).value)
-        Assertions.assertEquals(3, actual.nextIndex)
+        val resultingNodeExpressionListNode = actual as ExpressionListNode
+        Assertions.assertEquals(2, resultingNodeExpressionListNode.children.size)
+        Assertions.assertEquals(value, (resultingNodeExpressionListNode.children[0] as AtomNode).value)
+        Assertions.assertEquals(ReservedValuesConstants.NIL, (resultingNodeExpressionListNode.children[1] as AtomNode).value)
     }
 }

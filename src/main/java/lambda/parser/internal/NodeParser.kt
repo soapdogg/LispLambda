@@ -10,6 +10,6 @@ class NodeParser (
     fun parseIntoNode(
         tokens: List<Token>
     ): NodeV2 {
-        return expressionListNodeParser.parseExpressionListNode(tokens, 0).resultingNode.children[0]
+        return expressionListNodeParser.parseExpressionListNode(tokens)
     }
 }

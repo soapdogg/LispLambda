@@ -6,36 +6,36 @@ import lambda.core.datamodels.*
 class ExpressionListNodeParser {
 
     fun parseExpressionListNode(
-        tokens: List<Token>,
-        startingPoint: Int
-    ): ParserResult {
-        val result = ArrayList<NodeV2>()
-        var i = startingPoint
-        loop@ while (i < tokens.size) {
-            val token = tokens[i]
-            when (token.tokenKind) {
+        tokens: List<Token>
+    ): NodeV2 {
+
+        if (tokens.size == 1) {
+            return AtomNode(tokens[0].value)
+        }
+
+        val stack = Stack<ArrayList<NodeV2>>()
+        val tokensIterator = tokens.iterator()
+        var result = ExpressionListNode(ArrayList())
+        while(tokensIterator.hasNext()) {
+            val next = tokensIterator.next()
+            when(next.tokenKind) {
                 TokenKind.OPEN_TOKEN -> {
-                    val nodeV2 = parseExpressionListNode(tokens, i + 1)
-                    result += nodeV2.resultingNode
-                    i = nodeV2.nextIndex
+                    stack.push(ArrayList())
                 }
                 TokenKind.CLOSE_TOKEN -> {
-                    val nodeV2 = AtomNode(ReservedValuesConstants.NIL)
-                    result += nodeV2
-                    ++i
-                    break@loop
+                    val node = AtomNode(ReservedValuesConstants.NIL)
+                    stack.peek().add(node)
+                    result = ExpressionListNode(stack.pop())
+                    if (stack.isNotEmpty()) {
+                        stack.peek().add(result)
+                    }
                 }
                 else -> {
-                    val nodeV2 = AtomNode(token.value)
-                    result += nodeV2
-                    ++i
+                    val node = AtomNode(next.value)
+                    stack.peek().add(node)
                 }
             }
         }
-        val expressionListNode = ExpressionListNode(result)
-        return ParserResult(
-            expressionListNode,
-            i
-        )
+        return result
     }
 }
