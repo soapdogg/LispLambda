@@ -1,7 +1,7 @@
 package lambda.evaluator.rootnode.internal
 
 import lambda.core.datamodels.Stack
-import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Node
 import lambda.core.datamodels.ProgramStackItem
 import lambda.function.Function
 
@@ -12,9 +12,9 @@ class BuiltInFunctionEvaluator(
 
     fun evaluateBuiltInFunction(
         functionName: String,
-        functionStack: Stack<NodeV2>,
+        functionStack: Stack<Node>,
         top: ProgramStackItem,
-        evalStack: Stack<NodeV2>,
+        evalStack: Stack<Node>,
         programStack: Stack<ProgramStackItem>
     ) {
         val function = functionMap.getValue(functionName)

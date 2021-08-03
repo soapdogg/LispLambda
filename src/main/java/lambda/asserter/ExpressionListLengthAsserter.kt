@@ -12,7 +12,7 @@ class ExpressionListLengthAsserter(
 ) {
 
     fun assertLengthIsAsExpected(
-        nodes: List<NodeV2>,
+        nodes: List<Node>,
         userDefinedFunctions: Map<String, UserDefinedFunction>
     ) {
         val stack = Stack<ExpressionListNode>()

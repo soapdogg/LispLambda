@@ -4,14 +4,14 @@ import lambda.core.constants.ReservedValuesConstants
 import lambda.core.datamodels.AtomNode
 import lambda.core.datamodels.ExpressionListNode
 import lambda.core.datamodels.Stack
-import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Node
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito
 
 class NullFunctionTest {
 
-    private val params = Stack<NodeV2>()
+    private val params = Stack<Node>()
 
     private val nullFunction = NullFunction()
 

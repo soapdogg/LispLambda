@@ -7,7 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.aggregator.ArgumentsAccessor
 import org.junit.jupiter.params.provider.CsvSource
 
-class InterpreterV2Test {
+class InterpreterTest {
     private val interpreter = InterpreterSingleton.INSTANCE.interpreter
 
     @ParameterizedTest

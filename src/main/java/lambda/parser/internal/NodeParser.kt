@@ -8,12 +8,12 @@ class NodeParser {
 
     fun parseIntoNode(
         tokens: List<String>
-    ): NodeV2 {
+    ): Node {
         if (tokens.size == 1) {
             return AtomNode(tokens[0])
         }
 
-        val stack = Stack<ArrayList<NodeV2>>()
+        val stack = Stack<ArrayList<Node>>()
         val tokensIterator = tokens.iterator()
         var result = ExpressionListNode(ArrayList())
         while(tokensIterator.hasNext()) {

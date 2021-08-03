@@ -3,14 +3,14 @@ package lambda.function
 import lambda.core.datamodels.AtomNode
 import lambda.core.datamodels.ExpressionListNode
 import lambda.core.datamodels.Stack
-import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Node
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito
 
 class ConsFunctionTest {
 
-    private val params = Stack<NodeV2>()
+    private val params = Stack<Node>()
 
     private val consFunction = ConsFunction()
 
@@ -40,8 +40,8 @@ class ConsFunctionTest {
         params.push(second)
         params.push(first)
 
-        val dataChild0 = Mockito.mock(NodeV2::class.java)
-        val dataChild1 = Mockito.mock(NodeV2::class.java)
+        val dataChild0 = Mockito.mock(Node::class.java)
+        val dataChild1 = Mockito.mock(Node::class.java)
         Mockito.`when`(
             second.children
         ).thenReturn(listOf(dataChild0, dataChild1))

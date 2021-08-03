@@ -4,7 +4,7 @@ import lambda.core.constants.FunctionNameConstants
 import lambda.core.constants.ReservedValuesConstants
 import lambda.core.datamodels.AtomNode
 import lambda.core.datamodels.Stack
-import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Node
 import lambda.core.datamodels.ProgramStackItem
 import lambda.evaluator.rootnode.internal.StackUpdateDeterminer
 
@@ -14,7 +14,7 @@ class CondChildFunctionEvaluator(
 
     fun evaluateCondChildFunction(
         top: ProgramStackItem,
-        evalStack: Stack<NodeV2>,
+        evalStack: Stack<Node>,
         programStack: Stack<ProgramStackItem>
     ) {
         programStack.push(top)

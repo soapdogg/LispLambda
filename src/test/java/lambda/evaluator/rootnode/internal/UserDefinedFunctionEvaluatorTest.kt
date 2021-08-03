@@ -1,7 +1,7 @@
 package lambda.evaluator.rootnode.internal
 
 import lambda.core.datamodels.Stack
-import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Node
 import lambda.core.datamodels.ProgramStackItem
 import lambda.core.datamodels.UserDefinedFunction
 import org.junit.jupiter.api.Test
@@ -18,14 +18,14 @@ class UserDefinedFunctionEvaluatorTest {
     @Test
     fun evaluateUserDefinedFunctionTest() {
         val userDefinedFunction = Mockito.mock(UserDefinedFunction::class.java)
-        val variableMap = emptyMap<String, NodeV2>()
-        val functionStack = Stack<NodeV2>()
-        val evalStack = Stack<NodeV2>()
+        val variableMap = emptyMap<String, Node>()
+        val functionStack = Stack<Node>()
+        val evalStack = Stack<Node>()
         val programStack = Stack<ProgramStackItem>()
 
         val formalParameter0 = "formalParameter0"
         Mockito.`when`(userDefinedFunction.formalParameters).thenReturn(listOf(formalParameter0))
-        val paramValue = Mockito.mock(NodeV2::class.java)
+        val paramValue = Mockito.mock(Node::class.java)
 
         val mapCopy = mapOf(
             Pair(formalParameter0, paramValue)
@@ -33,7 +33,7 @@ class UserDefinedFunctionEvaluatorTest {
 
         functionStack.push(paramValue)
 
-        val userDefinedFunctionBody = Mockito.mock(NodeV2::class.java)
+        val userDefinedFunctionBody = Mockito.mock(Node::class.java)
         Mockito.`when`(userDefinedFunction.body).thenReturn(userDefinedFunctionBody)
 
         userDefinedFunctionEvaluator.evaluateUserDefinedFunction(

@@ -34,9 +34,9 @@ class UserDefinedFunctionGeneratorTest {
         val formalParameters = emptyList<String>()
         Mockito.`when`(formalParametersNodeV2.children).thenReturn(listOf())
 
-        val bodyV2 = Mockito.mock(NodeV2::class.java)
+        val bodyV2 = Mockito.mock(Node::class.java)
 
-        val defunNode = Mockito.mock(NodeV2::class.java)
+        val defunNode = Mockito.mock(Node::class.java)
         val paramsChildren = listOf(
             defunNode,
             functionNameNode,
@@ -84,9 +84,9 @@ class UserDefinedFunctionGeneratorTest {
             ReservedValuesConstants.T
         )
 
-        val bodyV2 = Mockito.mock(NodeV2::class.java)
+        val bodyV2 = Mockito.mock(Node::class.java)
 
-        val defunNode = Mockito.mock(NodeV2::class.java)
+        val defunNode = Mockito.mock(Node::class.java)
         val paramsChildren = listOf(
             defunNode,
             functionNameNode,
@@ -120,9 +120,9 @@ class UserDefinedFunctionGeneratorTest {
         val formalParametersNodeV2 = Mockito.mock(AtomNode::class.java)
         val formalParameters = listOf<String>()
 
-        val bodyV2 = Mockito.mock(NodeV2::class.java)
+        val bodyV2 = Mockito.mock(Node::class.java)
 
-        val defunNode = Mockito.mock(NodeV2::class.java)
+        val defunNode = Mockito.mock(Node::class.java)
         val paramsChildren = listOf(
             defunNode,
             functionNameNode,

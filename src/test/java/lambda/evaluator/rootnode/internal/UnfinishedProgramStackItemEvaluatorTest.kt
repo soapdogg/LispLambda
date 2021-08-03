@@ -2,7 +2,7 @@ package lambda.evaluator.rootnode.internal
 
 import lambda.core.datamodels.ExpressionListNode
 import lambda.core.datamodels.Stack
-import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Node
 import lambda.core.datamodels.ProgramStackItem
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito
@@ -18,7 +18,7 @@ class UnfinishedProgramStackItemEvaluatorTest {
     @Test
     fun evaluateUnfinishedProgramStackItemTest() {
         val top = Mockito.mock(ProgramStackItem::class.java)
-        val evalStack = Stack<NodeV2>()
+        val evalStack = Stack<Node>()
         val programStack = Stack<ProgramStackItem>()
 
         val functionExpressionNode = Mockito.mock(ExpressionListNode::class.java)
@@ -27,10 +27,10 @@ class UnfinishedProgramStackItemEvaluatorTest {
         val currentParameterIndex = 0
         Mockito.`when`(top.currentParameterIndex).thenReturn(currentParameterIndex)
 
-        val child0 = Mockito.mock(NodeV2::class.java)
+        val child0 = Mockito.mock(Node::class.java)
         Mockito.`when`(functionExpressionNode.children).thenReturn(listOf(child0))
 
-        val variableMap = emptyMap<String, NodeV2>()
+        val variableMap = emptyMap<String, Node>()
         Mockito.`when`(top.variableMap).thenReturn(variableMap)
 
         unfinishedProgramStackItemEvaluator.evaluateUnfinishedProgramStackItem(

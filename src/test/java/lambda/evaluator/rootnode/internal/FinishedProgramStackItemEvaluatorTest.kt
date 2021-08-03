@@ -29,19 +29,19 @@ class FinishedProgramStackItemEvaluatorTest {
     fun functionNameIsNilTest() {
         val top = Mockito.mock(ProgramStackItem::class.java)
         val userDefinedFunctions = emptyMap<String, UserDefinedFunction>()
-        val evalStack = Stack<NodeV2>()
+        val evalStack = Stack<Node>()
         val programStack = Stack<ProgramStackItem>()
 
         val functionExpressionNode = Mockito.mock(ExpressionListNode::class.java)
         Mockito.`when`(top.functionExpressionNode).thenReturn(functionExpressionNode)
 
-        val child0 = Mockito.mock(NodeV2::class.java)
-        val child1 = Mockito.mock(NodeV2::class.java)
+        val child0 = Mockito.mock(Node::class.java)
+        val child1 = Mockito.mock(Node::class.java)
         Mockito.`when`(functionExpressionNode.children).thenReturn(listOf(child0, child1))
         evalStack.push(child0)
         evalStack.push(child1)
 
-        val variableMap = emptyMap<String, NodeV2>()
+        val variableMap = emptyMap<String, Node>()
         Mockito.`when`(top.variableMap).thenReturn(variableMap)
 
         val functionName = ReservedValuesConstants.NIL
@@ -72,19 +72,19 @@ class FinishedProgramStackItemEvaluatorTest {
     fun functionNameIsBuiltInFunctionTest() {
         val top = Mockito.mock(ProgramStackItem::class.java)
         val userDefinedFunctions = emptyMap<String, UserDefinedFunction>()
-        val evalStack = Stack<NodeV2>()
+        val evalStack = Stack<Node>()
         val programStack = Stack<ProgramStackItem>()
 
         val functionExpressionNode = Mockito.mock(ExpressionListNode::class.java)
         Mockito.`when`(top.functionExpressionNode).thenReturn(functionExpressionNode)
 
-        val child0 = Mockito.mock(NodeV2::class.java)
-        val child1 = Mockito.mock(NodeV2::class.java)
+        val child0 = Mockito.mock(Node::class.java)
+        val child1 = Mockito.mock(Node::class.java)
         Mockito.`when`(functionExpressionNode.children).thenReturn(listOf(child0, child1))
         evalStack.push(child0)
         evalStack.push(child1)
 
-        val variableMap = emptyMap<String, NodeV2>()
+        val variableMap = emptyMap<String, Node>()
         Mockito.`when`(top.variableMap).thenReturn(variableMap)
 
         val functionName = FunctionNameConstants.LESS
@@ -93,7 +93,7 @@ class FinishedProgramStackItemEvaluatorTest {
         val function = Mockito.mock(Function::class.java)
         functionMap[functionName] = function
 
-        val functionStack = Stack<NodeV2>()
+        val functionStack = Stack<Node>()
 
         Assertions.assertDoesNotThrow {
             finishedProgramStackItemEvaluator.evaluateFinishedProgramStackItem(
@@ -119,19 +119,19 @@ class FinishedProgramStackItemEvaluatorTest {
     @Test
     fun functionNameIsUserDefinedFunctionTest() {
         val top = Mockito.mock(ProgramStackItem::class.java)
-        val evalStack = Stack<NodeV2>()
+        val evalStack = Stack<Node>()
         val programStack = Stack<ProgramStackItem>()
 
         val functionExpressionNode = Mockito.mock(ExpressionListNode::class.java)
         Mockito.`when`(top.functionExpressionNode).thenReturn(functionExpressionNode)
 
-        val child0 = Mockito.mock(NodeV2::class.java)
-        val child1 = Mockito.mock(NodeV2::class.java)
+        val child0 = Mockito.mock(Node::class.java)
+        val child1 = Mockito.mock(Node::class.java)
         Mockito.`when`(functionExpressionNode.children).thenReturn(listOf(child0, child1))
         evalStack.push(child0)
         evalStack.push(child1)
 
-        val variableMap = emptyMap<String, NodeV2>()
+        val variableMap = emptyMap<String, Node>()
         Mockito.`when`(top.variableMap).thenReturn(variableMap)
 
         val functionName = "userDefinedFunction"
@@ -143,7 +143,7 @@ class FinishedProgramStackItemEvaluatorTest {
             Pair(functionName, userDefinedFunction)
         )
 
-        val functionStack = Stack<NodeV2>()
+        val functionStack = Stack<Node>()
 
         Assertions.assertDoesNotThrow {
             finishedProgramStackItemEvaluator.evaluateFinishedProgramStackItem(
@@ -171,19 +171,19 @@ class FinishedProgramStackItemEvaluatorTest {
     fun functionNameIsInvalidCarValueTest() {
         val top = Mockito.mock(ProgramStackItem::class.java)
         val userDefinedFunctions = emptyMap<String, UserDefinedFunction>()
-        val evalStack = Stack<NodeV2>()
+        val evalStack = Stack<Node>()
         val programStack = Stack<ProgramStackItem>()
 
         val functionExpressionNode = Mockito.mock(ExpressionListNode::class.java)
         Mockito.`when`(top.functionExpressionNode).thenReturn(functionExpressionNode)
 
-        val child0 = Mockito.mock(NodeV2::class.java)
-        val child1 = Mockito.mock(NodeV2::class.java)
+        val child0 = Mockito.mock(Node::class.java)
+        val child1 = Mockito.mock(Node::class.java)
         Mockito.`when`(functionExpressionNode.children).thenReturn(listOf(child0, child1))
         evalStack.push(child0)
         evalStack.push(child1)
 
-        val variableMap = emptyMap<String, NodeV2>()
+        val variableMap = emptyMap<String, Node>()
         Mockito.`when`(top.variableMap).thenReturn(variableMap)
 
         val functionName = "invalid"

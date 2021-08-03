@@ -18,22 +18,22 @@ class CondChildFunctionEvaluatorTest {
     @Test
     fun evaluateCondChildsConditionTest() {
         val top = Mockito.mock(ProgramStackItem::class.java)
-        val evalStack = Stack<NodeV2>()
+        val evalStack = Stack<Node>()
         val programStack = Stack<ProgramStackItem>()
 
         val functionExpressionNode = Mockito.mock(ExpressionListNode::class.java)
         Mockito.`when`(top.functionExpressionNode).thenReturn(functionExpressionNode)
 
-        val grandChild0 = Mockito.mock(NodeV2::class.java)
-        val grandChild1 = Mockito.mock(NodeV2::class.java)
-        val grandChild2 = Mockito.mock(NodeV2::class.java)
+        val grandChild0 = Mockito.mock(Node::class.java)
+        val grandChild1 = Mockito.mock(Node::class.java)
+        val grandChild2 = Mockito.mock(Node::class.java)
         val grandChildren = listOf(grandChild0, grandChild1, grandChild2)
         Mockito.`when`(functionExpressionNode.children).thenReturn(grandChildren)
 
         val currentParameterIndex = 0
         Mockito.`when`(top.currentParameterIndex).thenReturn(currentParameterIndex)
 
-        val variableMap = emptyMap<String, NodeV2>()
+        val variableMap = emptyMap<String, Node>()
         Mockito.`when`(top.variableMap).thenReturn(variableMap)
 
         condChildFunctionEvaluator.evaluateCondChildFunction(
@@ -53,15 +53,15 @@ class CondChildFunctionEvaluatorTest {
     @Test
     fun evaluateCondChildsValueTest() {
         val top = Mockito.mock(ProgramStackItem::class.java)
-        val evalStack = Stack<NodeV2>()
+        val evalStack = Stack<Node>()
         val programStack = Stack<ProgramStackItem>()
 
         val functionExpressionNode = Mockito.mock(ExpressionListNode::class.java)
         Mockito.`when`(top.functionExpressionNode).thenReturn(functionExpressionNode)
 
-        val grandChild0 = Mockito.mock(NodeV2::class.java)
-        val grandChild1 = Mockito.mock(NodeV2::class.java)
-        val grandChild2 = Mockito.mock(NodeV2::class.java)
+        val grandChild0 = Mockito.mock(Node::class.java)
+        val grandChild1 = Mockito.mock(Node::class.java)
+        val grandChild2 = Mockito.mock(Node::class.java)
         val grandChildren = listOf(grandChild0, grandChild1, grandChild2)
         Mockito.`when`(functionExpressionNode.children).thenReturn(grandChildren)
 
@@ -81,7 +81,7 @@ class CondChildFunctionEvaluatorTest {
         programStack.push(programStackItem0)
         programStack.push(programStackItem1)
 
-        val variableMap = emptyMap<String, NodeV2>()
+        val variableMap = emptyMap<String, Node>()
         Mockito.`when`(top.variableMap).thenReturn(variableMap)
 
         condChildFunctionEvaluator.evaluateCondChildFunction(

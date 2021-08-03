@@ -4,13 +4,13 @@ import lambda.core.constants.ReservedValuesConstants
 import lambda.core.constants.TokenValueConstants
 import lambda.core.datamodels.AtomNode
 import lambda.core.datamodels.ExpressionListNode
-import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Node
 import java.lang.StringBuilder
 
 class ListNotationPrinter {
 
     fun printInListNotation(
-        nodes: List<NodeV2>
+        nodes: List<Node>
     ): String {
         return nodes.joinToString(
             ReservedValuesConstants.NEW_LINE.toString(),
@@ -21,7 +21,7 @@ class ListNotationPrinter {
         }
     }
 
-    fun printInListNotation(node: NodeV2):String {
+    fun printInListNotation(node: Node):String {
         if (node is ExpressionListNode) {
             val sb = StringBuilder()
             sb.append(TokenValueConstants.OPEN_PARENTHESES)

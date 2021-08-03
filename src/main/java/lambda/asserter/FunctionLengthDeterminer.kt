@@ -5,7 +5,7 @@ import lambda.core.datamodels.*
 
 class FunctionLengthDeterminer {
 
-    fun determineFunctionLength(node: NodeV2): Int {
+    fun determineFunctionLength(node: Node): Int {
         return if (node is AtomNode) {
             if (node.value == ReservedValuesConstants.NIL) 0 else 1
         } else {

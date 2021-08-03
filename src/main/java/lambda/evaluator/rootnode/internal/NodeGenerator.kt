@@ -11,7 +11,7 @@ class NodeGenerator {
     }
 
     fun generateExpressionListNode(
-        children: List<NodeV2>
+        children: List<Node>
     ): ExpressionListNode {
         return ExpressionListNode(
             children

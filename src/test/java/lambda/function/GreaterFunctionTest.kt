@@ -4,7 +4,7 @@ import lambda.core.constants.FunctionNameConstants
 import lambda.core.constants.ReservedValuesConstants
 import lambda.core.datamodels.AtomNode
 import lambda.core.datamodels.Stack
-import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Node
 import lambda.function.internal.NumericValueRetriever
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
@@ -13,7 +13,7 @@ import org.mockito.Mockito
 class GreaterFunctionTest {
     private val numericValueRetriever = Mockito.mock(NumericValueRetriever::class.java)
 
-    private val params = Stack<NodeV2>()
+    private val params = Stack<Node>()
 
     private val greaterFunction = GreaterFunction(
         numericValueRetriever
@@ -21,8 +21,8 @@ class GreaterFunctionTest {
 
     @Test
     fun evaluateGreaterFunctionTest() {
-        val first = Mockito.mock(NodeV2::class.java)
-        val second = Mockito.mock(NodeV2::class.java)
+        val first = Mockito.mock(Node::class.java)
+        val second = Mockito.mock(Node::class.java)
 
         params.push(second)
         params.push(first)
@@ -55,8 +55,8 @@ class GreaterFunctionTest {
 
     @Test
     fun notGreaterThanTest() {
-        val first = Mockito.mock(NodeV2::class.java)
-        val second = Mockito.mock(NodeV2::class.java)
+        val first = Mockito.mock(Node::class.java)
+        val second = Mockito.mock(Node::class.java)
 
         params.push(second)
         params.push(first)

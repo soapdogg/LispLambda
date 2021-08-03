@@ -1,7 +1,7 @@
 package lambda.parser
 
 import lambda.core.constants.TokenValueConstants
-import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Node
 import lambda.core.exceptions.UnexpectedTokenKindException
 import lambda.parser.internal.NodeParser
 import org.junit.jupiter.api.Assertions
@@ -17,7 +17,7 @@ class ParserTest {
         val headToken = "token"
         val tokens = listOf(headToken)
 
-        val resultingNode = Mockito.mock(NodeV2::class.java)
+        val resultingNode = Mockito.mock(Node::class.java)
         Mockito.`when`(nodeParser.parseIntoNode(tokens)).thenReturn(resultingNode)
 
         val actual = rootParser.parse(tokens)

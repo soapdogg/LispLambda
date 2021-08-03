@@ -2,7 +2,7 @@ package lambda.function
 
 import lambda.core.constants.FunctionNameConstants
 import lambda.core.datamodels.AtomNode
-import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Node
 import lambda.core.datamodels.Stack
 import lambda.function.internal.GcdCalculator
 import lambda.function.internal.NumericValueRetriever
@@ -15,7 +15,7 @@ class LcmFunctionTest {
     private val numericValueRetriever = Mockito.mock(NumericValueRetriever::class.java)
     private val gcdCalculator = Mockito.mock(GcdCalculator::class.java)
 
-    private val params = Stack<NodeV2>()
+    private val params = Stack<Node>()
 
     private val lcmFunction = LcmFunction(
         numericValueRetriever,
@@ -24,7 +24,7 @@ class LcmFunctionTest {
 
     @Test
     fun evaluateOneElementTest() {
-        val first = Mockito.mock(NodeV2::class.java)
+        val first = Mockito.mock(Node::class.java)
 
         params.push(first)
 
@@ -45,8 +45,8 @@ class LcmFunctionTest {
     @Test
     fun evaluateMoreThanOneElementTest() {
 
-        val first = Mockito.mock(NodeV2::class.java)
-        val second = Mockito.mock(NodeV2::class.java)
+        val first = Mockito.mock(Node::class.java)
+        val second = Mockito.mock(Node::class.java)
 
         params.push(second)
         params.push(first)

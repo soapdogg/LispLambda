@@ -18,12 +18,12 @@ class StackUpdaterDeterminerTest {
     @Test
     fun nodeIsExpressionListWithMoreThanOneChildTest() {
         val node = Mockito.mock(ExpressionListNode::class.java)
-        val variableMap = emptyMap<String, NodeV2>()
-        val evalStack = Stack<NodeV2>()
+        val variableMap = emptyMap<String, Node>()
+        val evalStack = Stack<Node>()
         val programStack = Stack<ProgramStackItem>()
 
-        val child0 = Mockito.mock(NodeV2::class.java)
-        val child1 = Mockito.mock(NodeV2::class.java)
+        val child0 = Mockito.mock(Node::class.java)
+        val child1 = Mockito.mock(Node::class.java)
         val children = listOf(child0, child1)
         Mockito.`when`(node.children).thenReturn(children)
 
@@ -46,11 +46,11 @@ class StackUpdaterDeterminerTest {
     @Test
     fun nodeIsExpressionListWithOneChildTest() {
         val node = Mockito.mock(ExpressionListNode::class.java)
-        val variableMap = emptyMap<String, NodeV2>()
-        val evalStack = Stack<NodeV2>()
+        val variableMap = emptyMap<String, Node>()
+        val evalStack = Stack<Node>()
         val programStack = Stack<ProgramStackItem>()
 
-        val child0 = Mockito.mock(NodeV2::class.java)
+        val child0 = Mockito.mock(Node::class.java)
         val children = listOf(child0)
         Mockito.`when`(node.children).thenReturn(children)
 
@@ -74,8 +74,8 @@ class StackUpdaterDeterminerTest {
     @Test
     fun nodeIsAtomNodeTest() {
         val node = Mockito.mock(AtomNode::class.java)
-        val variableMap = emptyMap<String, NodeV2>()
-        val evalStack = Stack<NodeV2>()
+        val variableMap = emptyMap<String, Node>()
+        val evalStack = Stack<Node>()
         val programStack = Stack<ProgramStackItem>()
 
         stackUpdateDeterminer.determineHowToUpdateStacks(

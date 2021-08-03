@@ -1,7 +1,7 @@
 package lambda.evaluator.rootnode.internal
 
 import lambda.core.datamodels.Stack
-import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Node
 import lambda.core.datamodels.ProgramStackItem
 import lambda.function.Function
 import org.junit.jupiter.api.Test
@@ -23,15 +23,15 @@ class BuiltInFunctionEvaluatorTest {
 
     @Test
     fun evaluateBuiltInFunctionTest() {
-        val functionStack = Stack<NodeV2>()
+        val functionStack = Stack<Node>()
         val top = Mockito.mock(ProgramStackItem::class.java)
-        val evalStack = Stack<NodeV2>()
+        val evalStack = Stack<Node>()
         val programStack = Stack<ProgramStackItem>()
 
-        val variableMap = emptyMap<String, NodeV2>()
+        val variableMap = emptyMap<String, Node>()
         Mockito.`when`(top.variableMap).thenReturn(variableMap)
 
-        val evaluatedFunctionResult = Mockito.mock(NodeV2::class.java)
+        val evaluatedFunctionResult = Mockito.mock(Node::class.java)
         Mockito.`when`(function.evaluate(functionStack)).thenReturn(evaluatedFunctionResult)
 
         builtInFunctionEvaluator.evaluateBuiltInFunction(

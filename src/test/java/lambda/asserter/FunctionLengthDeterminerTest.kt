@@ -13,7 +13,7 @@ class FunctionLengthDeterminerTest {
     fun determineLengthOfNilNodeTest() {
         val nilNode = Mockito.mock(AtomNode::class.java)
         Mockito.`when`(nilNode.value).thenReturn(ReservedValuesConstants.NIL)
-        val actual = functionLengthDeterminer.determineFunctionLength(nilNode as NodeV2)
+        val actual = functionLengthDeterminer.determineFunctionLength(nilNode as Node)
         Assertions.assertEquals(0, actual)
     }
 
@@ -21,7 +21,7 @@ class FunctionLengthDeterminerTest {
     fun determineLengthOfNonNilAtomNodeTest() {
         val atomNode = Mockito.mock(AtomNode::class.java)
         Mockito.`when`(atomNode.value).thenReturn(ReservedValuesConstants.T)
-        val actual = functionLengthDeterminer.determineFunctionLength(atomNode as NodeV2)
+        val actual = functionLengthDeterminer.determineFunctionLength(atomNode as Node)
         Assertions.assertEquals(1, actual)
     }
 

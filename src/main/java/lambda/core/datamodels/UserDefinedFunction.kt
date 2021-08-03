@@ -2,5 +2,5 @@ package lambda.core.datamodels
 
 data class UserDefinedFunction(
     val formalParameters: List<String>,
-    val body: NodeV2
+    val body: Node
 )

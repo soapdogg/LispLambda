@@ -5,7 +5,7 @@ import lambda.core.exceptions.NotAListException
 
 class ListValueRetriever {
     fun retrieveListValue(
-        node: NodeV2,
+        node: Node,
         functionName: String
     ): ExpressionListNode {
         if (node is ExpressionListNode) {

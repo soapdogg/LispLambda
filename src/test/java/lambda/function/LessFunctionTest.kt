@@ -4,7 +4,7 @@ import lambda.core.constants.FunctionNameConstants
 import lambda.core.constants.ReservedValuesConstants
 import lambda.core.datamodels.AtomNode
 import lambda.core.datamodels.Stack
-import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Node
 import lambda.function.internal.NumericValueRetriever
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
@@ -14,7 +14,7 @@ class LessFunctionTest {
 
     private val numericValueRetriever = Mockito.mock(NumericValueRetriever::class.java)
 
-    private val params = Stack<NodeV2>()
+    private val params = Stack<Node>()
 
     private val lessFunction = LessFunction(
         numericValueRetriever
@@ -22,8 +22,8 @@ class LessFunctionTest {
 
     @Test
     fun evaluateLessFunctionTest() {
-        val first = Mockito.mock(NodeV2::class.java)
-        val second = Mockito.mock(NodeV2::class.java)
+        val first = Mockito.mock(Node::class.java)
+        val second = Mockito.mock(Node::class.java)
 
         params.push(second)
         params.push(first)
@@ -56,9 +56,9 @@ class LessFunctionTest {
 
     @Test
     fun evaluateMultipleValuesTest() {
-        val first = Mockito.mock(NodeV2::class.java)
-        val second = Mockito.mock(NodeV2::class.java)
-        val third = Mockito.mock(NodeV2::class.java)
+        val first = Mockito.mock(Node::class.java)
+        val second = Mockito.mock(Node::class.java)
+        val third = Mockito.mock(Node::class.java)
 
         params.push(third)
         params.push(second)
@@ -100,7 +100,7 @@ class LessFunctionTest {
 
     @Test
     fun evaluateOneValueTest() {
-        val first = Mockito.mock(NodeV2::class.java)
+        val first = Mockito.mock(Node::class.java)
 
         params.push(first)
 

@@ -1,3 +1,3 @@
 package lambda.core.datamodels
 
-interface NodeV2
+interface Node

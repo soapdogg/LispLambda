@@ -2,7 +2,7 @@ package lambda.evaluator.rootnode.internal
 
 import lambda.core.datamodels.AtomNode
 import lambda.core.datamodels.Stack
-import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Node
 import lambda.core.datamodels.ProgramStackItem
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
@@ -19,8 +19,8 @@ class PostEvaluationStackUpdaterTest {
     @Test
     fun updateStacksAfterEvaluationAtomNodeTest() {
         val evaluatedNode = Mockito.mock(AtomNode::class.java)
-        val variableMap = emptyMap<String, NodeV2>()
-        val evalStack = Stack<NodeV2>()
+        val variableMap = emptyMap<String, Node>()
+        val evalStack = Stack<Node>()
         val programStack = Stack<ProgramStackItem>()
 
         val value = "value"
@@ -41,9 +41,9 @@ class PostEvaluationStackUpdaterTest {
 
     @Test
     fun updateStacksAfterEvaluationTest() {
-        val evaluatedNode = Mockito.mock(NodeV2::class.java)
-        val variableMap = emptyMap<String, NodeV2>()
-        val evalStack = Stack<NodeV2>()
+        val evaluatedNode = Mockito.mock(Node::class.java)
+        val variableMap = emptyMap<String, Node>()
+        val evalStack = Stack<Node>()
         val programStack = Stack<ProgramStackItem>()
 
         postEvaluationStackUpdater.updateStacksAfterEvaluation(

@@ -2,7 +2,7 @@ package lambda.evaluator.rootnode.internal
 
 import lambda.core.datamodels.AtomNode
 import lambda.core.datamodels.ExpressionListNode
-import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Node
 import lambda.core.datamodels.ProgramStackItem
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
@@ -14,7 +14,7 @@ class ProgramStackItemGeneratorTest {
     private val child0 = Mockito.mock(AtomNode::class.java)
     private val functionName = "functionName"
     private val currentParameterIndex = 0
-    private val variableMap = emptyMap<String, NodeV2>()
+    private val variableMap = emptyMap<String, Node>()
 
     private val programStackItemGenerator = ProgramStackItemGenerator()
 

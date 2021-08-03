@@ -1,6 +1,6 @@
 package lambda.asserter
 
-import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Node
 import lambda.core.exceptions.WrongFunctionLengthException
 
 class FunctionLengthAsserter (
@@ -9,7 +9,7 @@ class FunctionLengthAsserter (
     fun assertLengthIsAsExpected(
         functionName: String,
         expected: Int,
-        node: NodeV2
+        node: Node
     ) {
         val actual = functionLengthDeterminer.determineFunctionLength(node)
         if (actual != expected) {
@@ -21,7 +21,7 @@ class FunctionLengthAsserter (
     fun assertLengthIsAtLeastMinimum(
         functionName: String,
         expected: Int,
-        node: NodeV2
+        node: Node
     ) {
         val actual = functionLengthDeterminer.determineFunctionLength(node)
         if (actual < expected) {

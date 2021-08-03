@@ -39,11 +39,11 @@ class ProgramEvaluatorTest {
     fun rootNodeIsExpressionNodeTest() {
         val expressionNode = Mockito.mock(ExpressionListNode::class.java)
         val rootNodes = listOf(expressionNode)
-        val evaluatedNode = Mockito.mock(NodeV2::class.java)
+        val evaluatedNode = Mockito.mock(Node::class.java)
         val programStack = Stack<ProgramStackItem>()
         Mockito.`when`(stackGenerator.generateNewStack(ProgramStackItem::class.java)).thenReturn(programStack)
-        val evaluationStack = Stack<NodeV2>()
-        Mockito.`when`(stackGenerator.generateNewStack(NodeV2::class.java)).thenReturn(evaluationStack)
+        val evaluationStack = Stack<Node>()
+        Mockito.`when`(stackGenerator.generateNewStack(Node::class.java)).thenReturn(evaluationStack)
         Mockito.`when`(
             nodeEvaluatorIterative.evaluate(
                 expressionNode,

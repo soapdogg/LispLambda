@@ -3,7 +3,7 @@ package lambda.function
 import lambda.core.constants.FunctionNameConstants
 import lambda.core.datamodels.AtomNode
 import lambda.core.datamodels.Stack
-import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Node
 import lambda.function.internal.NumericValueRetriever
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
@@ -12,7 +12,7 @@ import org.mockito.Mockito
 class TimesFunctionTest {
     private val numericValueRetriever = Mockito.mock(NumericValueRetriever::class.java)
 
-    private val params = Stack<NodeV2>()
+    private val params = Stack<Node>()
 
     private val timesFunction = TimesFunction(
         numericValueRetriever
@@ -20,8 +20,8 @@ class TimesFunctionTest {
 
     @Test
     fun evaluateTimesFunctionTest() {
-        val first = Mockito.mock(NodeV2::class.java)
-        val second = Mockito.mock(NodeV2::class.java)
+        val first = Mockito.mock(Node::class.java)
+        val second = Mockito.mock(Node::class.java)
 
         params.push(second)
         params.push(first)

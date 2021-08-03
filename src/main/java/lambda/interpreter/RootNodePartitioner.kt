@@ -6,7 +6,7 @@ import lambda.core.datamodels.*
 
 class RootNodePartitioner {
     fun partitionRootNodes(
-        rootNodes: List<NodeV2>
+        rootNodes: List<Node>
     ): PartitionedRootNodes {
         val (defun, executables) = rootNodes.partition {
             rootNode -> if (rootNode is ExpressionListNode) {

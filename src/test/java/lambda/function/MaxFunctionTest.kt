@@ -2,7 +2,7 @@ package lambda.function
 
 import lambda.core.constants.FunctionNameConstants
 import lambda.core.datamodels.AtomNode
-import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Node
 import lambda.core.datamodels.Stack
 import lambda.function.internal.NumericValueRetriever
 import org.junit.jupiter.api.Assertions
@@ -13,7 +13,7 @@ class MaxFunctionTest {
 
     private val numericValueRetriever = Mockito.mock(NumericValueRetriever::class.java)
 
-    private val params = Stack<NodeV2>()
+    private val params = Stack<Node>()
 
     private val maxFunction = MaxFunction(
         numericValueRetriever
@@ -21,8 +21,8 @@ class MaxFunctionTest {
 
     @Test
     fun evaluateMaxFunctionTest() {
-        val first = Mockito.mock(NodeV2::class.java)
-        val second = Mockito.mock(NodeV2::class.java)
+        val first = Mockito.mock(Node::class.java)
+        val second = Mockito.mock(Node::class.java)
 
         params.push(second)
         params.push(first)
@@ -54,7 +54,7 @@ class MaxFunctionTest {
 
     @Test
     fun onlyOneElementTest() {
-        val first = Mockito.mock(NodeV2::class.java)
+        val first = Mockito.mock(Node::class.java)
 
         params.push(first)
 

@@ -2,7 +2,7 @@ package lambda.evaluator.rootnode.internal
 
 import lambda.core.datamodels.ExpressionListNode
 import lambda.core.datamodels.Stack
-import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Node
 import lambda.core.datamodels.ProgramStackItem
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito
@@ -16,18 +16,18 @@ class QuoteFunctionEvaluatorTest {
     @Test
     fun evaluateQuoteFunctionTest() {
         val top = Mockito.mock(ProgramStackItem::class.java)
-        val evalStack = Stack<NodeV2>()
+        val evalStack = Stack<Node>()
         val programStack = Stack<ProgramStackItem>()
 
         val quoteExprNode = Mockito.mock(ExpressionListNode::class.java)
         Mockito.`when`(top.functionExpressionNode).thenReturn(quoteExprNode)
 
-        val child0 = Mockito.mock(NodeV2::class.java)
-        val quoted = Mockito.mock(NodeV2::class.java)
+        val child0 = Mockito.mock(Node::class.java)
+        val quoted = Mockito.mock(Node::class.java)
         val quoteExprNodeChildren = listOf(child0, quoted)
         Mockito.`when`(quoteExprNode.children).thenReturn(quoteExprNodeChildren)
 
-        val variableMap = emptyMap<String, NodeV2>()
+        val variableMap = emptyMap<String, Node>()
         Mockito.`when`(top.variableMap).thenReturn(variableMap)
 
         quoteFunctionEvaluator.evaluateQuoteFunction(

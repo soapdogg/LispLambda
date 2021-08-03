@@ -11,16 +11,16 @@ class ProgramEvaluator(
     private val stackGenerator: StackGenerator
 ) {
     fun evaluate(
-        rootNodes: List<NodeV2>,
+        rootNodes: List<Node>,
         userDefinedFunctions: Map<String, UserDefinedFunction>
-    ): List<NodeV2> {
+    ): List<Node> {
         return rootNodes.map {
             if (it is AtomNode) {
                 atomRootNodeAsserter.assertAtomRootNode(it)
                 return@map it
             }
             val programStack = stackGenerator.generateNewStack(ProgramStackItem::class.java)
-            val evaluationStack = stackGenerator.generateNewStack(NodeV2::class.java)
+            val evaluationStack = stackGenerator.generateNewStack(Node::class.java)
             rootNodeEvaluator.evaluate(
                 it as ExpressionListNode,
                 userDefinedFunctions,

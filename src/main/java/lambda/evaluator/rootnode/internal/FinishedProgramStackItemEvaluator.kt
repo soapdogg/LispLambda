@@ -2,7 +2,7 @@ package lambda.evaluator.rootnode.internal
 
 import lambda.core.constants.ReservedValuesConstants
 import lambda.core.datamodels.Stack
-import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Node
 import lambda.core.datamodels.ProgramStackItem
 import lambda.core.datamodels.UserDefinedFunction
 import lambda.function.Function
@@ -16,10 +16,10 @@ class FinishedProgramStackItemEvaluator(
     fun evaluateFinishedProgramStackItem(
         top: ProgramStackItem,
         userDefinedFunctions: Map<String, UserDefinedFunction>,
-        evalStack: Stack<NodeV2>,
+        evalStack: Stack<Node>,
         programStack: Stack<ProgramStackItem>
     ) {
-        val functionStack = Stack<NodeV2>()
+        val functionStack = Stack<Node>()
         for (i in 0 until top.functionExpressionNode.children.size - 1) {
             functionStack.push(evalStack.pop())
         }

@@ -32,7 +32,7 @@ class RootNodeEvaluatorTest {
         val rootNode = Mockito.mock(ExpressionListNode::class.java)
         val userDefinedFunctions = emptyMap<String, UserDefinedFunction>()
         val programStack = Stack<ProgramStackItem>()
-        val evalStack = Stack<NodeV2>()
+        val evalStack = Stack<Node>()
 
         val rootProgramStackItem = Mockito.mock(ProgramStackItem::class.java)
         Mockito.`when`(
@@ -48,7 +48,7 @@ class RootNodeEvaluatorTest {
         val functionName = FunctionNameConstants.COND
         Mockito.`when`(rootProgramStackItem.functionName).thenReturn(functionName)
 
-        val result = Mockito.mock(NodeV2::class.java)
+        val result = Mockito.mock(Node::class.java)
         Mockito.`when`(
             condFunctionEvaluator.evaluateCondProgramStackItem(
                 rootProgramStackItem,
@@ -78,7 +78,7 @@ class RootNodeEvaluatorTest {
         val rootNode = Mockito.mock(ExpressionListNode::class.java)
         val userDefinedFunctions = emptyMap<String, UserDefinedFunction>()
         val programStack = Stack<ProgramStackItem>()
-        val evalStack = Stack<NodeV2>()
+        val evalStack = Stack<Node>()
 
         val rootProgramStackItem = Mockito.mock(ProgramStackItem::class.java)
         Mockito.`when`(
@@ -94,7 +94,7 @@ class RootNodeEvaluatorTest {
         val functionName = FunctionNameConstants.COND_CHILD
         Mockito.`when`(rootProgramStackItem.functionName).thenReturn(functionName)
 
-        val result = Mockito.mock(NodeV2::class.java)
+        val result = Mockito.mock(Node::class.java)
         Mockito.`when`(
             condChildFunctionEvaluator.evaluateCondChildFunction(
                 rootProgramStackItem,
@@ -125,7 +125,7 @@ class RootNodeEvaluatorTest {
         val rootNode = Mockito.mock(ExpressionListNode::class.java)
         val userDefinedFunctions = emptyMap<String, UserDefinedFunction>()
         val programStack = Stack<ProgramStackItem>()
-        val evalStack = Stack<NodeV2>()
+        val evalStack = Stack<Node>()
 
         val rootProgramStackItem = Mockito.mock(ProgramStackItem::class.java)
         Mockito.`when`(
@@ -141,7 +141,7 @@ class RootNodeEvaluatorTest {
         val functionName = FunctionNameConstants.QUOTE
         Mockito.`when`(rootProgramStackItem.functionName).thenReturn(functionName)
 
-        val result = Mockito.mock(NodeV2::class.java)
+        val result = Mockito.mock(Node::class.java)
         Mockito.`when`(
             quoteFunctionEvaluator.evaluateQuoteFunction(
                 rootProgramStackItem,
@@ -172,7 +172,7 @@ class RootNodeEvaluatorTest {
         val rootNode = Mockito.mock(ExpressionListNode::class.java)
         val userDefinedFunctions = emptyMap<String, UserDefinedFunction>()
         val programStack = Stack<ProgramStackItem>()
-        val evalStack = Stack<NodeV2>()
+        val evalStack = Stack<Node>()
 
         val rootProgramStackItem = Mockito.mock(ProgramStackItem::class.java)
         Mockito.`when`(
@@ -194,12 +194,12 @@ class RootNodeEvaluatorTest {
         val functionExpressionListNode = Mockito.mock(ExpressionListNode::class.java)
         Mockito.`when`(rootProgramStackItem.functionExpressionNode).thenReturn(functionExpressionListNode)
 
-        val child0 = Mockito.mock(NodeV2::class.java)
-        val child1 = Mockito.mock(NodeV2::class.java)
+        val child0 = Mockito.mock(Node::class.java)
+        val child1 = Mockito.mock(Node::class.java)
         val children = listOf(child0, child1)
         Mockito.`when`(functionExpressionListNode.children).thenReturn(children)
 
-        val result = Mockito.mock(NodeV2::class.java)
+        val result = Mockito.mock(Node::class.java)
         Mockito.`when`(
             unfinishedProgramStackItemEvaluator.evaluateUnfinishedProgramStackItem(
                 rootProgramStackItem,
@@ -230,7 +230,7 @@ class RootNodeEvaluatorTest {
         val rootNode = Mockito.mock(ExpressionListNode::class.java)
         val userDefinedFunctions = emptyMap<String, UserDefinedFunction>()
         val programStack = Stack<ProgramStackItem>()
-        val evalStack = Stack<NodeV2>()
+        val evalStack = Stack<Node>()
 
         val rootProgramStackItem = Mockito.mock(ProgramStackItem::class.java)
         Mockito.`when`(
@@ -252,12 +252,12 @@ class RootNodeEvaluatorTest {
         val functionExpressionListNode = Mockito.mock(ExpressionListNode::class.java)
         Mockito.`when`(rootProgramStackItem.functionExpressionNode).thenReturn(functionExpressionListNode)
 
-        val child0 = Mockito.mock(NodeV2::class.java)
-        val child1 = Mockito.mock(NodeV2::class.java)
+        val child0 = Mockito.mock(Node::class.java)
+        val child1 = Mockito.mock(Node::class.java)
         val children = listOf(child0, child1)
         Mockito.`when`(functionExpressionListNode.children).thenReturn(children)
 
-        val result = Mockito.mock(NodeV2::class.java)
+        val result = Mockito.mock(Node::class.java)
         Mockito.`when`(
             finishedProgramStackItemEvaluator.evaluateFinishedProgramStackItem(
                 rootProgramStackItem,

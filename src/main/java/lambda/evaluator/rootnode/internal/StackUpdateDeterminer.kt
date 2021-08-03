@@ -2,7 +2,7 @@ package lambda.evaluator.rootnode.internal
 
 import lambda.core.datamodels.ExpressionListNode
 import lambda.core.datamodels.Stack
-import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Node
 import lambda.core.datamodels.ProgramStackItem
 
 class StackUpdateDeterminer (
@@ -11,9 +11,9 @@ class StackUpdateDeterminer (
 ){
 
     fun determineHowToUpdateStacks(
-        node: NodeV2,
-        variableMap: Map<String, NodeV2>,
-        evalStack: Stack<NodeV2>,
+        node: Node,
+        variableMap: Map<String, Node>,
+        evalStack: Stack<Node>,
         programStack: Stack<ProgramStackItem>
     ) {
         if (node is ExpressionListNode) {

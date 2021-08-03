@@ -35,7 +35,7 @@ class InterpreterTest {
         val tokens: List<String> = listOf()
         Mockito.`when`(tokenizer.tokenize(input)).thenReturn(tokens)
 
-        val rootNodes= listOf<NodeV2>()
+        val rootNodes= listOf<Node>()
         Mockito.`when`(parser.parse(tokens)).thenReturn(rootNodes)
 
         val partitionedRootNodes = Mockito.mock(PartitionedRootNodes::class.java)
@@ -50,11 +50,11 @@ class InterpreterTest {
         val pair = Pair(functionName, userDefinedFunction)
         Mockito.`when`(defunFunction.generateUserDefinedFunction(defunNode)).thenReturn(pair)
 
-        val node = Mockito.mock(NodeV2::class.java)
-        val evaluatableNodes: List<NodeV2> = listOf(node)
+        val node = Mockito.mock(Node::class.java)
+        val evaluatableNodes: List<Node> = listOf(node)
         Mockito.`when`(partitionedRootNodes.evaluatableNodes).thenReturn(evaluatableNodes)
 
-        val evaluatedNode = Mockito.mock(NodeV2::class.java)
+        val evaluatedNode = Mockito.mock(Node::class.java)
         val evaluatedNodes = listOf(evaluatedNode)
         val userDefinedFunctions: Map<String, UserDefinedFunction> = mapOf(pair)
 

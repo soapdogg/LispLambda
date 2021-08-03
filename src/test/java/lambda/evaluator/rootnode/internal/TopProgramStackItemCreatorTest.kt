@@ -2,7 +2,7 @@ package lambda.evaluator.rootnode.internal
 
 import lambda.core.datamodels.ExpressionListNode
 import lambda.core.datamodels.Stack
-import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Node
 import lambda.core.datamodels.ProgramStackItem
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
@@ -17,7 +17,7 @@ class TopProgramStackItemCreatorTest {
     @Test
     fun createTopProgramStackItemTest() {
         val expressionListNode = Mockito.mock(ExpressionListNode::class.java)
-        val variableMap = emptyMap<String, NodeV2>()
+        val variableMap = emptyMap<String, Node>()
         val programStack = Stack<ProgramStackItem>()
 
         val top = Mockito.mock(ProgramStackItem::class.java)

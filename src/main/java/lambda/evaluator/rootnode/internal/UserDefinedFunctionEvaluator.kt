@@ -1,7 +1,7 @@
 package lambda.evaluator.rootnode.internal
 
 import lambda.core.datamodels.Stack
-import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Node
 import lambda.core.datamodels.ProgramStackItem
 import lambda.core.datamodels.UserDefinedFunction
 import kotlin.collections.HashMap
@@ -12,9 +12,9 @@ class UserDefinedFunctionEvaluator(
 
     fun evaluateUserDefinedFunction(
         userDefinedFunction: UserDefinedFunction,
-        variableMap: Map<String, NodeV2>,
-        functionStack: Stack<NodeV2>,
-        evalStack: Stack<NodeV2>,
+        variableMap: Map<String, Node>,
+        functionStack: Stack<Node>,
+        evalStack: Stack<Node>,
         programStack: Stack<ProgramStackItem>
     ) {
         val mapCopy = HashMap(variableMap)

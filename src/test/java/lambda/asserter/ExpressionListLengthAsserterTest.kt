@@ -4,7 +4,7 @@ import lambda.core.constants.FunctionLengthConstants
 import lambda.core.constants.FunctionNameConstants
 import lambda.core.datamodels.AtomNode
 import lambda.core.datamodels.ExpressionListNode
-import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Node
 import lambda.core.datamodels.UserDefinedFunction
 import lambda.core.exceptions.NotAListException
 import org.junit.jupiter.api.Assertions
@@ -92,7 +92,7 @@ class ExpressionListLengthAsserterTest {
         Mockito.`when`(address.value).thenReturn(FunctionNameConstants.COND)
 
         val condChild = Mockito.mock(ExpressionListNode::class.java)
-        val condGrandChild = Mockito.mock(NodeV2::class.java)
+        val condGrandChild = Mockito.mock(Node::class.java)
         Mockito.`when`(condChild.children).thenReturn(listOf(condGrandChild))
         val nilChild = Mockito.mock(AtomNode::class.java)
 

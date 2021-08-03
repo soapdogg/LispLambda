@@ -1,7 +1,7 @@
 package lambda.evaluator.rootnode.internal
 
 import lambda.core.constants.ReservedValuesConstants
-import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Node
 import lambda.evaluator.rootnode.internal.NodeGenerator
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
@@ -19,7 +19,7 @@ class NodeGeneratorTest {
 
     @Test
     fun generateParserResultForExpressionListNodeTest() {
-        val children = emptyList<NodeV2>()
+        val children = emptyList<Node>()
 
         val actual = nodeGenerator.generateExpressionListNode(children)
 

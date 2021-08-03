@@ -1,7 +1,7 @@
 package lambda.parser
 
 import lambda.core.constants.TokenValueConstants
-import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Node
 import lambda.core.exceptions.UnexpectedTokenKindException
 import lambda.parser.internal.NodeParser
 import kotlin.collections.ArrayList
@@ -10,7 +10,7 @@ class Parser (
   private val nodeParser: NodeParser
 ) {
 
-    fun parse(tokens: List<String>): List<NodeV2> {
+    fun parse(tokens: List<String>): List<Node> {
         var openClose = 0
         val listOfLists: MutableList<MutableList<String>> = ArrayList()
 

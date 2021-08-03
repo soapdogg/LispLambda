@@ -2,7 +2,7 @@ package lambda.function
 
 import lambda.core.constants.FunctionNameConstants
 import lambda.core.datamodels.AtomNode
-import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Node
 import lambda.core.datamodels.Stack
 import lambda.function.internal.NumericValueRetriever
 import org.junit.jupiter.api.Assertions
@@ -12,7 +12,7 @@ import org.mockito.Mockito
 class MinFunctionTest {
     private val numericValueRetriever = Mockito.mock(NumericValueRetriever::class.java)
 
-    private val params = Stack<NodeV2>()
+    private val params = Stack<Node>()
 
     private val minFunction = MinFunction(
         numericValueRetriever
@@ -20,8 +20,8 @@ class MinFunctionTest {
 
     @Test
     fun evaluateMinFunctionTest() {
-        val first = Mockito.mock(NodeV2::class.java)
-        val second = Mockito.mock(NodeV2::class.java)
+        val first = Mockito.mock(Node::class.java)
+        val second = Mockito.mock(Node::class.java)
 
         params.push(second)
         params.push(first)
@@ -53,7 +53,7 @@ class MinFunctionTest {
 
     @Test
     fun onlyOneElementTest() {
-        val first = Mockito.mock(NodeV2::class.java)
+        val first = Mockito.mock(Node::class.java)
 
         params.push(first)
 

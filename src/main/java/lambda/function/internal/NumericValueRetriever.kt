@@ -2,7 +2,7 @@ package lambda.function.internal
 
 import lambda.core.constants.ReservedValuesConstants
 import lambda.core.datamodels.AtomNode
-import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Node
 import lambda.core.exceptions.NotNumericException
 import lambda.printer.ListNotationPrinter
 
@@ -11,7 +11,7 @@ class NumericValueRetriever(
 ) {
 
     fun retrieveNumericValue(
-        node: NodeV2,
+        node: Node,
         functionName: String,
         index: Int
     ): Int {

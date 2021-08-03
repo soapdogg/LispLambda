@@ -2,14 +2,14 @@ package lambda.evaluator.rootnode.internal
 
 import lambda.core.datamodels.AtomNode
 import lambda.core.datamodels.ExpressionListNode
-import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Node
 import lambda.core.datamodels.ProgramStackItem
 
 class ProgramStackItemGenerator {
 
     fun generateProgramStackItemFromScratch(
         functionExpressionNode: ExpressionListNode,
-        variableMap: Map<String, NodeV2>
+        variableMap: Map<String, Node>
     ): ProgramStackItem {
         return ProgramStackItem(
             functionExpressionNode,

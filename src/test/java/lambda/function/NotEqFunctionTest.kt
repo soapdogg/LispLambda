@@ -2,7 +2,7 @@ package lambda.function
 
 import lambda.core.constants.ReservedValuesConstants
 import lambda.core.datamodels.AtomNode
-import lambda.core.datamodels.NodeV2
+import lambda.core.datamodels.Node
 import lambda.core.datamodels.Stack
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
@@ -10,7 +10,7 @@ import org.mockito.Mockito
 
 class NotEqFunctionTest {
 
-    private val params = Stack<NodeV2>()
+    private val params = Stack<Node>()
 
     private val notEqFunction = NotEqFunction()
 
