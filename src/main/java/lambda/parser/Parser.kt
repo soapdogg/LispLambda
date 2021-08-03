@@ -17,8 +17,8 @@ class Parser (
         var currentList: MutableList<String> = ArrayList()
         tokens.forEach {
             currentList.add(it)
-            if (it == TokenValueConstants.OPEN_PARENTHESES.toString()) openClose++
-            else if (it == TokenValueConstants.CLOSE_PARENTHESES.toString()) openClose--
+            if (it == TokenValueConstants.OPEN_PARENTHESES) openClose++
+            else if (it == TokenValueConstants.CLOSE_PARENTHESES) openClose--
             if (openClose < 0) {
                 val errorMessage = """Expected either an ATOM or OPEN token.${'\n'}Actual Value: ${it}${'\n'}"""
                 throw UnexpectedTokenKindException(errorMessage)

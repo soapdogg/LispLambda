@@ -18,10 +18,10 @@ class NodeParser {
         var result = ExpressionListNode(ArrayList())
         while(tokensIterator.hasNext()) {
             when(val next = tokensIterator.next()) {
-                TokenValueConstants.OPEN_PARENTHESES.toString() -> {
+                TokenValueConstants.OPEN_PARENTHESES -> {
                     stack.push(ArrayList())
                 }
-                TokenValueConstants.CLOSE_PARENTHESES.toString() -> {
+                TokenValueConstants.CLOSE_PARENTHESES -> {
                     val node = AtomNode(ReservedValuesConstants.NIL)
                     stack.peek().add(node)
                     result = ExpressionListNode(stack.pop())

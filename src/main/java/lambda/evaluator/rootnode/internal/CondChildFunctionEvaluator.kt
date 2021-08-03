@@ -6,7 +6,6 @@ import lambda.core.datamodels.AtomNode
 import lambda.core.datamodels.Stack
 import lambda.core.datamodels.Node
 import lambda.core.datamodels.ProgramStackItem
-import lambda.evaluator.rootnode.internal.StackUpdateDeterminer
 
 class CondChildFunctionEvaluator(
     private val stackUpdateDeterminer: StackUpdateDeterminer

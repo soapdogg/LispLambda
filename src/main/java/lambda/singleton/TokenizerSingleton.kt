@@ -6,11 +6,7 @@ import lambda.tokenizer.internal.*
 enum class TokenizerSingleton {
     INSTANCE;
 
-    private val literalTokenValueEndIndexDeterminer = LiteralTokenValueEndIndexDeterminer()
-
-    private val wordTokenizer = WordTokenizer(
-        literalTokenValueEndIndexDeterminer
-    )
+    private val wordTokenizer = WordTokenizer()
 
     val tokenizer= Tokenizer(
         wordTokenizer

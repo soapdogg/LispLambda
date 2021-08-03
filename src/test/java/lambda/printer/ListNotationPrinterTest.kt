@@ -38,11 +38,11 @@ class ListNotationPrinterTest {
         Mockito.`when`(node.children).thenReturn(listOf(c0, c1))
 
         val expected = (
-            TokenValueConstants.OPEN_PARENTHESES.toString()
+            TokenValueConstants.OPEN_PARENTHESES
             + c0Value
             + ReservedValuesConstants.LIST_DELIMITER
             + c1Value
-            + TokenValueConstants.CLOSE_PARENTHESES.toString()
+            + TokenValueConstants.CLOSE_PARENTHESES
         )
 
         val actual = listNotationPrinter.printInListNotation(node)
@@ -65,9 +65,9 @@ class ListNotationPrinterTest {
         Mockito.`when`(node.children).thenReturn(listOf(c0, c1))
 
         val expected = (
-            TokenValueConstants.OPEN_PARENTHESES.toString()
+            TokenValueConstants.OPEN_PARENTHESES
                 + c0Value
-                + TokenValueConstants.CLOSE_PARENTHESES.toString()
+                + TokenValueConstants.CLOSE_PARENTHESES
             )
 
         val actual = listNotationPrinter.printInListNotation(node)

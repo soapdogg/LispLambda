@@ -12,11 +12,11 @@ class NodeParserTest {
 
     @Test
     fun parseExpressionListNodeTest() {
-        val openToken = TokenValueConstants.OPEN_PARENTHESES.toString()
-        val openToken2 = TokenValueConstants.OPEN_PARENTHESES.toString()
+        val openToken = TokenValueConstants.OPEN_PARENTHESES
+        val openToken2 = TokenValueConstants.OPEN_PARENTHESES
         val literalToken = "value"
-        val closeToken = TokenValueConstants.CLOSE_PARENTHESES.toString()
-        val closeToken2 = TokenValueConstants.CLOSE_PARENTHESES.toString()
+        val closeToken = TokenValueConstants.CLOSE_PARENTHESES
+        val closeToken2 = TokenValueConstants.CLOSE_PARENTHESES
 
         val tokens = listOf(
             openToken,

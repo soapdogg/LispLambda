@@ -27,7 +27,7 @@ class ParserTest {
 
     @Test
     fun tooManyOpenTokenTest() {
-        val headToken = TokenValueConstants.OPEN_PARENTHESES.toString()
+        val headToken = TokenValueConstants.OPEN_PARENTHESES
         val tokens = listOf(headToken)
 
         Assertions.assertThrows(
@@ -39,7 +39,7 @@ class ParserTest {
 
     @Test
     fun tooManyCloseTokenTest() {
-        val headToken = TokenValueConstants.CLOSE_PARENTHESES.toString()
+        val headToken = TokenValueConstants.CLOSE_PARENTHESES
 
         val tokens = listOf(headToken)
 
