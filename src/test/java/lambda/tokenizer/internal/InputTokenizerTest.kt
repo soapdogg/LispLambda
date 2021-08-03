@@ -1,6 +1,5 @@
 package lambda.tokenizer.internal
 
-import lambda.core.datamodels.Token
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito
@@ -16,17 +15,12 @@ class InputTokenizerTest {
 
     @Test
     fun tokenizeLineTest() {
-        val word1Token = Mockito.mock(Token::class.java)
-        val word1Tokens = listOf(word1Token)
-        Mockito.`when`(wordTokenizer.tokenizeWord(word1)).thenReturn(word1Tokens)
-
-        val word2Token = Mockito.mock(Token::class.java)
-        val word2Tokens = listOf(word2Token)
-        Mockito.`when`(wordTokenizer.tokenizeWord(word2)).thenReturn(word2Tokens)
+        Mockito.`when`(wordTokenizer.tokenizeWord(word1)).thenReturn(listOf(word1))
+        Mockito.`when`(wordTokenizer.tokenizeWord(word2)).thenReturn(listOf(word2))
 
         val actual = inputTokenizer.tokenizeInput(line)
         Assertions.assertEquals(2, actual.size)
-        Assertions.assertEquals(word1Token, actual[0])
-        Assertions.assertEquals(word2Token, actual[1])
+        Assertions.assertEquals(word1, actual[0])
+        Assertions.assertEquals(word2, actual[1])
     }
 }

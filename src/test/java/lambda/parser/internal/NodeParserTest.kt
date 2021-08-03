@@ -12,21 +12,11 @@ class NodeParserTest {
 
     @Test
     fun parseExpressionListNodeTest() {
-        val openToken = Mockito.mock(Token::class.java)
-        Mockito.`when`(openToken.value).thenReturn(TokenValueConstants.OPEN_PARENTHESES.toString())
-
-        val openToken2 = Mockito.mock(Token::class.java)
-        Mockito.`when`(openToken2.value).thenReturn(TokenValueConstants.OPEN_PARENTHESES.toString())
-
-        val literalToken = Mockito.mock(Token::class.java)
-        val value = "value"
-        Mockito.`when`(literalToken.value).thenReturn(value)
-
-        val closeToken = Mockito.mock(Token::class.java)
-        Mockito.`when`(closeToken.value).thenReturn(TokenValueConstants.CLOSE_PARENTHESES.toString())
-
-        val closeToken2 = Mockito.mock(Token::class.java)
-        Mockito.`when`(closeToken2.value).thenReturn(TokenValueConstants.CLOSE_PARENTHESES.toString())
+        val openToken = TokenValueConstants.OPEN_PARENTHESES.toString()
+        val openToken2 = TokenValueConstants.OPEN_PARENTHESES.toString()
+        val literalToken = "value"
+        val closeToken = TokenValueConstants.CLOSE_PARENTHESES.toString()
+        val closeToken2 = TokenValueConstants.CLOSE_PARENTHESES.toString()
 
         val tokens = listOf(
             openToken,
@@ -44,16 +34,14 @@ class NodeParserTest {
         Assertions.assertEquals(2, resultingNodeExpressionListNode.children.size)
         val expressionListChild = resultingNodeExpressionListNode.children[0] as ExpressionListNode
         Assertions.assertEquals(2, expressionListChild.children.size)
-        Assertions.assertEquals(value, (expressionListChild.children[0] as AtomNode).value)
+        Assertions.assertEquals(literalToken, (expressionListChild.children[0] as AtomNode).value)
         Assertions.assertEquals(ReservedValuesConstants.NIL, (expressionListChild.children[1] as AtomNode).value)
         Assertions.assertEquals(ReservedValuesConstants.NIL, (resultingNodeExpressionListNode.children[1] as AtomNode).value)
     }
 
     @Test
     fun parseAtomNodeTest() {
-        val literalToken = Mockito.mock(Token::class.java)
-        val value = "value"
-        Mockito.`when`(literalToken.value).thenReturn(value)
+        val literalToken = "value"
 
         val tokens = listOf(
             literalToken
@@ -64,6 +52,6 @@ class NodeParserTest {
         )
 
         val actualAtomNode = actual as AtomNode
-        Assertions.assertEquals(value, actualAtomNode.value)
+        Assertions.assertEquals(literalToken, actualAtomNode.value)
     }
 }

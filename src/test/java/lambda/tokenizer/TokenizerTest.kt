@@ -1,7 +1,6 @@
 package lambda.tokenizer
 
 import lambda.tokenizer.internal.InputFormatAsserter
-import lambda.core.datamodels.Token
 import lambda.tokenizer.internal.InputTokenizer
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
@@ -20,8 +19,7 @@ class TokenizerTest {
     fun tokenizerTest() {
         val line = "line"
 
-        val token = Mockito.mock(Token::class.java)
-        val tokens = listOf(token)
+        val tokens = listOf(line)
         Mockito.`when`(
             inputTokenizer.tokenizeInput(line)
         ).thenReturn(tokens)
@@ -29,7 +27,7 @@ class TokenizerTest {
         val actual = tokenizer.tokenize(line)
 
         Assertions.assertEquals(1, actual.size)
-        Assertions.assertEquals(token, actual[0])
+        Assertions.assertEquals(line, actual[0])
         Mockito.verify(inputFormatAsserter).assertInputFormat(line)
     }
 }

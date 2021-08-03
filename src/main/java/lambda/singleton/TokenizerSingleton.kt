@@ -13,10 +13,7 @@ enum class TokenizerSingleton {
 
     private val literalTokenValueEndIndexDeterminer = LiteralTokenValueEndIndexDeterminer()
 
-    private val tokenGenerator= TokenGenerator()
-
     private val wordTokenizer= WordTokenizer(
-        tokenGenerator,
         literalTokenValueEndIndexDeterminer
     )
     private val inputTokenizer= InputTokenizer(

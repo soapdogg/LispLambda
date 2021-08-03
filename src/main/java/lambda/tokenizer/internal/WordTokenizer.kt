@@ -2,40 +2,31 @@ package lambda.tokenizer.internal
 
 import java.util.LinkedList
 import lambda.core.constants.TokenValueConstants
-import lambda.core.datamodels.Token
 
-class WordTokenizer (
-    private val tokenGenerator: TokenGenerator,
+class WordTokenizer(
     private val literalTokenValueEndIndexDeterminer: LiteralTokenValueEndIndexDeterminer
 ){
 
-    fun tokenizeWord(word: String): List<Token> {
-        val tokens: MutableList<Token> = LinkedList()
+    fun tokenizeWord(word: String): List<String> {
+        val tokens: MutableList<String> = LinkedList()
         var startingPos = 0
         while (startingPos < word.length) {
-            val token: Token = when (word[startingPos]) {
+            val token: String = when (word[startingPos]) {
                 TokenValueConstants.CLOSE_PARENTHESES -> {
-                    Token(
-                        TokenValueConstants.CLOSE_PARENTHESES.toString()
-                    )
+                    TokenValueConstants.CLOSE_PARENTHESES.toString()
                 }
                 TokenValueConstants.OPEN_PARENTHESES -> {
-                    Token(
-                        TokenValueConstants.OPEN_PARENTHESES.toString()
-                    )
+                    TokenValueConstants.OPEN_PARENTHESES.toString()
                 }
                 else -> {
                     val pos = literalTokenValueEndIndexDeterminer.determineEndIndexOfLiteralTokenValue(
                         word,
                         startingPos
                     )
-                    val fragment = word.substring(startingPos, pos)
-                    tokenGenerator.generateLiteralToken(
-                        fragment
-                    )
+                    word.substring(startingPos, pos)
                 }
             }
-            startingPos += token.value.length
+            startingPos += token.length
             tokens.add(token)
         }
         return tokens

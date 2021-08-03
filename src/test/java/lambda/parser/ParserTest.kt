@@ -2,7 +2,6 @@ package lambda.parser
 
 import lambda.core.constants.TokenValueConstants
 import lambda.core.datamodels.NodeV2
-import lambda.core.datamodels.Token
 import lambda.core.exceptions.UnexpectedTokenKindException
 import lambda.parser.internal.NodeParser
 import org.junit.jupiter.api.Assertions
@@ -15,7 +14,7 @@ class ParserTest {
 
     @Test
     fun rootParserTest() {
-        val headToken = Mockito.mock(Token::class.java)
+        val headToken = "token"
         val tokens = listOf(headToken)
 
         val resultingNode = Mockito.mock(NodeV2::class.java)
@@ -28,9 +27,7 @@ class ParserTest {
 
     @Test
     fun tooManyOpenTokenTest() {
-        val headToken = Mockito.mock(Token::class.java)
-        Mockito.`when`(headToken.value).thenReturn(TokenValueConstants.OPEN_PARENTHESES.toString())
-
+        val headToken = TokenValueConstants.OPEN_PARENTHESES.toString()
         val tokens = listOf(headToken)
 
         Assertions.assertThrows(
@@ -42,8 +39,7 @@ class ParserTest {
 
     @Test
     fun tooManyCloseTokenTest() {
-        val headToken = Mockito.mock(Token::class.java)
-        Mockito.`when`(headToken.value).thenReturn(TokenValueConstants.CLOSE_PARENTHESES.toString())
+        val headToken = TokenValueConstants.CLOSE_PARENTHESES.toString()
 
         val tokens = listOf(headToken)
 

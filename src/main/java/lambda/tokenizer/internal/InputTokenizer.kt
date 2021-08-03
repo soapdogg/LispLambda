@@ -1,7 +1,6 @@
 package lambda.tokenizer.internal
 
 import lambda.core.constants.TokenValueConstants
-import lambda.core.datamodels.Token
 
 class InputTokenizer (
     private val wordTokenizer: WordTokenizer
@@ -9,7 +8,7 @@ class InputTokenizer (
 
     fun tokenizeInput(
         input: String
-    ): List<Token> {
+    ): List<String> {
         val trimmedLine = input.trim { it <= ' ' }
         val words = trimmedLine.split(TokenValueConstants.WHITE_SPACE_PATTERN.toRegex())
         return words.map {

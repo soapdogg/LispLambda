@@ -32,7 +32,7 @@ class InterpreterTest {
 
     @Test
     fun interpretTest() {
-        val tokens: List<Token> = listOf()
+        val tokens: List<String> = listOf()
         Mockito.`when`(tokenizer.tokenize(input)).thenReturn(tokens)
 
         val rootNodes= listOf<NodeV2>()

@@ -7,18 +7,17 @@ import lambda.core.datamodels.*
 class NodeParser {
 
     fun parseIntoNode(
-        tokens: List<Token>
+        tokens: List<String>
     ): NodeV2 {
         if (tokens.size == 1) {
-            return AtomNode(tokens[0].value)
+            return AtomNode(tokens[0])
         }
 
         val stack = Stack<ArrayList<NodeV2>>()
         val tokensIterator = tokens.iterator()
         var result = ExpressionListNode(ArrayList())
         while(tokensIterator.hasNext()) {
-            val next = tokensIterator.next()
-            when(next.value) {
+            when(val next = tokensIterator.next()) {
                 TokenValueConstants.OPEN_PARENTHESES.toString() -> {
                     stack.push(ArrayList())
                 }
@@ -31,7 +30,7 @@ class NodeParser {
                     }
                 }
                 else -> {
-                    val node = AtomNode(next.value)
+                    val node = AtomNode(next)
                     stack.peek().add(node)
                 }
             }
