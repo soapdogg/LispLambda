@@ -1,15 +1,17 @@
 package lambda.tokenizer
 
-import lambda.tokenizer.internal.InputFormatAsserter
-import lambda.tokenizer.internal.InputTokenizer
+import lambda.core.constants.TokenValueConstants
+import lambda.tokenizer.internal.WordTokenizer
 
 class Tokenizer(
-    private val inputFormatAsserter: InputFormatAsserter,
-    private val inputTokenizer: InputTokenizer
+    private val wordTokenizer: WordTokenizer
 ) {
 
     fun tokenize(input: String): List<String> {
-        inputFormatAsserter.assertInputFormat(input)
-        return inputTokenizer.tokenizeInput(input)
+        val trimmedLine = input.trim { it <= ' ' }
+        val words = trimmedLine.split(TokenValueConstants.WHITE_SPACE_PATTERN.toRegex())
+        return words.map {
+                word -> wordTokenizer.tokenizeWord(word)
+        }.flatMap { it.toList() }
     }
 }

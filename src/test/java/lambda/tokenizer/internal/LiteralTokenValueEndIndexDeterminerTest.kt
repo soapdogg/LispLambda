@@ -1,6 +1,5 @@
 package lambda.tokenizer.internal
 
-import lambda.tokenizer.internal.LiteralTokenValueEndIndexDeterminer
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
