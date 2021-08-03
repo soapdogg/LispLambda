@@ -11,20 +11,18 @@ enum class TokenizerSingleton {
         TokenValueConstants.ERROR_STATE_PATTERN
     )
 
-    private val numericTokenValueEndIndexDeterminer = NumericTokenValueEndIndexDeterminer()
     private val literalTokenValueEndIndexDeterminer = LiteralTokenValueEndIndexDeterminer()
 
-    private val tokenGenerator: TokenGenerator = TokenGenerator()
+    private val tokenGenerator= TokenGenerator()
 
-    private val wordTokenizer: WordTokenizer = WordTokenizer(
+    private val wordTokenizer= WordTokenizer(
         tokenGenerator,
-        numericTokenValueEndIndexDeterminer,
         literalTokenValueEndIndexDeterminer
     )
-    private val inputTokenizer: InputTokenizer = InputTokenizer(
+    private val inputTokenizer= InputTokenizer(
         wordTokenizer
     )
-    val tokenizer: Tokenizer = Tokenizer(
+    val tokenizer= Tokenizer(
         inputFormatAsserter,
         inputTokenizer
     )

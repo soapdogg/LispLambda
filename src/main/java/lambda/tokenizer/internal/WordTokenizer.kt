@@ -3,10 +3,10 @@ package lambda.tokenizer.internal
 import java.util.LinkedList
 import lambda.core.constants.TokenValueConstants
 import lambda.core.datamodels.Token
+import lambda.core.datamodels.TokenKind
 
 class WordTokenizer (
     private val tokenGenerator: TokenGenerator,
-    private val numericTokenValueEndIndexDeterminer: NumericTokenValueEndIndexDeterminer,
     private val literalTokenValueEndIndexDeterminer: LiteralTokenValueEndIndexDeterminer
 ){
 
@@ -14,22 +14,17 @@ class WordTokenizer (
         val tokens: MutableList<Token> = LinkedList()
         var startingPos = 0
         while (startingPos < word.length) {
-            val currentChar = word[startingPos]
-            val token: Token = when {
-                currentChar == TokenValueConstants.CLOSE_PARENTHESES -> {
-                    tokenGenerator.generateCloseToken()
-                }
-                currentChar == TokenValueConstants.OPEN_PARENTHESES -> {
-                    tokenGenerator.generateOpenToken()
-                }
-                Character.isDigit(currentChar) -> {
-                    val pos = numericTokenValueEndIndexDeterminer.determineEndIndexOfNumericTokenValue(
-                        word,
-                        startingPos
+            val token: Token = when (word[startingPos]) {
+                TokenValueConstants.CLOSE_PARENTHESES -> {
+                    Token(
+                        TokenKind.CLOSE_TOKEN,
+                        TokenValueConstants.CLOSE_PARENTHESES.toString()
                     )
-                    val fragment = word.substring(startingPos, pos)
-                    tokenGenerator.generateLiteralToken(
-                        fragment
+                }
+                TokenValueConstants.OPEN_PARENTHESES -> {
+                    Token(
+                        TokenKind.OPEN_TOKEN,
+                        TokenValueConstants.OPEN_PARENTHESES.toString()
                     )
                 }
                 else -> {
