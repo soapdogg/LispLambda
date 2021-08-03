@@ -3,7 +3,6 @@ package lambda.tokenizer.internal
 import java.util.LinkedList
 import lambda.core.constants.TokenValueConstants
 import lambda.core.datamodels.Token
-import lambda.core.datamodels.TokenKind
 
 class WordTokenizer (
     private val tokenGenerator: TokenGenerator,
@@ -17,13 +16,11 @@ class WordTokenizer (
             val token: Token = when (word[startingPos]) {
                 TokenValueConstants.CLOSE_PARENTHESES -> {
                     Token(
-                        TokenKind.CLOSE_TOKEN,
                         TokenValueConstants.CLOSE_PARENTHESES.toString()
                     )
                 }
                 TokenValueConstants.OPEN_PARENTHESES -> {
                     Token(
-                        TokenKind.OPEN_TOKEN,
                         TokenValueConstants.OPEN_PARENTHESES.toString()
                     )
                 }

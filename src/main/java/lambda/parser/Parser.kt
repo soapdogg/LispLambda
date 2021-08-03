@@ -1,8 +1,8 @@
 package lambda.parser
 
+import lambda.core.constants.TokenValueConstants
 import lambda.core.datamodels.NodeV2
 import lambda.core.datamodels.Token
-import lambda.core.datamodels.TokenKind
 import lambda.core.exceptions.UnexpectedTokenKindException
 import lambda.parser.internal.NodeParser
 import kotlin.collections.ArrayList
@@ -18,10 +18,10 @@ class Parser (
         var currentList: MutableList<Token> = ArrayList()
         tokens.forEach {
             currentList.add(it)
-            if (it.tokenKind == TokenKind.OPEN_TOKEN) openClose++
-            else if (it.tokenKind == TokenKind.CLOSE_TOKEN) openClose--
+            if (it.value == TokenValueConstants.OPEN_PARENTHESES.toString()) openClose++
+            else if (it.value == TokenValueConstants.CLOSE_PARENTHESES.toString()) openClose--
             if (openClose < 0) {
-                val errorMessage = """Expected either an ATOM or OPEN token.${'\n'}Actual: ${it.tokenKind}    Value: ${it.value}${'\n'}"""
+                val errorMessage = """Expected either an ATOM or OPEN token.${'\n'}Actual Value: ${it.value}${'\n'}"""
                 throw UnexpectedTokenKindException(errorMessage)
             }
             if (openClose == 0) {

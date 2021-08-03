@@ -1,6 +1,7 @@
 package lambda.parser.internal
 
 import lambda.core.constants.ReservedValuesConstants
+import lambda.core.constants.TokenValueConstants
 import lambda.core.datamodels.*
 
 class NodeParser {
@@ -17,11 +18,11 @@ class NodeParser {
         var result = ExpressionListNode(ArrayList())
         while(tokensIterator.hasNext()) {
             val next = tokensIterator.next()
-            when(next.tokenKind) {
-                TokenKind.OPEN_TOKEN -> {
+            when(next.value) {
+                TokenValueConstants.OPEN_PARENTHESES.toString() -> {
                     stack.push(ArrayList())
                 }
-                TokenKind.CLOSE_TOKEN -> {
+                TokenValueConstants.CLOSE_PARENTHESES.toString() -> {
                     val node = AtomNode(ReservedValuesConstants.NIL)
                     stack.peek().add(node)
                     result = ExpressionListNode(stack.pop())
