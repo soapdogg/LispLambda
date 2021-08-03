@@ -27,6 +27,12 @@ enum class FunctionSingleton {
     private val evenPFunction = EvenPFunction(
         numericValueRetriever
     )
+    private val expFunction = ExpFunction(
+        numericValueRetriever
+    )
+    private val exptFunction = ExptFunction(
+        numericValueRetriever
+    )
     private val gcdFunction = GcdFunction(
         numericValueRetriever,
         gcdCalculator
@@ -85,6 +91,8 @@ enum class FunctionSingleton {
         Pair(FunctionNameConstants.CONS, consFunction),
         Pair(FunctionNameConstants.EQ, eqFunction),
         Pair(FunctionNameConstants.EVEN_P, evenPFunction),
+        Pair(FunctionNameConstants.EXP, expFunction),
+        Pair(FunctionNameConstants.EXPT, exptFunction),
         Pair(FunctionNameConstants.GCD, gcdFunction),
         Pair(FunctionNameConstants.GREATER, greaterFunction),
         Pair(FunctionNameConstants.GREATER_EQ, greaterEqFunction),

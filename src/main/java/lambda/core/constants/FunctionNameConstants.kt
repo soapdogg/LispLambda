@@ -10,6 +10,8 @@ object FunctionNameConstants {
     const val DEFUN = "defun"
     const val EQ = "="
     const val EVEN_P = "evenp"
+    const val EXP = "exp"
+    const val EXPT = "expt"
     const val GCD = "gcd"
     const val GREATER = ">"
     const val GREATER_EQ = ">="

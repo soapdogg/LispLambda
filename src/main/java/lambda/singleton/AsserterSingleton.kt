@@ -21,6 +21,8 @@ enum class AsserterSingleton {
         Pair(FunctionNameConstants.CDR, FunctionLengthConstants.TWO),
         Pair(FunctionNameConstants.CONS, FunctionLengthConstants.THREE),
         Pair(FunctionNameConstants.EVEN_P, FunctionLengthConstants.TWO),
+        Pair(FunctionNameConstants.EXP, FunctionLengthConstants.TWO),
+        Pair(FunctionNameConstants.EXPT, FunctionLengthConstants.THREE),
         Pair(FunctionNameConstants.INT, FunctionLengthConstants.TWO),
         Pair(FunctionNameConstants.MINUS_P, FunctionLengthConstants.TWO),
         Pair(FunctionNameConstants.NULL, FunctionLengthConstants.TWO),

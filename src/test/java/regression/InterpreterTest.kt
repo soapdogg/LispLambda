@@ -62,6 +62,14 @@ class InterpreterTest {
         "(evenp -34), T",
         "(evenp 23), NIL",
         "(evenp 55556), T",
+        //EXP tests
+        "(exp 1), 2",
+        "(exp 2), 7",
+        "(exp 3), 20",
+        //EXPT tests
+        "(expt 1 3), 1",
+        "(expt 2 3), 8",
+        "(expt 3 2), 9",
         //GCD tests
         "(gcd), 0",
         "(gcd 4), 4",
@@ -208,6 +216,14 @@ class InterpreterTest {
         "(evenp), Error! Expected length of evenp list is 2!    Actual: 1",
         "(evenp 23 23), Error! Expected length of evenp list is 2!    Actual: 3",
         "(evenp T), Error! Parameter at position: 1 of function evenp is not numeric!    Actual: T",
+        //EXP tests
+        "(exp), Error! Expected length of exp list is 2!    Actual: 1",
+        "(exp 23 23), Error! Expected length of exp list is 2!    Actual: 3",
+        "(exp T), Error! Parameter at position: 1 of function exp is not numeric!    Actual: T",
+        //EXPT tests
+        "(expt), Error! Expected length of expt list is 3!    Actual: 1",
+        "(expt 23 23 23), Error! Expected length of expt list is 3!    Actual: 4",
+        "(expt T 23), Error! Parameter at position: 1 of function expt is not numeric!    Actual: T",
         //GREATER tests
         "(>), Error! Expected length of > list to be at least 2!    Actual: 1",
         "(> NIL 23), Error! Parameter at position: 1 of function > is not numeric!    Actual: NIL",
