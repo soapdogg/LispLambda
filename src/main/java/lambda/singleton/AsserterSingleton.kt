@@ -9,13 +9,13 @@ import kotlin.math.min
 enum class AsserterSingleton {
     INSTANCE;
 
-    private val functionLengthDeterminer: FunctionLengthDeterminer = FunctionLengthDeterminer()
+    private val functionLengthDeterminer = FunctionLengthDeterminer()
 
-    val functionLengthAsserter: FunctionLengthAsserter = FunctionLengthAsserter(
+    val functionLengthAsserter = FunctionLengthAsserter(
         functionLengthDeterminer
     )
 
-    private val functionLengthMap: Map<String, Int> = mapOf(
+    private val functionLengthMap = mapOf(
         Pair(FunctionNameConstants.ATOM, FunctionLengthConstants.TWO),
         Pair(FunctionNameConstants.CAR, FunctionLengthConstants.TWO),
         Pair(FunctionNameConstants.CDR, FunctionLengthConstants.TWO),
@@ -27,12 +27,14 @@ enum class AsserterSingleton {
         Pair(FunctionNameConstants.MINUS_P, FunctionLengthConstants.TWO),
         Pair(FunctionNameConstants.NULL, FunctionLengthConstants.TWO),
         Pair(FunctionNameConstants.ODD_P, FunctionLengthConstants.TWO),
+        Pair(FunctionNameConstants.ONE_MINUS, FunctionLengthConstants.TWO),
+        Pair(FunctionNameConstants.ONE_PLUS, FunctionLengthConstants.TWO),
         Pair(FunctionNameConstants.PLUS_P, FunctionLengthConstants.TWO),
         Pair(FunctionNameConstants.QUOTE, FunctionLengthConstants.TWO),
         Pair(FunctionNameConstants.ZERO_P, FunctionLengthConstants.TWO)
     )
 
-    private val minimumFunctionLengthMap: Map<String, Int> = mapOf(
+    private val minimumFunctionLengthMap = mapOf(
         Pair(FunctionNameConstants.EQ, FunctionLengthConstants.TWO),
         Pair(FunctionNameConstants.GREATER, FunctionLengthConstants.TWO),
         Pair(FunctionNameConstants.GREATER_EQ, FunctionLengthConstants.TWO),

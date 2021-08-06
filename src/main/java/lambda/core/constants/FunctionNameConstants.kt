@@ -26,6 +26,8 @@ object FunctionNameConstants {
     const val NOT_EQ = "/="
     const val NULL = "null"
     const val ODD_P = "oddp"
+    const val ONE_MINUS = "1-"
+    const val ONE_PLUS = "1+"
     const val PLUS = "+"
     const val PLUS_P = "plusp"
     const val QUOTE = "'"

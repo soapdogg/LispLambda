@@ -146,6 +146,12 @@ class InterpreterTest {
         "(oddp -35), T",
         "(oddp 23), T",
         "(oddp 98), NIL",
+        //ONE_MINUS tests
+        "(1- 0), -1",
+        "(1- 45), 44",
+        //ONE_PLUS tests
+        "(1+ 0), 1",
+        "(1+ 456), 457",
         //PLUS tests
         "(+), 0",
         "(+ 8 4), 12",
@@ -263,6 +269,14 @@ class InterpreterTest {
         "(oddp), Error! Expected length of oddp list is 2!    Actual: 1",
         "(oddp 23 23), Error! Expected length of oddp list is 2!    Actual: 3",
         "(oddp T), Error! Parameter at position: 1 of function oddp is not numeric!    Actual: T",
+        //ONE_MINUS tests
+        "(1-), Error! Expected length of 1- list is 2!    Actual: 1",
+        "(1- 23 23), Error! Expected length of 1- list is 2!    Actual: 3",
+        "(1- T), Error! Parameter at position: 1 of function 1- is not numeric!    Actual: T",
+        //ONE_PLUS tests
+        "(1+), Error! Expected length of 1+ list is 2!    Actual: 1",
+        "(1+ 23 23), Error! Expected length of 1+ list is 2!    Actual: 3",
+        "(1+ T), Error! Parameter at position: 1 of function 1+ is not numeric!    Actual: T",
         //PLUS tests
         "(+ T NIL 34), Error! Parameter at position: 1 of function + is not numeric!    Actual: T",
         "(+ 23 (cons 34 20)), Error! Parameter at position: 2 of function + is not numeric!    Actual: (34 . 20)",

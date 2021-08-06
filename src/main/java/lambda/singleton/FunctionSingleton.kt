@@ -71,6 +71,12 @@ enum class FunctionSingleton {
     private val oddPFunction = OddPFunction(
         numericValueRetriever
     )
+    private val onePlusFunction = OnePlusFunction(
+        numericValueRetriever
+    )
+    private val oneMinusFunction = OneMinusFunction(
+        numericValueRetriever
+    )
     private val plusFunction = PlusFunction(
         numericValueRetriever
     )
@@ -107,6 +113,8 @@ enum class FunctionSingleton {
         Pair(FunctionNameConstants.NOT_EQ, notEqFunction),
         Pair(FunctionNameConstants.NULL, nullFunction),
         Pair(FunctionNameConstants.ODD_P, oddPFunction),
+        Pair(FunctionNameConstants.ONE_MINUS, oneMinusFunction),
+        Pair(FunctionNameConstants.ONE_PLUS, onePlusFunction),
         Pair(FunctionNameConstants.PLUS, plusFunction),
         Pair(FunctionNameConstants.PLUS_P, plusPFunction),
         Pair(FunctionNameConstants.TIMES, timesFunction),
