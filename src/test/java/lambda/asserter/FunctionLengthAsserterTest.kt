@@ -12,7 +12,7 @@ class FunctionLengthAsserterTest {
     private val node = Mockito.mock(Node::class.java)
     private val actual = 1
     private val functionLengthDeterminer = Mockito.mock(FunctionLengthDeterminer::class.java)
-    private val functionLengthAsserter = FunctionLengthAsserter(
+    private val functionLengthAsserter = FunctionLengthAsserterImpl(
         functionLengthDeterminer
     )
 

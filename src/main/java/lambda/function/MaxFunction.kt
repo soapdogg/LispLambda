@@ -1,14 +1,14 @@
 package lambda.function
 
+import lambda.Function
 import lambda.core.constants.FunctionNameConstants
 import lambda.core.datamodels.AtomNode
 import lambda.core.datamodels.Node
 import lambda.core.datamodels.Stack
-import lambda.function.internal.NumericValueRetriever
 
-class MaxFunction (
+internal class MaxFunction (
     private val numericValueRetriever: NumericValueRetriever
-): Function{
+): Function {
     override fun evaluate(
         params: Stack<Node>
     ): Node {

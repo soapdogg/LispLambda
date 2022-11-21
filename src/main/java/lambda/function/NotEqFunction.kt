@@ -1,10 +1,11 @@
 package lambda.function
 
+import lambda.Function
 import lambda.core.datamodels.AtomNode
 import lambda.core.datamodels.Node
 import lambda.core.datamodels.Stack
 
-class NotEqFunction : Function {
+internal class NotEqFunction : Function {
     override fun evaluate(
         params: Stack<Node>
     ): Node {

@@ -1,12 +1,12 @@
 package lambda.function
 
+import lambda.Function
 import lambda.core.constants.FunctionNameConstants
 import lambda.core.datamodels.ExpressionListNode
 import lambda.core.datamodels.Stack
 import lambda.core.datamodels.Node
-import lambda.function.internal.ListValueRetriever
 
-class CdrFunction(
+internal class CdrFunction(
     private val listValueRetriever: ListValueRetriever
 ): Function {
     override fun evaluate(

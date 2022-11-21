@@ -5,7 +5,6 @@ import lambda.core.constants.ReservedValuesConstants
 import lambda.core.datamodels.AtomNode
 import lambda.core.datamodels.Node
 import lambda.core.datamodels.Stack
-import lambda.function.internal.NumericValueRetriever
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito

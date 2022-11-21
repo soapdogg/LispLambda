@@ -3,9 +3,13 @@ package lambda.asserter
 import lambda.core.constants.ReservedValuesConstants
 import lambda.core.datamodels.*
 
-class FunctionLengthDeterminer {
+internal interface FunctionLengthDeterminer {
+    fun determineFunctionLength(node: Node): Int
+}
 
-    fun determineFunctionLength(node: Node): Int {
+internal class FunctionLengthDeterminerImpl: FunctionLengthDeterminer {
+
+    override fun determineFunctionLength(node: Node): Int {
         return if (node is AtomNode) {
             if (node.value == ReservedValuesConstants.NIL) 0 else 1
         } else {

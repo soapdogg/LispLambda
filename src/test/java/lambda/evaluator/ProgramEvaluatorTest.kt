@@ -1,9 +1,6 @@
 package lambda.evaluator
 
-import lambda.evaluator.internal.AtomRootNodeAsserter
 import lambda.core.datamodels.*
-import lambda.evaluator.internal.StackGenerator
-import lambda.evaluator.rootnode.RootNodeEvaluator
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito
@@ -15,7 +12,7 @@ class ProgramEvaluatorTest {
     private val nodeEvaluatorIterative = Mockito.mock(RootNodeEvaluator::class.java)
     private val stackGenerator = Mockito.mock(StackGenerator::class.java)
 
-    private val programEvaluator = ProgramEvaluator(
+    private val programEvaluator = ProgramEvaluatorImpl(
         atomRootNodeAsserter,
         nodeEvaluatorIterative,
         stackGenerator

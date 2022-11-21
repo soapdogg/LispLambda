@@ -8,7 +8,7 @@ import org.mockito.Mockito
 
 class RootNodePartitionerTest {
 
-    private val rootNodePartitioner = RootNodePartitioner()
+    private val rootNodePartitioner = RootNodePartitionerImpl()
 
      @Test
     fun atomRootNodeTest() {

@@ -1,12 +1,12 @@
 package lambda.function
 
+import lambda.Function
 import lambda.core.constants.FunctionNameConstants
 import lambda.core.datamodels.AtomNode
 import lambda.core.datamodels.Node
 import lambda.core.datamodels.Stack
-import lambda.function.internal.NumericValueRetriever
 
-class LessEqFunction (
+internal class LessEqFunction (
     private val numericValueRetriever: NumericValueRetriever
 ): Function {
 

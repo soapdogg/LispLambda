@@ -1,16 +1,18 @@
 package lambda.evaluator
 
-import lambda.evaluator.internal.AtomRootNodeAsserter
-import lambda.core.datamodels.*
-import lambda.evaluator.internal.StackGenerator
-import lambda.evaluator.rootnode.RootNodeEvaluator
+import lambda.ProgramEvaluator
+import lambda.core.datamodels.AtomNode
+import lambda.core.datamodels.ExpressionListNode
+import lambda.core.datamodels.Node
+import lambda.core.datamodels.ProgramStackItem
+import lambda.core.datamodels.UserDefinedFunction
 
-class ProgramEvaluator(
+internal class ProgramEvaluatorImpl(
     private val atomRootNodeAsserter: AtomRootNodeAsserter,
     private val rootNodeEvaluator: RootNodeEvaluator,
     private val stackGenerator: StackGenerator
-) {
-    fun evaluate(
+): ProgramEvaluator {
+    override fun evaluate(
         rootNodes: List<Node>,
         userDefinedFunctions: Map<String, UserDefinedFunction>
     ): List<Node> {

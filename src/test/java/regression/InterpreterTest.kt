@@ -1,6 +1,13 @@
 package regression
 
-import lambda.singleton.InterpreterSingleton
+import lambda.asserter.AsserterSingleton
+import lambda.evaluator.EvaluatorSingleton
+import lambda.function.FunctionSingleton
+import lambda.interpreter.InterpreterSingleton
+import lambda.parser.ParserSingleton
+import lambda.printer.PrinterSingleton
+import lambda.tokenizer.TokenizerSingleton
+import lambda.userdefined.UserDefinedSingleton
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
@@ -8,7 +15,28 @@ import org.junit.jupiter.params.aggregator.ArgumentsAccessor
 import org.junit.jupiter.params.provider.CsvSource
 
 class InterpreterTest {
-    private val interpreter = InterpreterSingleton.INSTANCE.interpreter
+    private val tokenizer = TokenizerSingleton.INSTANCE.getTokenizer()
+    private val parser = ParserSingleton.INSTANCE.getParser()
+    private val functionLengthAsserter = AsserterSingleton.INSTANCE.getFunctionLengthAsserter()
+    private val listNotationPrinter = PrinterSingleton.INSTANCE.getListNotationPrinter()
+    private val functionMap = FunctionSingleton.INSTANCE.getFunctionMap(listNotationPrinter)
+    private val userDefinedFunctionGenerator = UserDefinedSingleton.INSTANCE.getUserDefinedFunctionGenerator(
+        functionMap,
+        functionLengthAsserter
+    )
+
+    private val programEvaluator = EvaluatorSingleton.INSTANCE.getProgramEvaluator(
+        functionMap
+    )
+
+    private val interpreter = InterpreterSingleton.INSTANCE.getInterpreter(
+        tokenizer,
+        parser,
+        functionLengthAsserter,
+        userDefinedFunctionGenerator,
+        programEvaluator,
+        listNotationPrinter
+    )
 
     @ParameterizedTest
     @CsvSource(

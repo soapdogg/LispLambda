@@ -1,11 +1,11 @@
 package lambda.function
 
+import lambda.Function
 import lambda.core.constants.FunctionNameConstants
 import lambda.core.datamodels.Stack
 import lambda.core.datamodels.Node
-import lambda.function.internal.ListValueRetriever
 
-class CarFunction(
+internal class CarFunction(
     private val listValueRetriever: ListValueRetriever
 ): Function {
     override fun evaluate(

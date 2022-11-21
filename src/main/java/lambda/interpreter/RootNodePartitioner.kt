@@ -4,8 +4,14 @@ import lambda.core.constants.FunctionNameConstants
 
 import lambda.core.datamodels.*
 
-class RootNodePartitioner {
+internal interface RootNodePartitioner {
     fun partitionRootNodes(
+        rootNodes: List<Node>
+    ): PartitionedRootNodes
+}
+
+internal class RootNodePartitionerImpl: RootNodePartitioner {
+    override fun partitionRootNodes(
         rootNodes: List<Node>
     ): PartitionedRootNodes {
         val (defun, executables) = rootNodes.partition {

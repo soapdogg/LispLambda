@@ -1,10 +1,11 @@
 package lambda.function
 
+import lambda.Function
 import lambda.core.datamodels.ExpressionListNode
 import lambda.core.datamodels.Stack
 import lambda.core.datamodels.Node
 
-class ConsFunction : Function {
+internal class ConsFunction : Function {
     override fun evaluate(
         params: Stack<Node>
     ): Node {

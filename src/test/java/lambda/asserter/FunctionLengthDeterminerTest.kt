@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test
 import org.mockito.Mockito
 
 class FunctionLengthDeterminerTest {
-    private val functionLengthDeterminer = FunctionLengthDeterminer()
+    private val functionLengthDeterminer = FunctionLengthDeterminerImpl()
 
     @Test
     fun determineLengthOfNilNodeTest() {

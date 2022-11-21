@@ -1,12 +1,13 @@
 package lambda.asserter
 
+import lambda.FunctionLengthAsserter
 import lambda.core.datamodels.Node
 import lambda.core.exceptions.WrongFunctionLengthException
 
-class FunctionLengthAsserter (
+internal class FunctionLengthAsserterImpl (
     private val functionLengthDeterminer: FunctionLengthDeterminer
-){
-    fun assertLengthIsAsExpected(
+): FunctionLengthAsserter {
+    override fun assertLengthIsAsExpected(
         functionName: String,
         expected: Int,
         node: Node
@@ -18,7 +19,7 @@ class FunctionLengthAsserter (
         }
     }
 
-    fun assertLengthIsAtLeastMinimum(
+    override fun assertLengthIsAtLeastMinimum(
         functionName: String,
         expected: Int,
         node: Node
