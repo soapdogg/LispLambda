@@ -4,13 +4,13 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import lambda.Interpreter;
+import lambda.Tokenizer;
 import lambda.asserter.AsserterSingleton;
 import lambda.evaluator.EvaluatorSingleton;
 import lambda.function.FunctionSingleton;
 import lambda.interpreter.InterpreterSingleton;
 import lambda.parser.ParserSingleton;
 import lambda.printer.PrinterSingleton;
-import lambda.tokenizer.TokenizerSingleton;
 import lambda.userdefined.UserDefinedSingleton;
 
 public class LispRequestHandlerWrapper implements RequestHandler<String, Void> {
@@ -18,7 +18,7 @@ public class LispRequestHandlerWrapper implements RequestHandler<String, Void> {
     private final Interpreter interpreter;
 
     public LispRequestHandlerWrapper() {
-        final var tokenizer = TokenizerSingleton.INSTANCE.getTokenizer();
+        final var tokenizer = Tokenizer.newInstance();
         final var parser = ParserSingleton.INSTANCE.getParser();
         final var functionLengthAsserter = AsserterSingleton.INSTANCE.getFunctionLengthAsserter();
         final var listNotationPrinter = PrinterSingleton.INSTANCE.getListNotationPrinter();

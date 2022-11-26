@@ -7,15 +7,8 @@ import lambda.Parser
 import lambda.ProgramEvaluator
 import lambda.Tokenizer
 import lambda.UserDefinedFunctionGenerator
-import lambda.asserter.AsserterSingleton
 import lambda.core.constants.FunctionLengthConstants
 import lambda.core.constants.FunctionNameConstants
-import lambda.evaluator.EvaluatorSingleton
-import lambda.function.FunctionSingleton
-import lambda.parser.ParserSingleton
-import lambda.printer.PrinterSingleton
-import lambda.tokenizer.TokenizerSingleton
-import lambda.userdefined.UserDefinedSingleton
 
 enum class InterpreterSingleton {
     INSTANCE;

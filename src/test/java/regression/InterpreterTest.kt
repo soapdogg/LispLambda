@@ -1,12 +1,12 @@
 package regression
 
+import lambda.Tokenizer
 import lambda.asserter.AsserterSingleton
 import lambda.evaluator.EvaluatorSingleton
 import lambda.function.FunctionSingleton
 import lambda.interpreter.InterpreterSingleton
 import lambda.parser.ParserSingleton
 import lambda.printer.PrinterSingleton
-import lambda.tokenizer.TokenizerSingleton
 import lambda.userdefined.UserDefinedSingleton
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
@@ -15,7 +15,7 @@ import org.junit.jupiter.params.aggregator.ArgumentsAccessor
 import org.junit.jupiter.params.provider.CsvSource
 
 class InterpreterTest {
-    private val tokenizer = TokenizerSingleton.INSTANCE.getTokenizer()
+    private val tokenizer = Tokenizer.newInstance();
     private val parser = ParserSingleton.INSTANCE.getParser()
     private val functionLengthAsserter = AsserterSingleton.INSTANCE.getFunctionLengthAsserter()
     private val listNotationPrinter = PrinterSingleton.INSTANCE.getListNotationPrinter()

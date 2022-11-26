@@ -13,7 +13,7 @@ class AtomFunctionTest {
 
     private val params = Stack<Node>()
 
-    private val atomFunction = AtomFunction()
+    private val atomFunction = AtomFunction.newInstance()
 
     @Test
     fun firstIsAtomTest() {

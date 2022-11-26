@@ -12,7 +12,7 @@ class TopProgramStackItemCreatorTest {
 
     private val programStackItemGenerator = Mockito.mock(ProgramStackItemGenerator::class.java)
 
-    private val topProgramStackItemCreator = TopProgramStackItemCreatorImpl(programStackItemGenerator)
+    private val topProgramStackItemCreator = TopProgramStackItemCreator.newInstance(programStackItemGenerator)
 
     @Test
     fun createTopProgramStackItemTest() {

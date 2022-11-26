@@ -8,7 +8,7 @@ enum class TokenizerSingleton {
     fun getTokenizer(): Tokenizer {
         val wordTokenizer = WordTokenizerImpl()
 
-        return TokenizerImpl(
+        return TokenizerJava.newInstance(
             wordTokenizer
         )
     }

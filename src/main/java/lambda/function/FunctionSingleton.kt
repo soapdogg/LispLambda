@@ -11,7 +11,7 @@ enum class FunctionSingleton {
         val listValueRetriever = ListValueRetrieverImpl()
         val numericValueRetriever = NumericValueRetrieverImpl(listNotationPrinter)
         val gcdCalculator = GcdCalculatorImpl()
-        val atomFunction = AtomFunction()
+        val atomFunction = AtomFunction.newInstance()
         val carFunction = CarFunction(listValueRetriever)
         val cdrFunction = CdrFunction(listValueRetriever)
         val consFunction = ConsFunction()

@@ -11,7 +11,7 @@ enum class EvaluatorSingleton {
     ): ProgramEvaluator {
         val stackGenerator = StackGeneratorImpl()
         val programStackItemGenerator = ProgramStackItemGeneratorImpl()
-        val topProgramStackItemCreator = TopProgramStackItemCreatorImpl(programStackItemGenerator)
+        val topProgramStackItemCreator = TopProgramStackItemCreator.newInstance(programStackItemGenerator)
         val topProgramStackItemUpdater = TopProgramStackItemUpdaterImpl(programStackItemGenerator)
         val postEvaluationStackUpdater = PostEvaluationStackUpdaterImpl(topProgramStackItemUpdater)
         val builtInFunctionEvaluator = BuiltInFunctionEvaluatorImpl(
