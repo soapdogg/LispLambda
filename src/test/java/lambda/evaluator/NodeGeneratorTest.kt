@@ -1,13 +1,11 @@
 package lambda.evaluator
 
 import lambda.core.datamodels.Node
-import lambda.evaluator.NodeGenerator
-import lambda.evaluator.NodeGeneratorImpl
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 class NodeGeneratorTest {
-    private val nodeGenerator: NodeGenerator = NodeGeneratorImpl()
+    private val nodeGenerator = NodeGenerator.newInstance()
 
 
     @Test

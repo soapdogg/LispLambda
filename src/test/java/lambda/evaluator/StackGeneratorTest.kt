@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test
 
 class StackGeneratorTest {
 
-    private val stackGenerator = StackGeneratorImpl()
+    private val stackGenerator = StackGenerator.newInstance()
 
     @Test
     fun generateNewStackTest() {

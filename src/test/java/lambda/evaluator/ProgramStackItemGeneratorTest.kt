@@ -16,7 +16,7 @@ class ProgramStackItemGeneratorTest {
     private val currentParameterIndex = 0
     private val variableMap = emptyMap<String, Node>()
 
-    private val programStackItemGenerator = ProgramStackItemGeneratorImpl()
+    private val programStackItemGenerator = ProgramStackItemGenerator.newInstance()
 
     @Test
     fun generateProgramStackItemFromScratchTest() {

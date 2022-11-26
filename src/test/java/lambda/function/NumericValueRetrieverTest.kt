@@ -1,9 +1,9 @@
 package lambda.function
 
+import lambda.ListNotationPrinter
 import lambda.core.constants.FunctionNameConstants
 import lambda.core.datamodels.AtomNode
 import lambda.core.exceptions.NotNumericException
-import lambda.printer.ListNotationPrinterImpl
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito
@@ -11,7 +11,7 @@ import org.mockito.Mockito
 class NumericValueRetrieverTest {
     private val functionName = FunctionNameConstants.QUOTE
     private val index = 1
-    private val listNotationPrinter = Mockito.mock(ListNotationPrinterImpl::class.java)
+    private val listNotationPrinter = Mockito.mock(ListNotationPrinter::class.java)
     private val numericValueRetriever = NumericValueRetrieverImpl(
         listNotationPrinter
     )

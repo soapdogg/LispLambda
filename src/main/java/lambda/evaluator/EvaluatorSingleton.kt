@@ -9,8 +9,8 @@ enum class EvaluatorSingleton {
     fun getProgramEvaluator(
         functionMap: Map<String, Function>
     ): ProgramEvaluator {
-        val stackGenerator = StackGeneratorImpl()
-        val programStackItemGenerator = ProgramStackItemGeneratorImpl()
+        val stackGenerator = StackGenerator.newInstance()
+        val programStackItemGenerator = ProgramStackItemGenerator.newInstance()
         val topProgramStackItemCreator = TopProgramStackItemCreator.newInstance(programStackItemGenerator)
         val topProgramStackItemUpdater = TopProgramStackItemUpdaterImpl(programStackItemGenerator)
         val postEvaluationStackUpdater = PostEvaluationStackUpdaterImpl(topProgramStackItemUpdater)
@@ -18,7 +18,7 @@ enum class EvaluatorSingleton {
             functionMap,
             postEvaluationStackUpdater
         )
-        val nodeGenerator = NodeGeneratorImpl()
+        val nodeGenerator = NodeGenerator.newInstance()
 
         val condChildStackItemBuilder = CondChildStackItemBuilderImpl(
             nodeGenerator,
@@ -30,7 +30,7 @@ enum class EvaluatorSingleton {
             condChildStackItemBuilder
         )
 
-        val quoteFunctionEvaluator = QuoteFunctionEvaluatorImpl(postEvaluationStackUpdater)
+        val quoteFunctionEvaluator = QuoteFunctionEvaluator.newInstance(postEvaluationStackUpdater)
 
         val stackUpdateDeterminer = StackUpdateDeterminerImpl(
             topProgramStackItemCreator,

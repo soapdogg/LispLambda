@@ -15,7 +15,7 @@ enum class FunctionSingleton {
         val carFunction = CarFunction(listValueRetriever)
         val cdrFunction = CdrFunction(listValueRetriever)
         val consFunction = ConsFunction()
-        val eqFunction = EqFunction()
+        val eqFunction = EqFunction.newInstance()
         val evenPFunction = EvenPFunction(numericValueRetriever)
         val expFunction = ExpFunction(numericValueRetriever)
         val exptFunction = ExptFunction(numericValueRetriever)

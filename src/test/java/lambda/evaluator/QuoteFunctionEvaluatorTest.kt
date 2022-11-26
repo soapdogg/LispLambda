@@ -11,7 +11,7 @@ class QuoteFunctionEvaluatorTest {
 
     private val postEvaluationStackUpdater = Mockito.mock(PostEvaluationStackUpdater::class.java)
 
-    private val quoteFunctionEvaluator = QuoteFunctionEvaluatorImpl(postEvaluationStackUpdater)
+    private val quoteFunctionEvaluator = QuoteFunctionEvaluator.newInstance(postEvaluationStackUpdater)
 
     @Test
     fun evaluateQuoteFunctionTest() {

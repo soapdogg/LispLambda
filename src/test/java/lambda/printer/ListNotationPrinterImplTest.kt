@@ -10,7 +10,7 @@ import org.mockito.Mockito
 
 class ListNotationPrinterImplTest {
 
-    private val listNotationPrinter = ListNotationPrinterImpl()
+    private val listNotationPrinter = ListNotationPrinter.newInstance()
 
     @Test
     fun printNonEmptyListOfNodesTest() {

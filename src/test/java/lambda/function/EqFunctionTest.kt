@@ -13,7 +13,7 @@ class EqFunctionTest {
 
     private val params = Stack<Node>()
 
-    private val eqFunction = EqFunction()
+    private val eqFunction = EqFunction.newInstance()
 
     @Test
     fun atomNodeTest() {
